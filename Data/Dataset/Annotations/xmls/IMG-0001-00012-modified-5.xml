@@ -1,0 +1,37 @@
+<annotation>
+	<folder>my-project-name</folder>
+	<filename>IMG-0001-00012-modified-5.jpg</filename>
+	<path>/my-project-name/IMG-0001-00012-modified-5.jpg</path>
+	<source>
+		<database>Unspecified</database>
+	</source>
+	<size>
+		<width>512</width>
+		<height>512</height>
+		<depth>3</depth>
+	</size>
+	<object>
+		<name>Lungs</name>
+		<pose>Unspecified</pose>
+		<truncated>Unspecified</truncated>
+		<difficult>Unspecified</difficult>
+		<bndbox>
+			<xmin>173</xmin>
+			<ymin>244</ymin>
+			<xmax>244</xmax>
+			<ymax>295</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>Lungs</name>
+		<pose>Unspecified</pose>
+		<truncated>Unspecified</truncated>
+		<difficult>Unspecified</difficult>
+		<bndbox>
+			<xmin>301</xmin>
+			<ymin>248</ymin>
+			<xmax>350</xmax>
+			<ymax>298</ymax>
+		</bndbox>
+	</object>
+</annotation>
