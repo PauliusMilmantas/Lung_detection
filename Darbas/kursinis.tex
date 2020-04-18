@@ -29,6 +29,32 @@
 \begin{document}
 \maketitle
 
+\sectionnonum{Įvadas}
+Pastaraisiais metais į medicinos sritį labai sparčiai skerbiasi informacinės technologijos. Atliekant
+įvairias diagnostikas ar tiriant ligas, vaistus yra pasitelkiama programinių sistemų pagalba. Tačiau
+didžiają radiologo darbo dalį sprendimus turi priimti jis pats be jokios programinės įrangos pagalbos,
+nors dažniausiai yra apibrėžti tam tikri ligų aptikimų algorimtai, kaip vėžinių lastelių aptikimas,
+lūžiai ir taip toliau. Mano darbo tikslas yra prisidėti prie programinės įrangos kūrimo radiologams
+ir sukurti programą, kuri aptinka plaučius, kad vėliau tai galėtų būti panaudota tolimesnei
+IT plėtrai medicinos srityje.
+\par
+Šiandien viena iš labiausiai perspektyvių sričių informacinių technologijų srityje yra giliojo mokymosi
+metodai.
+Jie padeda duomenyse aptikti sunkiai pastebimus dėsningumus ir nuspėti išeities rezultatus su tam tikra klaidos tikimybe.
+Šiame darbe kalbėsiu vieną iš šių metodų: dirbtinius neuroninius tinklus.
+Juos pasirinkau nes kompiuterinėsje tomografijos vaizdai turi labai daug informacijos ir juos apdoruoti
+naudojant logines taisykles yra per daug sunku. Tačiau net ir jiems ši užduotis yra per sudėtinga, jeigu
+tiriamos yra įvairios mutacijos arba nedažnos ligos, nes su kiekvienu nauju nematytu ligos atveju,
+yra reikalinga apmokyti modelį, o tai reikalauja daug duomenų.
+\par
+%https://medium.com/@chiragsehra42/decision-trees-explained-easily-28f23241248
+Pasirinktam mano dirbtinių neuroninių tinklų metodui viena iš galimų alternatyvų yra "sprendimo medžiai".
+Tai yra prižiūrimo mokymosi metodas skirtas duomenų klasifikacijai ir duomenų regresijai. Šis metodas
+naudoja taisyklių rinkinį. Norint gauti mažą šio metodo paklaidą, turime aprašyti vis daugiau šių taisyklių.
+Taisyklės paprastai būna aprašomos naudojant "if, else" aprašus. Mano nagrinėjamame atvejyje duomenys
+yra labai dideli ir įvairūs, todėl aprašyti visas šias taisykles užtruktų neproporcingai daug laiko ir tam
+tikrų radiologijos žinių.
+
 \tableofcontents
 
 \section{Dirbtinio neuroninio tinklo sudėtis}
@@ -42,6 +68,55 @@ Daugelį dirbtinių neuronų tinklų sudaro panašios struktūrinės dalys:
   \item Aktyvacijos funkcija: tai funkcija, kokia turi būti neurono išvestis.
   \item Mokymosi taisyklė: apibrėžia, kaip tinkle keičiasi svoriai, kad tinklas išvestų norimus rezultatus.
 \end{enumerate}
+% https://deepai.org/machine-learning-glossary-and-terms/weight-artificial-neural-network
+\par
+Dirbtinį neuroninį tinklą taip pat sudaro svoriai ir tendenciškumas. Šie du parametrai yra
+tinklo automatiškai sugeneruojami ir apmokant tinklą pagal duomenis, svoriai ir tendenciškumas
+yra automatiškai tinklo keičiami. Tendenciškumas apibrėžia kaip tinklo išvestis yra nutolusi
+nuo tikrosios reikšmės. Tendenciškumas priartina tinklo išvestį prie tikrųjų reikšmių. Svoriai
+nurodo koks stiprus yra ryšys tarp neuronų, taip nurodant, kaip tinklo reikšmės kinta pačiame tinkle.
+Jeigu tinklui yra paduodama reikšmė, o pirmasis tinklo neuronas, kuris priima reikšmę turi mažą
+svorį, tai reiškia, jog galutiniams rezultatui ši reikšmė neturi daug įtakos. Jeigu svoris yra
+didelis, tai duota reikšmė turi daug įtakos rezutatui.
+\par
+Svoriai ir tendenciškumas yra tinklo tvarkomi treniravimo proceso metu.
+prižiūrimasis tinklo treniravimas vyksta dviem žingsniai: priekine ir atgaline sklaida.
+
+% Priekine sklaida
+TODO
+
+% Atgaline sklaida
+% (http://didattica.cs.unicam.it/lib/exe/fetch.php?media=didattica:magistrale:kebi:ay_1718:ke-11_neural_networks.pdf University of Applied Sciences Northwestern Switzerland)
+Atgalinė sklaida vyksta, kai tinklas išveda rezultatą, patikrinama ar
+rezultatas yra teisingas ir atitinkamai tinklas reaguoja į tai. Inicijuojant tinklą svoriai yra
+nustatomi atsitiktinai. Kiekvienam duomenų rinkiniui yra stebima tinklo išvestis ir tikrinama kokia
+ji turėtų būti. Padaryta klaida yra perduodama tinklui atgal, per praeitus sluoksnius, einant nuo
+išvesties sluoksnio. Taip tinklo svoriai yra keičiami atsižvelgiant į padarytą klaidą. Kai klaidos
+yra padaromos pakankamai mažos ir jos yra mažesnės už duotą ribinę reikšmę, yra laikoma, kad tinklas
+baigė mokymosi procesą.
+
+\subsection{Aktyavcijos funckijos}
+
+\subsection{GPU naudojimas}
+\par
+Šiame darbe bus naudojamas GPU, atliekant tinklo treniravimą. Tai yra spartesnis būdas už CPU
+naudojimas, nes CPU turi kelis galingus branduolius, o GPU žymiai daugiau. Giliajame mokyme,
+naudojami aritmetiniai veiksmai yra ganėtinai paprasti, todėl juos apdoroti gali ir CPU ir GPU.
+Tačiau GPU turi daugiau branduolių, kas leidžia atlikti daugiau matematinių veiksmų paralizuotai,
+negul CPU. Taip yra pasiekiamas didesnis treniravimo našumas.
+\par
+Didesniam treniravimo našumui pastebėti naudojant GPU, negu CPU, buvo atliktas paprastas bandymas:
+naudojant Google tensorflow struktūrą, apmokame sistemą atpažinti kur yra žmogaus plaučiai kompiuterinės
+tomografijos vaizduose su CPU ir GPU. Vidutiniškai apdoruojant 60 megabaitų duomenų, vienam ciklui
+tiklas su CPU resursais užtrunka 6 sekunes, o naudojant GPU vidutiniškai vienas žingsnis užtrunka
+0.3 sekundės.
+
+
+
+
+
+
+
 
 \subsection{Poskyris}
 Citavimo pavyzdžiai: cituojamas vienas šaltinis \cite{PvzStraipsnLt}; cituojami
