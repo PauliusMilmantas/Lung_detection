@@ -1,0 +1,51 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {lithuanian}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.}Dirbtinio neuroninio tinklo sudėtis}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.1.}Bazinė struktūra}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2.}Poskyris}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {1.2.1.}Skirsnis}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\numberline {1.2.1.1.}Straipsnis}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {1.2.2.}Skirsnis}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.}Skyrius}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1.}Poskyris}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2.}Poskyris}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Išvados}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Literatūra}{5}
+\defcounter {refsection}{0}\relax 
+\select@language {english}
+\defcounter {refsection}{0}\relax 
+\select@language {lithuanian}
+\defcounter {refsection}{0}\relax 
+\select@language {english}
+\defcounter {refsection}{0}\relax 
+\select@language {lithuanian}
+\defcounter {refsection}{0}\relax 
+\select@language {english}
+\defcounter {refsection}{0}\relax 
+\select@language {lithuanian}
+\defcounter {refsection}{0}\relax 
+\select@language {english}
+\defcounter {refsection}{0}\relax 
+\select@language {lithuanian}
+\defcounter {refsection}{0}\relax 
+\select@language {english}
+\defcounter {refsection}{0}\relax 
+\select@language {lithuanian}
+\defcounter {refsection}{0}\relax 
+\def \@dotsep {1000}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Priedas Nr.1}{}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Priedas Nr.2}{}

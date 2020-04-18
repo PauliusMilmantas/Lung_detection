@@ -1,0 +1,98 @@
+\documentclass{VUMIFInfKursinis}
+\usepackage{algorithmicx}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{color}
+% \usepackage{hyperref}  % Nuorodų aktyvavimas
+\usepackage{url}
+
+
+% Titulinio aprašas
+\university{Vilniaus universitetas}
+\faculty{Matematikos ir informatikos fakultetas}
+\department{Programų sistemų katedra}
+\papertype{Kursinis darbas}
+\title{Objektų atpažinimas ir sekimas kompiuterinės tomografijos vaizduose}
+\titleineng{Object detection and tracking in computed tomography}
+\status{3 kurso Programų sistemų studentas}
+\author{Paulius Milmantas}
+\supervisor{Linas Petkevičius}
+\date{Vilnius \\ \the\year}
+
+% Nustatymai
+% \setmainfont{Palemonas}   % Pakeisti teksto šriftą į Palemonas (turi būti įdiegtas sistemoje)
+\bibliography{bibliografija}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{Dirbtinio neuroninio tinklo sudėtis}
+\subsection{Bazinė struktūra}
+Daugelį dirbtinių neuronų tinklų sudaro panašios struktūrinės dalys:
+\begin{enumerate}
+  \item Įvesties sluoksnis: tai dalis kuri priima įvestį ir perduoda kitiems sluoksniams.
+  \item Išvesties sluoksnis: tai dalis, kuri naudoja aktyvacijos funkciją kuri grąžina galutinį tinklo rezultatą: tikimybių rinkinį, kuris parodo kokia tikimybė, kad objektas atitinka tam tikrą klasę.
+  \item Paslėptas sluoksnis: perduoda svorius iš praeito sluoksnio į sekantį.
+  \item Susijungimai ir svoriai: tarp kiekvieno neurono, kuris yra susijungęs, turi savo svorį, pagal kurį yra pakeičiama perduodama reikšmė.
+  \item Aktyvacijos funkcija: tai funkcija, kokia turi būti neurono išvestis.
+  \item Mokymosi taisyklė: apibrėžia, kaip tinkle keičiasi svoriai, kad tinklas išvestų norimus rezultatus.
+\end{enumerate}
+
+\subsection{Poskyris}
+Citavimo pavyzdžiai: cituojamas vienas šaltinis \cite{PvzStraipsnLt}; cituojami
+keli šaltiniai \cite{PvzStraipsnEn, PvzKonfLt, PvzKonfEn, PvzKnygLt, PvzKnygEn,
+PvzElPubLt, PvzElPubEn, PvzMagistrLt, PvzPhdEn}.
+
+\subsubsection{Skirsnis}
+\subsubsubsection{Straipsnis}
+\subsubsection{Skirsnis}
+\section{Skyrius}
+\subsection{Poskyris}
+\subsection{Poskyris}
+
+\sectionnonum{Išvados}
+Išvadose ir pasiūlymuose, nekartojant atskirų dalių apibendrinimų,
+suformuluojamos svarbiausios darbo išvados, rekomendacijos bei pasiūlymai.
+
+\printbibliography[heading=bibintoc] % Literatūros šaltiniai aprašomi
+% bibliografija.bib faile. Šaltinių sąraše nurodoma panaudota literatūra,
+% kitokie šaltiniai. Abėcėlės tvarka išdėstoma tik darbe panaudotų (cituotų,
+% perfrazuotų ar bent paminėtų) mokslo leidinių, kitokių publikacijų
+% bibliografiniai aprašai (šiuo punktu pasirūpina LaTeX). Aprašai pateikiami
+% netransliteruoti.
+
+\appendix  % Priedai
+% Prieduose gali būti pateikiama pagalbinė, ypač darbo autoriaus savarankiškai
+% parengta, medžiaga. Savarankiški priedai gali būti pateikiami kompiuterio
+% diskelyje ar kompaktiniame diske. Priedai taip pat vadinami ir numeruojami.
+% Tekstas su priedais siejamas nuorodomis (pvz.: \ref{img:mlp}).
+
+\section{Niauroninio tinklo struktūra}
+\begin{figure}[H]
+    \centering
+    \caption{Paveikslėlio pavyzdys}   % Antraštė įterpiama po paveikslėlio
+    \label{img:mlp}
+\end{figure}
+
+
+\section{Eksperimentinio palyginimo rezultatai}
+% tablesgenerator.com - converts calculators (e.g. excel) tables to LaTeX
+\begin{table}[H]\footnotesize
+  \centering
+  \caption{Lentelės pavyzdys}    % Antraštė įterpiama prieš lentelę
+  {\begin{tabular}{|l|c|c|} \hline
+    Algoritmas & $\bar{x}$ & $\sigma^{2}$ \\
+    \hline
+    Algoritmas A  & 1.6335    & 0.5584       \\
+    Algoritmas B  & 1.7395    & 0.5647       \\
+    \hline
+  \end{tabular}}
+  \label{tab:table example}
+\end{table}
+
+\end{document}
