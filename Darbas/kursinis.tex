@@ -110,7 +110,21 @@ naudojant Google tensorflow struktūrą, apmokame sistemą atpažinti kur yra ž
 tomografijos vaizduose su CPU ir GPU. Vidutiniškai apdoruojant 60 megabaitų duomenų, vienam ciklui
 tiklas su CPU resursais užtrunka 6 sekunes, o naudojant GPU vidutiniškai vienas žingsnis užtrunka
 0.3 sekundės.
-
+\par
+% https://www.tensorflow.org/install/gpu
+Šiame darbe naudojamas Tensorflow karkasas naudoja NVIDIA CUDA sistemą.
+% https://developer.nvidia.com/cuda-zone
+CUDA yra paralelinio skaičiavimo platforma, naudojama su grafikos plokštėmis.
+% https://developer.nvidia.com/cuda-faq
+Ji kiekvieną skaičiavimą paleidžia ant atskiros gijos. Visi duomenys yra suskirstyti
+į vienos, dviejų ir trijų dimensijų blokus. Kiekvienams blogas gali turėti virš 512
+gijų. Visos gijos kurios operuoja viename bloke dalinasi bendra GPU atmintimi.
+Jeigu norima optimizuoti programą ir paleisti jos skaičiavimus ant GPU, tada reikia
+susiskaičiuoti kiek vyks paralelinių operacijų ir kiek iš jų dalinsis bendra atmintimi.
+Pagal apskaičiuotą kiekį nurodome kiek mes norime turėti blokų ir kiek kiekvienas blokas
+turės atskirų gijų. Prieš kiekvieną operaciją, siekiant pasiekti optimalų našumą, jeigu
+reikia įkeliame kintamuosiu į bendrą bloko atmintį. Po atliktų skaičiavimų išvestus
+rezultatus turime iškelti iš bendros atminties.
 
 
 
