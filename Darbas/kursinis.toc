@@ -8,27 +8,43 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.1.}Bazinė struktūra}{3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.2.}Aktyavcijos funckijos}{4}
+\contentsline {subsection}{\numberline {1.2.}GPU naudojimas}{3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.3.}GPU naudojimas}{4}
+\contentsline {section}{\numberline {2.}Aktyavcijos funckijos}{5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.4.}Poskyris}{4}
+\contentsline {section}{\numberline {3.}Optimizavimo algoritmai}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.4.1.}Skirsnis}{4}
+\contentsline {subsection}{\numberline {3.1.}Gradientinis nuolydis}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\numberline {1.4.1.1.}Straipsnis}{4}
+\contentsline {subsection}{\numberline {3.2.}Poaibio gradieninis nuolydis}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.4.2.}Skirsnis}{4}
+\contentsline {subsection}{\numberline {3.3.}Mažo poaibio gradientinis nuolydis}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.}Skyrius}{5}
+\contentsline {subsection}{\numberline {3.4.}Bendros gradientinių metodų problemos}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.}Poskyris}{5}
+\contentsline {section}{\numberline {4.}Nuostolių funkcijos}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.}Poskyris}{5}
+\contentsline {section}{\numberline {5.}Objektų aptikimas kompiuterinės tomografijos nuotraukose}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Išvados}{6}
+\contentsline {section}{\numberline {6.}Tutorial}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Literatūra}{7}
+\contentsline {subsection}{\numberline {6.1.}Poskyris}{10}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.1.1.}Skirsnis}{10}
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{\numberline {6.1.1.1.}Straipsnis}{10}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {6.1.2.}Skirsnis}{10}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.}Skyrius}{11}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.1.}Poskyris}{11}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {7.2.}Poskyris}{11}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Išvados}{12}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Literatūra}{13}
 \defcounter {refsection}{0}\relax 
 \select@language {english}
 \defcounter {refsection}{0}\relax 

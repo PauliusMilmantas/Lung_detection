@@ -82,21 +82,6 @@ didelis, tai duota reikšmė turi daug įtakos rezutatui.
 Svoriai ir tendenciškumas yra tinklo tvarkomi treniravimo proceso metu.
 prižiūrimasis tinklo treniravimas vyksta dviem žingsniai: priekine ir atgaline sklaida.
 
-% Priekine sklaida
-TODO
-
-% Atgaline sklaida
-% (http://didattica.cs.unicam.it/lib/exe/fetch.php?media=didattica:magistrale:kebi:ay_1718:ke-11_neural_networks.pdf University of Applied Sciences Northwestern Switzerland)
-Atgalinė sklaida vyksta, kai tinklas išveda rezultatą, patikrinama ar
-rezultatas yra teisingas ir atitinkamai tinklas reaguoja į tai. Inicijuojant tinklą svoriai yra
-nustatomi atsitiktinai. Kiekvienam duomenų rinkiniui yra stebima tinklo išvestis ir tikrinama kokia
-ji turėtų būti. Padaryta klaida yra perduodama tinklui atgal, per praeitus sluoksnius, einant nuo
-išvesties sluoksnio. Taip tinklo svoriai yra keičiami atsižvelgiant į padarytą klaidą. Kai klaidos
-yra padaromos pakankamai mažos ir jos yra mažesnės už duotą ribinę reikšmę, yra laikoma, kad tinklas
-baigė mokymosi procesą.
-
-\subsection{Aktyavcijos funckijos}
-
 \subsection{GPU naudojimas}
 \par
 Šiame darbe bus naudojamas GPU, atliekant tinklo treniravimą. Tai yra spartesnis būdas už CPU
@@ -126,12 +111,112 @@ turės atskirų gijų. Prieš kiekvieną operaciją, siekiant pasiekti optimalų
 reikia įkeliame kintamuosiu į bendrą bloko atmintį. Po atliktų skaičiavimų išvestus
 rezultatus turime iškelti iš bendros atminties.
 
+% Priekine sklaida
+TODO
+
+% Atgaline sklaida
+% (http://didattica.cs.unicam.it/lib/exe/fetch.php?media=didattica:magistrale:kebi:ay_1718:ke-11_neural_networks.pdf University of Applied Sciences Northwestern Switzerland)
+Atgalinė sklaida vyksta, kai tinklas išveda rezultatą, patikrinama ar
+rezultatas yra teisingas ir atitinkamai tinklas reaguoja į tai. Inicijuojant tinklą svoriai yra
+nustatomi atsitiktinai. Kiekvienam duomenų rinkiniui yra stebima tinklo išvestis ir tikrinama kokia
+ji turėtų būti. Padaryta klaida yra perduodama tinklui atgal, per praeitus sluoksnius, einant nuo
+išvesties sluoksnio. Šiame žingsnyje yra naudojama optimizavimo funkcija. Ji parodo kokie turėtų būti
+svorių ir tendenciškumo pokyčiai tinklai ir taip yra
+keičiami tinklo svoriai ir tendenciškumas atsižvelgiant į padarytą klaidą. Kai klaidos
+yra padaromos pakankamai mažos ir jos yra mažesnės už duotą ribinę reikšmę, yra laikoma, kad tinklas
+baigė mokymosi procesą.
+
+\section{Aktyavcijos funckijos}
+
+\section{Optimizavimo algoritmai}
+\par
+Tinklo siekiamas tikslas yra atliekant kuo mažiau mokymosi iteracijų, pasiekti norimą
+išvesties tikslumą. Šiam mokymosi greičiui ir tikslumui pasiekti ir naudojami
+optimizavimo algoritmai.
+
+\subsection{Gradientinis nuolydis}
+% https://medium.com/@sdoshi579/optimizers-for-training-neural-network-59450d71caf6
+% https://towardsdatascience.com/gradient-descent-algorithm-and-its-variants-10f652806a3
+Gradientinio nuolydžio algoritmas
+Tai yra pati paprasčiausia optimizavimo funkcija.
+\[
+\delta = \delta - \alpha * \Delta L (\delta)
+\]
+Pagal algoritmą yra atliekama daug iteracijų. Kiekvienos iteracijos metu yra
+apskaičiuojama delta. Ji yra gaunama iš esamos deltos atėmus mokymosi žingsnio konstanos
+ir nuostolių funkcijos gradientą parametro delta atžvilgiu. Kadangi žingsnis kurį
+atliekame kiekvienos iteracijos metu yra konstanta, jeigu pradinis parinktas taškas
+yra toli nuo lokalaus minimumo, tai prireiks daug iteracijų, kol jis bus pasiektas.
+Šiuo metodu taip pat kiekviena iteracija yra peržiūrimi visi duomenys, kad nėra
+gerai jeigu duomenų yra itin daug. Tokiu atveju reiktų daug atminties. Šis algoritmas nebus naudojamas, nes nėra
+atsižvelgta į praeitas iteracijas ir minimumas yra per lėtai pasiekiamas, algoritmas.
+
+\subsection{Poaibio gradieninis nuolydis}
+ Šis algoritmas yra panašus į paprastą gradientinį metodą, tačiau yra kelis pakeitimai.
+ Kai yra pereinama per visus duomenis, po kiekvieno duomenų elemento peržiūrėjimo,
+ yra atnaujinami parametrai. Todėl po kiekvienos iteracijos, turime visų duomenų
+ elementų pakeitimų sudėtį. Todėl minimumas yra pasiekiamas statesne trajektorija ir
+ nereikalinga turėti daug atminties. Pagrindinis šio metodo trūkumas yra galimas jo
+ lėtumas. Pereiti per visus duomenis užtrunka daug laiko ir nevisos duomenų elementų
+ iteracijos prie parametrų pakeitimo daug neprisideda.
+
+\subsection{Mažo poaibio gradientinis nuolydis}
+Abiejų minėtų algoritmų idėjų kombinacija išvedė mažo poaibio gradientinį metodą.
+Šis algoritmas suskirsto duomenis į poaibius, kurių elementų skaičius yra daugiau nei 1.
+Dažniausiai poaibių dydis yra pasirenkamas dvejetas pakeltas kokiu nors laipsniu, nes
+vaizdo plokštėm tokius poaibius apdoroja geriau. Šis algoritmas yra greitesnis nei poaibio
+gradientinis metodas, nes yra išvengiama mažų iteracijų, kurių duomenų elementas mažai
+prisideda prie parametrų pakeitimo. Taip pat šio metodo pasiekiamas tikslumas yra didesnis
+nei kitų minėtų algoritmų, nes atsitiktinai parenkami poaibiai skiriasi kiekvieno
+poaibių paskirstymo metu, taip sudarant daugiau varijacijų ir daugiau triukšmo. Kadangi
+bendrai yra apdorojama daugiau duomenų variacijų, šis metodas gali pasiekti didesnį
+tikslumą. Nors šis metodas gali pasiekti didesnį tikslumą ir yra greitesnis.
+
+\subsection{Bendros gradientinių metodų problemos}
+\par
+Gradientinio nuolydžio metodai yra pirmo laipsnio optimizavimo funckijos, kas
+reiškia jog jos naudoja tik pirmo laipsnio išvestines. Kadangi pirma išvestinė rodo
+tik funkcijos statumą, bet ne išlenktumą, tai:
+\begin{enumerate}
+\item Jeigu antra išvestinė yra lygi nuliui, tai funkcija yra tiesinė. Todėl,
+mokymosi žingsnis yra lygus alpha.
+\item Jeigu antra išvestinė yra didesnė už nulį tai funkcijos išlenktumas eina į viršų.
+Todėl funkcijos žingsnis yra mažesnis už mokymosi žingsnį ir optimizavimo funckija gali
+diverguoti.
+\item Jeigu antra išvestinė yra mažesnė už nulį, tai funkcija yra išlenkta į apačią.
+Todėl funkcijos žingsnis yra didesnis už mokymosi žingsnį.
+\end{enumerate}
+\par
+To pasekoje, optimizavimo funkcijos greitis gali būti lėtas arba ji gali diverguoti.
+
+% TODO PASKAITYTI https://arxiv.org/pdf/1710.08402.pdf
+
+
+%\subsection{}  Algoritmas kuri naudoja tensorflow
+
+\section{Nuostolių funkcijos}
+
+\section{Neuroninių tinklų modeliai}
+\par
+Šiame darbe yra naudojamas Tensorflow karkaso Mask RCNN inception modelis.
+% https://towardsdatascience.com/computer-vision-instance-segmentation-with-mask-r-cnn-7983502fcad1
+\section{Mask RCNN inception}
+\par
+Mask RCNN modelį sudaro dvi dalys: vaizdo regiono pasiūlymo tinklas (RPN) ir
+klasifikavimo modelis. Bendras algoritmas:
+\begin{enumerate}
+\item Nuotrauka yra praleidžiama per konvoliucinį neuroninį tinklą (RCNN), kuris
+sugeneruoja požymių aibę, pagal kurią galima nuspėti, kad tai yra ieškomas objektas.
+\end{enumerate}
 
 
 
 
 
 
+
+
+\section{Tutorial}
 \subsection{Poskyris}
 Citavimo pavyzdžiai: cituojamas vienas šaltinis \cite{PvzStraipsnLt}; cituojami
 keli šaltiniai \cite{PvzStraipsnEn, PvzKonfLt, PvzKonfEn, PvzKnygLt, PvzKnygEn,
