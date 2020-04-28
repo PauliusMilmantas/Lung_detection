@@ -6,9 +6,11 @@
 \usepackage{amsmath}
 \usepackage{bm}
 \usepackage{color}
+\usepackage{graphicx}
 % \usepackage{hyperref}  % Nuorodų aktyvavimas
 \usepackage{url}
-
+\graphicspath{ {./fjos/} }
+\usepackage{systeme}
 
 % Titulinio aprašas
 \university{Vilniaus universitetas}
@@ -127,6 +129,116 @@ yra padaromos pakankamai mažos ir jos yra mažesnės už duotą ribinę reikšm
 baigė mokymosi procesą.
 
 \section{Aktyavcijos funckijos}
+\subsection{Tiesinė aktyvacijos funkcija}
+\[
+R(x, a) = x * a
+\]
+\par
+Tiesinės aktyvacijos funkcijos mių diapazonas yra labai didelis ir nėra dvejetainis,
+kaip dalis kitų funkcijų. Tačiau ši funkcija nėra plačiai naudojama, nes jos
+išvestinė yra konstanta, kas reiškia jog gautas gradientas nepriklauso nuo ‘x’.
+Taigi, jeigu spėjime yra klaida, vykdant atgalinę sklaidą mes reikšmę taisysime
+konstanta, neatsižvelgiant į pačią klaidą.
+
+\begin{figure}[ht]
+  \includegraphics[width=6cm,height=6cm,keepaspectratio]{tiesine.png}
+  \caption{A boat.}
+  \label{fig:boat1}
+\end{figure}
+
+\subsection{ELU}
+\[
+  R(z) = \systeme*{z; z > 0, \alpha*(e^z - 1); z <= 0}
+\]
+\par
+ELU funkcija vadinasi: ‘Exponential Linear Unit’. Ši funkcija paprastai konverguoja į
+nulį greičiau nei kitos ir taip duoda tikslesnius rezultatus. Skirtingai nuo kitų
+funkcijų, ši priima papildomai konstantą , kuri turi būti teigiamas skaičius.
+Ši funkcija yra labai panaši į RELU funkciją, tačiau ELU tampa tolygi lėtai,
+kol išvestis pasiekia , o RELU staigiai sutolygėja.
+
+\begin{figure}[ht]
+  \includegraphics[width=6cm,height=6cm,keepaspectratio]{elu.png}
+  \caption{A boat.}
+  \label{fig:boat1}
+\end{figure}
+
+\subsection{ReLU}
+\[
+  R(z) = max(0, z)
+\]
+
+\par
+ReLU funkcija vadinasi: ‘Rectified Linear Unit’. Ši funkcija pasiekia panašų efektyvumą
+kaip ir Sigmoid funkcija, tačiau ji reikalauja mačiau skaičiavimo resursų nei sigmoid
+ir tanh, nes minėta formulė yra paprastesnė, nei kitos.
+
+\begin{figure}[ht]
+  \includegraphics[width=6cm,height=6cm,keepaspectratio]{relu.png}
+  \caption{A boat.}
+  \label{fig:boat1}
+\end{figure}
+
+\subsection{Sigmoid}
+% (https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html)
+\[
+  R(x) = \frac{1}{1 + e^{-x}}
+\]
+
+\par
+Sigmoid funkcijos parametrai priima realiuosius skaičius ir gražina reikšmę [0; 1].
+Šios funkcijos geros savybės yra: tolydus gradientas, prognozuojamas išvesties
+diapazonas, netiesiškumas, visur diferencijuojama ir monotoniška.
+
+\subsection{Softmax}
+\[
+  softmax(x)_i = \frac{exp(x_i)}{sum_{j=1}^{n}exp(x_j)}
+\]
+
+\par
+Softmax funkcija priima parametrų skirstinį ir gražina tikimybių skirstinį,
+kurio bendra suma yra lygi vienam
+
+\subsection{Argumentacija už pasirinktą aktyvacijos funkciją}
+% (http://cs231n.github.io/linear-classify/#softmax Stanford university notes)
+\par
+Šiame darbe bus naudojama Softmax aktyvacijos funkcija. Ši funkcija buvo
+pasirinkta dėl dėl dviejų priežasčių.
+\par
+Pirma, galima teigti, kad Softmax funkcija bando optimizuoti entropijos
+skirtumą tarp tikros reikšmės ir gautos. Entropija tarp tikros reikšmės
+‘p’ ir spėjamos ‘q’ yra apskaičiuojama pagal:
+
+\[
+H(p, q) = - \sum_{x}p(x) \log q(x)
+\]
+
+\par
+Taip pat entropiją galima aprašyti ir pagal Kullback-Leibler divergenciją:
+\[
+H(p, q) = H(p) + D_{KL}(p || q)
+\]
+\par
+Delta p entropijos reikšmė yra lygi nuliui, taip optimizuojama divergencija tarp
+Kullback-Leibler abiejų distribucijų. Taigi, galime teigti, jog Softmax funkcija
+bando optimizuoti entropiją tarp tikros reikšmės ir spėjamos.
+\par
+Antra priežastis yra dėl tikimybinės interpretacijos…
+TODO
+
+\section{Problemos su aktyvacijos skaičiaja matematika}
+\subsubsection{"Underflow" ir "overflow"}
+% (Ian  Goodfellow Yoshua Bengio, Aaron Courville Deep Learning)
+\par
+Ian Goodfellow Yoshua Bengio ir Aaron Courville apibrėžė ‘overflow’ ir ‘underflow’
+problemas giliojo mokymosi algoritmuose. Minėta ‘underflow’ problema pasireiškia,
+kai funkcijos reikšmė yra labai arti nulio ir ji yra apvalinama į nulį. Kadangi kai
+kurie algoritmai gali ‘sulūžti’ dėl nulinio parametro (pvz. dalybos iš nulio). Kita
+problema yra ‘overflow’. Ji pasireiškia kai gauta reikšmė yra labai didelė ir ji yra
+apvalinama į begalybę.
+
+\subsubsection{Gradientų optimizavimas}
+TODO
 
 \section{Optimizavimo algoritmai}
 \par
@@ -195,8 +307,40 @@ To pasekoje, optimizavimo funkcijos greitis gali būti lėtas arba ji gali diver
 %\subsection{}  Algoritmas kuri naudoja tensorflow
 
 \section{Nuostolių funkcijos}
+% https://towardsdatascience.com/https-medium-com-chayankathuria-regression-why-mean-square-error-a8cad2a1c96f
+\par
+Nuostolių funkcijos grąžina skirtumą tarp tinklo išvesties ir tikrų reikšmių. Pagal
+nuostolių reikšmes yra atitinkamai apskaičiuojami gradientai ir atitinkamai
+keičiami tinklo svoriai ir tendenciškumas.
 
-\section{Neuroninių tinklų modeliai}
+\subsection{Vidutinė kvadratinė paklaida (MSE)}
+\[
+  Nuostolis = \frac{1}{N} * [\sum(Y_{Gautas}-Y_{Tikras})^{2}]
+\]
+\par
+MSE funckija sumuoja skirtumų kvadratus ir randa bendrą nuostolių vidurkį.
+Ši funkcija yra dažnai numatyta įaviriuose MATLAB ir Python algoritmuose.
+Vienintelė neigiama šios funkcijos pusė yra tai, kad jeigu duoti duomenys yra pirmojo
+laipsio, tada negalima teigti, kad rezultatai tiesiogiai koreliuoja tarpusavyje,
+nes MSE yra antrojo laipsnio funckija.
+
+\subsection{Šaknis iš vidutinės kvadratinės paklaidos (RMSE)}
+\[
+  Nuostolis = \sqrt{\frac{1}{N} * [\sum (Y_{Gautas}-Y_{Tikras})^{2}]}
+\]
+RMSE funkcija yra panaši į MSE, tik pridėta šaknies traukimo operacija.
+Šaknies traukimas paverčia RMSE pirmojo laipsnio funckija, todėl ją galima naudoti
+su pirmojo laipsnio duomenimis.
+
+\subsection{Paklaidų pakelti kvadratu suma}
+\[
+  Nuostolis = [\sum(Y_{Gautas} - Y_{Tikras})]^{2}
+\]
+
+]subsection{Argumentacija už pasirinktą aktyvacijos funkciją}
+TODO
+
+\section{Neuroninių tinklų modeliai (SSE)}
 \par
 Šiame darbe yra naudojamas Tensorflow karkaso Mask RCNN inception modelis.
 % https://towardsdatascience.com/computer-vision-instance-segmentation-with-mask-r-cnn-7983502fcad1
