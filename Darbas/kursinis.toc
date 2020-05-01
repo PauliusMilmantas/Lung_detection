@@ -56,6 +56,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.3.}SSD MobileNet 2}{14}
 \defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.4.}Alternatyvūs objekto paieškos algoritmai}{14}
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {7.}Tutorial}{15}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {7.1.}Poskyris}{15}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2020.4.18)  1 MAY 2020 14:10
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2020.4.18)  1 MAY 2020 20:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -992,17 +992,7 @@ Package biblatex Warning: Conflicting options.
 (biblatex)                'date=edtf' requires 'seconds=true'.
 (biblatex)                Setting 'seconds=true' on input line 31.
 
-(./kursinis.aux
-
-LaTeX Warning: Label `fig:boat1' multiply defined.
-
-
-LaTeX Warning: Label `fig:boat1' multiply defined.
-
-
-LaTeX Warning: Label `fig:boat1' multiply defined.
-
-)
+(./kursinis.aux)
 \openout1 = `kursinis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
@@ -1199,18 +1189,15 @@ File: ./fjos/mask.png Graphic file (type QTm)
 
 ]
 (./kursinis.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package logreq Info: Writing requests to 'kursinis.run.xml'.
 \openout1 = `kursinis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 21814 strings out of 493068
- 450325 string characters out of 6137720
- 882259 words of memory out of 5000000
- 25463 multiletter control sequences out of 15000+600000
+ 21816 strings out of 493068
+ 450339 string characters out of 6137720
+ 882290 words of memory out of 5000000
+ 25465 multiletter control sequences out of 15000+600000
  15670 words of font info for 78 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
  67i,12n,96p,10497b,7347s stack positions out of 5000i,500n,10000p,200000b,80000s
