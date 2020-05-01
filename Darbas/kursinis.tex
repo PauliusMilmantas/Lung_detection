@@ -84,6 +84,23 @@ didelis, tai duota reikšmė turi daug įtakos rezutatui.
 Svoriai ir tendenciškumas yra tinklo tvarkomi treniravimo proceso metu.
 prižiūrimasis tinklo treniravimas vyksta dviem žingsniai: priekine ir atgaline sklaida.
 
+
+% Priekine sklaida
+TODO
+
+% Atgaline sklaida
+% (http://didattica.cs.unicam.it/lib/exe/fetch.php?media=didattica:magistrale:kebi:ay_1718:ke-11_neural_networks.pdf University of Applied Sciences Northwestern Switzerland)
+Atgalinė sklaida vyksta, kai tinklas išveda rezultatą, patikrinama ar
+rezultatas yra teisingas ir atitinkamai tinklas reaguoja į tai. Inicijuojant tinklą svoriai yra
+nustatomi atsitiktinai. Kiekvienam duomenų rinkiniui yra stebima tinklo išvestis ir tikrinama kokia
+ji turėtų būti. Padaryta klaida yra perduodama tinklui atgal, per praeitus sluoksnius, einant nuo
+išvesties sluoksnio. Šiame žingsnyje yra naudojama optimizavimo funkcija. Ji parodo kokie turėtų būti
+svorių ir tendenciškumo pokyčiai tinklai ir taip yra
+keičiami tinklo svoriai ir tendenciškumas atsižvelgiant į padarytą klaidą. Kai klaidos
+yra padaromos pakankamai mažos ir jos yra mažesnės už duotą ribinę reikšmę, yra laikoma, kad tinklas
+baigė mokymosi procesą.
+
+
 \subsection{GPU naudojimas}
 \par
 Šiame darbe bus naudojamas GPU, atliekant tinklo treniravimą. Tai yra spartesnis būdas už CPU
@@ -112,21 +129,15 @@ Pagal apskaičiuotą kiekį nurodome kiek mes norime turėti blokų ir kiek kiek
 turės atskirų gijų. Prieš kiekvieną operaciją, siekiant pasiekti optimalų našumą, jeigu
 reikia įkeliame kintamuosiu į bendrą bloko atmintį. Po atliktų skaičiavimų išvestus
 rezultatus turime iškelti iš bendros atminties.
+\par
+Tačiau GPU naudojimas nėra visur panaudojamas. GPU gerai atlieka slankaus kablelio
+operacijas (FLOPs) ir atminties pralaidumu. Jeigu problema reikalauja nepastovios atminties,
+jos sprendimo paleidimas ant GPU nebus efektyvus, nes nebus galima išnaudoti branduolių,
+dėl kintančios atminties. Taip pat problemos sprendimas nebus efektyvus, jeigu
+reikalaus nedaug aritmetiškai intensyvių operacijų.
 
-% Priekine sklaida
-TODO
 
-% Atgaline sklaida
-% (http://didattica.cs.unicam.it/lib/exe/fetch.php?media=didattica:magistrale:kebi:ay_1718:ke-11_neural_networks.pdf University of Applied Sciences Northwestern Switzerland)
-Atgalinė sklaida vyksta, kai tinklas išveda rezultatą, patikrinama ar
-rezultatas yra teisingas ir atitinkamai tinklas reaguoja į tai. Inicijuojant tinklą svoriai yra
-nustatomi atsitiktinai. Kiekvienam duomenų rinkiniui yra stebima tinklo išvestis ir tikrinama kokia
-ji turėtų būti. Padaryta klaida yra perduodama tinklui atgal, per praeitus sluoksnius, einant nuo
-išvesties sluoksnio. Šiame žingsnyje yra naudojama optimizavimo funkcija. Ji parodo kokie turėtų būti
-svorių ir tendenciškumo pokyčiai tinklai ir taip yra
-keičiami tinklo svoriai ir tendenciškumas atsižvelgiant į padarytą klaidą. Kai klaidos
-yra padaromos pakankamai mažos ir jos yra mažesnės už duotą ribinę reikšmę, yra laikoma, kad tinklas
-baigė mokymosi procesą.
+
 
 \section{Aktyavcijos funckijos}
 \subsection{Tiesinė aktyvacijos funkcija}
@@ -226,7 +237,7 @@ bando optimizuoti entropiją tarp tikros reikšmės ir spėjamos.
 Antra priežastis yra dėl tikimybinės interpretacijos…
 TODO
 
-\section{Problemos su aktyvacijos skaičiaja matematika}
+\section{Problemos su skaičiaja matematika}
 \subsubsection{"Underflow" ir "overflow"}
 % (Ian  Goodfellow Yoshua Bengio, Aaron Courville Deep Learning)
 \par
@@ -339,19 +350,165 @@ su pirmojo laipsnio duomenimis.
 
 ]subsection{Argumentacija už pasirinktą aktyvacijos funkciją}
 TODO
+% https://www.pyimagesearch.com/2018/11/19/mask-r-cnn-with-opencv/
+\section{Neuroninių tinklų modeliai}
+\par
+Objektų aptikimas nuotraukose, taikant dirbtinius neuroninius tinklus, gali būti kelių
+tipų: objektų klasifikacija, objektų lokalizacija, semantinė segmentacija,
+objektų segmentacija (instance segmentation).
+ \par
+ Objektų klasifikacijos tinklas gražiną reikšmę nusakančią ar vaizde yra objektas
+ ar jo nėra. Klasifikacijos uždavinį sprenžiant yra pradedama nuo duomenų normalizacijos.
+ Visi vaizdai yra padidinami ar sumažinami iki tam tikro dydžio. Galima taip pat pašalinti
+ vaizdų RGB kanalą ir padaryti juos bespalviais. Norint padidintį esamą duomenų rinkinį šiame
+ darbe buvo naudotas Gauso filtras kiekvienai nuotraukai. Su kiekviena nuotrauka buvo sugeneruotas dar
+ 5 papildomos su skirtingai Gauso filtro parametrais. Šis metodas taip pat padeda neuroniniam
+ tinklui neprisirišti prie tam riktų pikselių reikšmių. Taip pat vaizdus galima pakreipti ir kitaip
+ modifikuoti, tačiau plaučių aptikimo tomografiniuose vaizduose uždavinyje, tas nebuvo
+ atliktas, nes organai dažniausiai išlaiko savo proporcijas. Po duomenų normalizacijos reikia
+ žiūrėti duomenų parametrus ir pagal tai sukonstruoti pirmajį tinklo sluoksnį. Paprastai pirmą sluoksnį
+ nusako:
+ \[
+N_{Pirmas_sluoksnis} = X_{VaizdoPlotis} * Y_{VaizdoAukškis} * N_{SpalvųKanalųSkaičius}
+ \]
+Sprendžiant plaučių aptikimo kompiuterinės tomografijos nuotraukose uždavinį, buvo naudojamas
+RGB kanalų pašalinimas. Taip buvo sumažintas pirmasis tinklo sluoksnis tris kartus ir paleidžiant
+sprendimą prireikė mažiau atminties. Paskutinis tinklo sluoksnis priklauso nuo to, kokius mes
+rezultatus norime gauti. Jeigu norime pasakyti koks objektas yra nuotraukoje, galima naudoti
+tokį išvesties sluoksnio dydį, kiek yra klasių modelyje. Norint taip pat aptikti ir kur
+vaizde yra atpažintas objektas tinklo išvesties sluoksnio dydis turi būti:
+\[
+  N_{Išvesties_sluoksnio_dydis} = C_{KlasiųSkaičius}*5
+\]
+Klasių skaičius yra dauginamas iš 5, nes norime gauti pačios klasės tikimybę ir tikėtinas
+viršutines ir apatines objekto x ir y reikšmes.Jeigu norime gauti ne tik x ir y reikšmes, bet tikslias
+objekto kiekvieno taško koordinates, kad tiksliai žinotume objekto ribas, reikia sudėtingesnio modelio,
+kuris vertintų kiekvieno vaizdo pikselio tikimybę, kad jis priklauso tam tikrai klasei.
+Šio modelio įvesties sluoksnis lieka toks pat kaip ir kitų, tačiau keičiasi išvesties sluoksnis. Jis tampa
+lygus:
+\[
+N_{IšvestiesSluoknis} = C_{KlasiųSkaičius} * X_{VaizdoPlotis} * Y_{VaizdoAukškis}
+\]
+Taip galima nusakyti kuriai klasei priklauso kiekvienas pikselis ir nusakyti, kokios yra
+kiekvienos klasės ribos vaizde.
+\par
+Šiame darbe yra naudojamas Tensorflow karkaso Mask RCNN inception modelis, kuris naudoja
+objektų segmentavimą. Tinklo modelį ištreniruoti ir nusakyti kur yra tikslios plaučių
+ribos nuotraukose, buvo naudojami dvejetainių reikšmių "png" failai. Vienas iš tokių
+failų pavyzdžių:
 
-\section{Neuroninių tinklų modeliai (SSE)}
+\begin{figure}[ht]
+  \includegraphics[width=4cm,height=4cm,keepaspectratio]{mask.png}
+  \caption{A boat.}
+  \label{fig:boat1}
+\end{figure}
+
 \par
-Šiame darbe yra naudojamas Tensorflow karkaso Mask RCNN inception modelis.
+Šiam uždaviniui tokio tipo failai buvo pasirinkti tam, nes reikia aptikti dvi klases:
+plaučiai ir ne plaučiai. Taip su skirtingomis piklesių reikšmėmis yra paduodamos kiekvieno
+pikselio klasės. Šie dvejetainiai vaizdų failai buvo gauti apibrėžiant plaučius kiekvienoje
+nuotraukoje ir eksportuojant pažymėtus ribinius taškus į "XML" failus. Pagal duotas ribinių
+taškų X ir Y koordinates, buvo parašyta programa, kuri automatiškai pagal turimus
+duomenis sugeneruoja dvejetainius vaizdų failus.
+\par
+
+
+
+
+
+
+
+
 % https://towardsdatascience.com/computer-vision-instance-segmentation-with-mask-r-cnn-7983502fcad1
-\section{Mask RCNN inception}
+\subsection{Mask RCNN inception}
 \par
-Mask RCNN modelį sudaro dvi dalys: vaizdo regiono pasiūlymo tinklas (RPN) ir
+Mask RCNN modelį sudaro dvi dalys: vaizdo regiono pasiūlymo tinklas (Regional proposed network) ir
 klasifikavimo modelis. Bendras algoritmas:
 \begin{enumerate}
-\item Nuotrauka yra praleidžiama per konvoliucinį neuroninį tinklą (RCNN), kuris
-sugeneruoja požymių aibę, pagal kurią galima nuspėti, kad tai yra ieškomas objektas.
+\item Nuotrauka yra praleidžiama per konvoliucinį neuroninį tinklą (R-CNN), kuris
+sugeneruoja požymių aibę, pagal kurią galima nuspėti, kad tai yra ieškomas objektas
+ir kur būtent jis yra vaizde.
+\item Vaizdo regiono pasiūlos algoritmas naudoja CNN, kad sugeneruotų regionus vaizde pagal
+gautą požymių aibę.
+\item Sulyginus gautis regionus gaunamos koordnatės, kurios apibrėžia objektą.
+\item Naudojant regresijos modelius objekto apibrėžimas yra tikslinimas, kol gaunami
+optimalūs rezultatai.
+\item Rezultatai yra persiunčiami į kitą CNN tinklą, kuris sugeneruoja vaizdų kaukes
+, atitinkančius klases.
 \end{enumerate}
+\par
+% https://medium.com/@smallfishbigsea/faster-r-cnn-explained-864d4fb7e3f8
+Tinklas gauna vaizdo regionus, kurie turi didesnę tikimybę turėti objektą, naudodamas
+9 inkarinių apibrėžimų koordinates.
+3 inkariniai apibrėžimai yr skirtingų formų. Kiekvienam šiam apibrėžimui yra sukuriami
+dar 2 apibrėžimai, kurių formos yra vienodos, tačiau jų dydžiai skiriasi. Šiais 9
+inkarais yra pereinama per vaizdą su kiekvienu inkaru ir kiekvienas inkaro apibrėžtas
+vaizdas yra analizuojamas: siunčiamas per CNN ir gaunama tikimybė, kad tai yra tam tikra
+klasė. Su kiekvienu uždaviniu yra patartina patiems apsibrėžti kokios formos turi būti inkarai.
+Pavyzdžiui jeigu uždavinys yra aptikti plaučius kompiuterinės tomografijos nuotraukose,
+inkarai turėtų būti būti didesni į aukštį ir mažesni į plotį ir 3 inkarai iš 9 turi būti
+kvadrato formos, nes jeigu analizuojamas plaučių viršus nuotraukose, tai jis yra apvalus,
+o ne pailgas.
+\par
+Turint daug inkarų sudarytų vaizdų, reikia atskirti kurie vaizdai yra fonas, o kurie
+yra objektas. Foninių vaizdų negalima traukti į regresijos modelį, o objekto vaizdus reikia.
+Šis regresijos modelis yra naudojamas pataisyti inkaro sukurtą vaizdą, kad jis apibrėžtų tik
+objektą.
+\par
+Po šių veiksmų vaizdui yra sugeneruojama daug objektų apibrėžimų. Dalis šių apibrėžimų
+kertasi tarpusavyje. Apibrėžimai kurie kertasi tarpusavyje yra išsaugomi ir vėliau
+toliau analizuojami. Kiekvienam kirtimuisi yra apskaičiuojamas kirtimosi koficientas:
+\[
+  K = \frac{N_{PirmasObjektas} \bigcap N_{AntrasObjektas}}{N_{PirmasObjektas} \bigcup N_{AntrasObjektas}}
+\]
+\par
+Jeigu koficientas yra lygus 1, tai reiškia jog inkarų apibrėžimai sutampa idealiai.
+Jeigu koficientas yra mažesnis už arba lygus 0.5, tada apibrėžimai nėra naudojami.
+Jeigu koficientas yra didesnis už 0.5, sankirta yra išsaugoma tolimesnei analizei.
+Atlikus paiešką, kiekvienam atskiram objektui yr parenkama tik sankirta su aukščiausiu
+sutapimo koficientu ir kiti apibrėžimai apie einamą objektą yra pašalinami.
+Po šių žingsnių yra gaunami apibrėžimai aplink kiekvieną objektą, ir jų yra tik po
+vieną. Kiekvienas šis apibrėžimas yra siunčiamas per kitą CNN tinklą, kuris analizuoja
+kiekvieno pikselio reikšmę ir nustato tikslias objektų ribas.
+
+
+
+
+
+
+
+
+
+
+
+% https://machinethink.net/blog/mobilenet-v2/
+\subsection{SSD MobileNet 1}
+\par
+
+
+
+
+
+
+
+
+
+\subsection{SSD MobileNet 2}
+\par
+
+
+
+
+
+\subsection{Alternatyvūs objekto paieškos algoritmai}
+\par
+
+
+
+
+
+
+
 
 
 
