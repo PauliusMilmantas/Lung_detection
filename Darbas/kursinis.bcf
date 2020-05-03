@@ -2146,16 +2146,17 @@
     <bcf:datasource type="file" datatype="bibtex">bibliografija.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">PvzStraipsnLt</bcf:citekey>
-    <bcf:citekey order="2">PvzStraipsnEn</bcf:citekey>
-    <bcf:citekey order="2">PvzKonfLt</bcf:citekey>
-    <bcf:citekey order="2">PvzKonfEn</bcf:citekey>
-    <bcf:citekey order="2">PvzKnygLt</bcf:citekey>
-    <bcf:citekey order="2">PvzKnygEn</bcf:citekey>
-    <bcf:citekey order="2">PvzElPubLt</bcf:citekey>
-    <bcf:citekey order="2">PvzElPubEn</bcf:citekey>
-    <bcf:citekey order="2">PvzMagistrLt</bcf:citekey>
-    <bcf:citekey order="2">PvzPhdEn</bcf:citekey>
+    <bcf:citekey order="1">test1</bcf:citekey>
+    <bcf:citekey order="2">PvzStraipsnLt</bcf:citekey>
+    <bcf:citekey order="3">PvzStraipsnEn</bcf:citekey>
+    <bcf:citekey order="3">PvzKonfLt</bcf:citekey>
+    <bcf:citekey order="3">PvzKonfEn</bcf:citekey>
+    <bcf:citekey order="3">PvzKnygLt</bcf:citekey>
+    <bcf:citekey order="3">PvzKnygEn</bcf:citekey>
+    <bcf:citekey order="3">PvzElPubLt</bcf:citekey>
+    <bcf:citekey order="3">PvzElPubEn</bcf:citekey>
+    <bcf:citekey order="3">PvzMagistrLt</bcf:citekey>
+    <bcf:citekey order="3">PvzPhdEn</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="anyt/global/" type="entry" sortscheme="anyt" sortnamekeyscheme="global" labelprefix="">
   <bcf:sorting>

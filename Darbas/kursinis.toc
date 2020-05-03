@@ -38,65 +38,45 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.3.}Mažo poaibio gradientinis nuolydis}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.}Bendros gradientinių metodų problemos}{10}
+\contentsline {subsection}{\numberline {4.4.}Sunkumai taikant gradientinius metodus}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.}Nuostolių funkcijos}{11}
+\contentsline {subsection}{\numberline {4.5.}Bendros gradientinių metodų problemos}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.}Vidutinė kvadratinė paklaida (MSE)}{11}
+\contentsline {section}{\numberline {5.}Nuostolių funkcijos}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.}Šaknis iš vidutinės kvadratinės paklaidos (RMSE)}{11}
+\contentsline {subsection}{\numberline {5.1.}Vidutinė kvadratinė paklaida (MSE)}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3.}Paklaidų pakelti kvadratu suma}{11}
+\contentsline {subsection}{\numberline {5.2.}Šaknis iš vidutinės kvadratinės paklaidos (RMSE)}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.}Neuroninių tinklų modeliai}{12}
+\contentsline {subsection}{\numberline {5.3.}Paklaidų pakelti kvadratu suma}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.}Mask RCNN inception}{13}
+\contentsline {section}{\numberline {6.}Neuroninių tinklų modeliai}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2.}SSD MobileNet 1}{14}
+\contentsline {subsection}{\numberline {6.1.}Mask RCNN inception}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3.}SSD MobileNet 2}{14}
+\contentsline {subsection}{\numberline {6.2.}SSD MobileNet 1}{15}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.4.}Alternatyvūs objekto paieškos algoritmai}{14}
+\contentsline {subsection}{\numberline {6.3.}SSD MobileNet 2}{15}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.}Tutorial}{15}
+\contentsline {subsection}{\numberline {6.4.}Alternatyvūs objekto paieškos algoritmai}{15}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {7.1.}Poskyris}{15}
+\contentsline {section}{\numberline {7.}Tutorial}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.1.1.}Skirsnis}{15}
+\contentsline {subsection}{\numberline {7.1.}Poskyris}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{\numberline {7.1.1.1.}Straipsnis}{15}
+\contentsline {subsubsection}{\numberline {7.1.1.}Skirsnis}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {7.1.2.}Skirsnis}{15}
+\contentsline {paragraph}{\numberline {7.1.1.1.}Straipsnis}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.}Skyrius}{16}
+\contentsline {subsubsection}{\numberline {7.1.2.}Skirsnis}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.1.}Poskyris}{16}
+\contentsline {section}{\numberline {8.}Skyrius}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {8.2.}Poskyris}{16}
+\contentsline {subsection}{\numberline {8.1.}Poskyris}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Išvados}{17}
+\contentsline {subsection}{\numberline {8.2.}Poskyris}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Literatūra}{18}
-\defcounter {refsection}{0}\relax 
-\select@language {english}
-\defcounter {refsection}{0}\relax 
-\select@language {lithuanian}
-\defcounter {refsection}{0}\relax 
-\select@language {english}
-\defcounter {refsection}{0}\relax 
-\select@language {lithuanian}
-\defcounter {refsection}{0}\relax 
-\select@language {english}
-\defcounter {refsection}{0}\relax 
-\select@language {lithuanian}
-\defcounter {refsection}{0}\relax 
-\select@language {english}
-\defcounter {refsection}{0}\relax 
-\select@language {lithuanian}
-\defcounter {refsection}{0}\relax 
-\select@language {english}
-\defcounter {refsection}{0}\relax 
-\select@language {lithuanian}
+\contentsline {section}{Išvados}{18}
 \defcounter {refsection}{0}\relax 
 \def \@dotsep {1000}
 \defcounter {refsection}{0}\relax 

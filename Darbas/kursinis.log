@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2020.4.18)  1 MAY 2020 20:07
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2020.4.18)  3 MAY 2020 12:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -992,7 +992,11 @@ Package biblatex Warning: Conflicting options.
 (biblatex)                'date=edtf' requires 'seconds=true'.
 (biblatex)                Setting 'seconds=true' on input line 31.
 
-(./kursinis.aux)
+(./kursinis.aux
+
+LaTeX Warning: Label `fig:lygtis1' multiply defined.
+
+)
 \openout1 = `kursinis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
@@ -1119,19 +1123,18 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'kursinis.bbl' found.
-(./kursinis.bbl
-LaTeX Font Info:    Try loading font information for U+msa on input line 89.
+(./kursinis.bbl)
+Package biblatex Info: Reference section=0 on input line 31.
+Package biblatex Info: Reference segment=0 on input line 31.
+LaTeX Font Info:    Try loading font information for U+msa on input line 32.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 89.
+LaTeX Font Info:    Try loading font information for U+msb on input line 32.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
-Package biblatex Info: Reference section=0 on input line 31.
-Package biblatex Info: Reference segment=0 on input line 31.
- [1
+) [1
 
 ] [1
 
@@ -1157,8 +1160,10 @@ File: ./fjos/relu.png Graphic file (type QTm)
 
 ] [9
 
-] [10]
-[11
+]
+File: ./fjos/what_alg.png Graphic file (type QTm)
+
+<use  "./fjos/what_alg.png" > [10] [11] [12
 
 ]
 Missing character: There is no š in font cmmi8!
@@ -1173,33 +1178,82 @@ Missing character: There is no ų in font cmmi8!
 Missing character: There is no č in font cmmi8!
 Missing character: There is no š in font cmmi8!
 File: ./fjos/mask.png Graphic file (type QTm)
- <use  "./fjos/mask.png" > [12
+ <use  "./fjos/mask.png" > [13
 
-] [13] [14] [15
+]
+[14] [15]
 
-] [16
+LaTeX Warning: Citation 'test1' on page 16 undefined on input line 573.
+
+
+LaTeX Warning: Citation 'PvzStraipsnLt' on page 16 undefined on input line 574.
+
+
+
+LaTeX Warning: Citation 'PvzStraipsnEn' on page 16 undefined on input line 576.
+
+
+
+LaTeX Warning: Citation 'PvzKonfLt' on page 16 undefined on input line 576.
+
+
+LaTeX Warning: Citation 'PvzKonfEn' on page 16 undefined on input line 576.
+
+
+LaTeX Warning: Citation 'PvzKnygLt' on page 16 undefined on input line 576.
+
+
+LaTeX Warning: Citation 'PvzKnygEn' on page 16 undefined on input line 576.
+
+
+LaTeX Warning: Citation 'PvzElPubLt' on page 16 undefined on input line 576.
+
+
+LaTeX Warning: Citation 'PvzElPubEn' on page 16 undefined on input line 576.
+
+
+LaTeX Warning: Citation 'PvzMagistrLt' on page 16 undefined on input line 576.
+
+
+LaTeX Warning: Citation 'PvzPhdEn' on page 16 undefined on input line 576.
+
+[16
 
 ] [17
 
-] [18
+]
+
+LaTeX Warning: Empty bibliography on input line 589.
+
+[18
 
 ] [19
 
 ] [20
 
-]
-(./kursinis.aux)
+] (./kursinis.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                kursinis
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'kursinis.run.xml'.
 \openout1 = `kursinis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 21816 strings out of 493068
- 450339 string characters out of 6137720
- 882290 words of memory out of 5000000
- 25465 multiletter control sequences out of 15000+600000
- 15670 words of font info for 78 fonts, out of 8000000 for 9000
+ 21770 strings out of 493068
+ 448973 string characters out of 6137720
+ 883158 words of memory out of 5000000
+ 25421 multiletter control sequences out of 15000+600000
+ 15654 words of font info for 76 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 67i,12n,96p,10497b,7347s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,12n,96p,10497b,3426s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on kursinis.pdf (21 pages).

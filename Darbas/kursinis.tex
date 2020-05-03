@@ -263,7 +263,7 @@ optimizavimo algoritmai.
 Gradientinio nuolydžio algoritmas
 Tai yra pati paprasčiausia optimizavimo funkcija.
 \[
-\delta = \delta - \alpha * \Delta L (\delta)
+\theta = \theta - \eta * \bigtriangledown_{\theta}J(\theta)
 \]
 Pagal algoritmą yra atliekama daug iteracijų. Kiekvienos iteracijos metu yra
 apskaičiuojama delta. Ji yra gaunama iš esamos deltos atėmus mokymosi žingsnio konstanos
@@ -284,6 +284,10 @@ atsižvelgta į praeitas iteracijas ir minimumas yra per lėtai pasiekiamas, alg
  iteracijos prie parametrų pakeitimo daug neprisideda.
 
 \subsection{Mažo poaibio gradientinis nuolydis}
+\[
+\theta = \theta - \eta * \bigtriangledown_{\theta}J(\theta;x^{(i:i+n)};y^{(i:i+n)})
+\]
+\par
 Abiejų minėtų algoritmų idėjų kombinacija išvedė mažo poaibio gradientinį metodą.
 Šis algoritmas suskirsto duomenis į poaibius, kurių elementų skaičius yra daugiau nei 1.
 Dažniausiai poaibių dydis yra pasirenkamas dvejetas pakeltas kokiu nors laipsniu, nes
@@ -294,6 +298,53 @@ nei kitų minėtų algoritmų, nes atsitiktinai parenkami poaibiai skiriasi kiek
 poaibių paskirstymo metu, taip sudarant daugiau varijacijų ir daugiau triukšmo. Kadangi
 bendrai yra apdorojama daugiau duomenų variacijų, šis metodas gali pasiekti didesnį
 tikslumą. Nors šis metodas gali pasiekti didesnį tikslumą ir yra greitesnis.
+
+% gradient descent methods overview
+\subsection{Sunkumai taikant gradientinius metodus}
+\begin{enumerate}
+\item Mokymosi žingsnio nurodymas. Tikslaus sprendimo nurodančio kokį žingsnį parinkti nėra, jis paprastai
+yra parenkamas empiriškai stebint konvergavimo greitį ir duomenų kiekį. Jeigu žingsnis yra parenkamas per didelis,
+tai optimizavimo funkcija gali diverguoti arba peršokti lokalų minimumą ir nutolti nuo jo, taip praiilginant
+procesą. Jeigu žingsnis yra parenkamas per mažas, tada konvergavimo greitis į lokalų minimumą yra labai mažas
+ir procesas trunka ilgai.
+\item Mokymosi žingsnio keitimo trigeris. Kuriant trigerį reikia nurodyti arba epochų skaičių arba ribinę nuostolių
+funckijos reikšmę, kada trigeris turi būti aktyvuotas. Po aktyvacijos, trigeris pakeičia mokymosi žingsnio dydį.
+Trigerio aktyvacijos laiko nurodymui irgi nėra jokios tikslios taisyklės, tai yra nurodoma empiriškai stebint
+mokymosi procesą. Jeigu aktyvacijos laikas yra nurodomas per anksti, mokymosi žingsnis yra sulėtinamas per greitai
+ir funkcija pradeda lėčiau diverguoti į minimumą. Jeigu žingsnis yra nurodomas per vėlai, tam tikru momentu
+žingsnis gali būti per didelis ir funkcija gali pradėvi diverguoti arba peršokti lokalų minimumą ir tolti nuo
+minimumo.
+\item Duomenų rinkinio parinkimas. Jeigu daug duomenų turi tuos pačius požymius, pagal kuriuos tinklas klasifikuoja
+rezultatus, visų šių duomenų iteracija nėra būtina, nes jie tinklo svorių pokyčius įtakos labai nežymiai.
+Jeigu duomenų, su panašiais požymiais, yra daug, reikia paimti tik dalį jų ir tik tą dalį iteruoti. Jeigu
+duomenų, su panašiais požymiais, yra daug, tada tinklo vienos epochos trukmė gali užtrukti ilgiau ir optimizavimo
+funkcija lėčiau konverguos į lokalų minimumą.
+\item Optimizavimo funkcijos "užstrigimas" ties lokaliu minimumu. Optimizavimo funkcijų tinklas yra rasti
+globalų minimumo tašką. Tačiau gradientų nuolydžiu pagrįstų algoritmų dažna problema: "užstrigimas" ties
+lokaliu minimumu. Gradientas parodo kuria kryptimi funkcija leidžiasi žemyn. Ta kryptimi optimizavimo algoritmas
+eina. Pasiekus lokalų minimumą, kai gradientas pradeda didėti, optimizavimo algoritmai baigia darbą. Todėl jeigu yra
+blogai parenkamas pirmas taškas, optimizavimo algoritmai "užstrigs" ties lokaliu minimumu. Tą išvengti galima prieš algoritmo pradžią
+įvertinti funkciją ir parinkti artimus pradinius taškus prie tikrųjų reikšmių. Kitas būdas to išvegti yra naudoti
+optimizavimo algoritmus, kurie nesiremia gradientų nuolydžiu. Vienas iš daugelio algoritmų, kuris nesiremia gradientais, yra
+banginių judesių grįstas optimizavimo algoritmas.
+\end{enumerate}
+% https://www.sciencedirect.com/science/article/pii/S0965997816300163?casa_token=yI9V7so44bIAAAAA:y_34ijm8Gc4JBSknYd7cH2hqfk2K4h6dpYxZBTR7RGCEa89wP2b5Ohl_FqhK8t8gG9r4qdmGCg
+\par
+Minėtas banginių optimizavimo algoritmas buvo sukurtas stebint banginių judėjimą, jiems gaudant mažas žuvis. Gaudant žuvis banginiai negali
+padaryti status posūkio, todėl gaunant žuvis jie juda aplink žuvis ir po kelių ratų jie pasiekia apskritimo
+centrą ir pagauna žuvis. Šis algoritmas yra pagrįstas būtent šiuo judėjimu.
+%https://www.researchgate.net/publication/328585765_Energy-Efficient_Scheduling_for_a_Job_Shop_Using_an_Improved_Whale_Optimization_Algorithm
+\begin{figure}[ht]
+  \includegraphics[width=12cm,height=7cm,keepaspectratio]{what_alg.png}
+  \caption{Banginių optimizavimo algoritmas}
+  \label{fig:lygtis1}
+\end{figure}
+
+
+
+
+
+
 
 \subsection{Bendros gradientinių metodų problemos}
 \par
@@ -519,6 +570,7 @@ kiekvieno pikselio reikšmę ir nustato tikslias objektų ribas.
 
 \section{Tutorial}
 \subsection{Poskyris}
+\cite{test1}
 Citavimo pavyzdžiai: cituojamas vienas šaltinis \cite{PvzStraipsnLt}; cituojami
 keli šaltiniai \cite{PvzStraipsnEn, PvzKonfLt, PvzKonfEn, PvzKnygLt, PvzKnygEn,
 PvzElPubLt, PvzElPubEn, PvzMagistrLt, PvzPhdEn}.
