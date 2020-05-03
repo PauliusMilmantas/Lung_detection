@@ -4,17 +4,15 @@
 [salt4] https://www.tensorflow.org/install/gpu
 [salt5]https://developer.nvidia.com/cuda-zone
 [salt6] http://cs231n.github.io/linear-classify/#softmax Stanford university notes
+[salt7] Ian  Goodfellow Yoshua Bengio, Aaron Courville Deep Learning
+[salt8] https://medium.com/@sdoshi579/optimizers-for-training-neural-network-59450d71caf6
+[salt9] https://towardsdatascience.com/gradient-descent-algorithm-and-its-variants-10f652806a3
+[salt10] https://www.sciencedirect.com/science/article/pii/S0965997816300163?casa_token=yI9V7so44bIAAAAA:y_34ijm8Gc4JBSknYd7cH2hqfk2K4h6dpYxZBTR7RGCEa89wP2b5Ohl_FqhK8t8gG9r4qdmGCg
+[salt11] https://www.researchgate.net/publication/328585765_Energy-Efficient_Scheduling_for_a_Job_Shop_Using_an_Improved_Whale_Optimization_Algorithm
+[salt12] https://towardsdatascience.com/https-medium-com-chayankathuria-regression-why-mean-square-error-a8cad2a1c96f
+[salt13] https://www.pyimagesearch.com/2018/11/19/mask-r-cnn-with-opencv
+[salt14] https://towardsdatascience.com/computer-vision-instance-segmentation-with-mask-r-cnn-7983502fcad1
+[salt15] https://medium.com/@smallfishbigsea/faster-r-cnn-explained-864d4fb7e3f8
 
 
-Ian  Goodfellow Yoshua Bengio, Aaron Courville Deep Learning
-
-
-https://medium.com/@sdoshi579/optimizers-for-training-neural-network-59450d71caf6
-https://towardsdatascience.com/gradient-descent-algorithm-and-its-variants-10f652806a3
-https://www.sciencedirect.com/science/article/pii/S0965997816300163?casa_token=yI9V7so44bIAAAAA:y_34ijm8Gc4JBSknYd7cH2hqfk2K4h6dpYxZBTR7RGCEa89wP2b5Ohl_FqhK8t8gG9r4qdmGCg
-https://www.researchgate.net/publication/328585765_Energy-Efficient_Scheduling_for_a_Job_Shop_Using_an_Improved_Whale_Optimization_Algorithm
-https://towardsdatascience.com/https-medium-com-chayankathuria-regression-why-mean-square-error-a8cad2a1c96f
-https://www.pyimagesearch.com/2018/11/19/mask-r-cnn-with-opencv
-https://towardsdatascience.com/computer-vision-instance-segmentation-with-mask-r-cnn-7983502fcad1
-https://medium.com/@smallfishbigsea/faster-r-cnn-explained-864d4fb7e3f8
 

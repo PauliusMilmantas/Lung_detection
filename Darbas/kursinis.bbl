@@ -16,5 +16,391 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \sortlist[entry]{anyt/global/}
+    \entry{salt2}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=071e8b59bcc6de28244fea3bf962a165}{%
+           family={Alammar},
+           familyi={A\bibinitperiod},
+           given={Jay},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{071e8b59bcc6de28244fea3bf962a165}
+      \strng{fullhash}{071e8b59bcc6de28244fea3bf962a165}
+      \strng{authornamehash}{071e8b59bcc6de28244fea3bf962a165}
+      \strng{authorfullhash}{071e8b59bcc6de28244fea3bf962a165}
+      \field{labelalpha}{Ala16}
+      \field{sortinit}{A}
+      \field{sortinithash}{3248043b5fe8d0a34dab5ab6b8d4309b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A Visual and Interactive Guide to the Basics of Neural Networks}
+      \field{urlday}{30}
+      \field{urlmonth}{4}
+      \field{urlyear}{2020}
+      \field{year}{2016}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb http://jalammar.github.io/visual-interactive-guide-basics-neural-networks/
+      \endverb
+    \endentry
+    \entry{salt9}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=8a186b923ecc7b77bc273316396594cb}{%
+           family={Dabbura},
+           familyi={D\bibinitperiod},
+           given={Imad},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{8a186b923ecc7b77bc273316396594cb}
+      \strng{fullhash}{8a186b923ecc7b77bc273316396594cb}
+      \strng{authornamehash}{8a186b923ecc7b77bc273316396594cb}
+      \strng{authorfullhash}{8a186b923ecc7b77bc273316396594cb}
+      \field{labelalpha}{Dab17}
+      \field{sortinit}{D}
+      \field{sortinithash}{d10b5413de1f3d197b20897dd0d565bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Gradient Descent Algorithm and Its Variants}
+      \field{urlday}{30}
+      \field{urlmonth}{4}
+      \field{urlyear}{2020}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://towardsdatascience.com/gradient-descent-algorithm-and-its-variants-10f652806a3
+      \endverb
+    \endentry
+    \entry{salt8}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=07a4a1423eae14fcc89ba95d908ed3b8}{%
+           family={Doshi},
+           familyi={D\bibinitperiod},
+           given={Sanket},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{07a4a1423eae14fcc89ba95d908ed3b8}
+      \strng{fullhash}{07a4a1423eae14fcc89ba95d908ed3b8}
+      \strng{authornamehash}{07a4a1423eae14fcc89ba95d908ed3b8}
+      \strng{authorfullhash}{07a4a1423eae14fcc89ba95d908ed3b8}
+      \field{labelalpha}{Dos19}
+      \field{sortinit}{D}
+      \field{sortinithash}{d10b5413de1f3d197b20897dd0d565bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Various Optimization Algorithms For Training Neural Network}
+      \field{urlday}{30}
+      \field{urlmonth}{4}
+      \field{urlyear}{2020}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://medium.com/@sdoshi579/optimizers-for-training-neural-network-59450d71caf6
+      \endverb
+    \endentry
+    \entry{salt15}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=961919f4f1d5603650aa2b096fc5206e}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Hao},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{961919f4f1d5603650aa2b096fc5206e}
+      \strng{fullhash}{961919f4f1d5603650aa2b096fc5206e}
+      \strng{authornamehash}{961919f4f1d5603650aa2b096fc5206e}
+      \strng{authorfullhash}{961919f4f1d5603650aa2b096fc5206e}
+      \field{labelalpha}{Gao17}
+      \field{sortinit}{G}
+      \field{sortinithash}{618d986594b7198ba52cf8b00d348f3f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Faster R-CNN Explained}
+      \field{urlday}{30}
+      \field{urlmonth}{4}
+      \field{urlyear}{2020}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://medium.com/@smallfishbigsea/faster-r-cnn-explained-864d4fb7e3f8
+      \endverb
+    \endentry
+    \entry{salt7}{book}{}
+      \name{author}{3}{}{%
+        {{hash=5d2585c11210cf1d4512e6e0a03ec315}{%
+           family={Goodfellow},
+           familyi={G\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod}}}%
+        {{hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=ccec1ccd2e1aa86960eb2e872c6b7020}{%
+           family={Courville},
+           familyi={C\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{fullhash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{authornamehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{authorfullhash}{3ae53fe582e8a815b118d26947eaa326}
+      \field{labelalpha}{GBC16}
+      \field{sortinit}{G}
+      \field{sortinithash}{618d986594b7198ba52cf8b00d348f3f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{\url{http://www.deeplearningbook.org}}
+      \field{title}{Deep Learning}
+      \field{year}{2016}
+    \endentry
+    \entry{salt16}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=1e0937f69bc68831deb004d37bf43fc8}{%
+           family={Glossary},
+           familyi={G\bibinitperiod},
+           given={ML},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{1e0937f69bc68831deb004d37bf43fc8}
+      \strng{fullhash}{1e0937f69bc68831deb004d37bf43fc8}
+      \strng{authornamehash}{1e0937f69bc68831deb004d37bf43fc8}
+      \strng{authorfullhash}{1e0937f69bc68831deb004d37bf43fc8}
+      \field{labelalpha}{Glo20}
+      \field{sortinit}{G}
+      \field{sortinithash}{618d986594b7198ba52cf8b00d348f3f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Activation Functions}
+      \field{urlday}{30}
+      \field{urlmonth}{4}
+      \field{urlyear}{2020}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html
+      \endverb
+    \endentry
+    \entry{salt3}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=04638596e3e3c2645c5ea68197093921}{%
+           family={Hinkelmann},
+           familyi={H\bibinitperiod},
+           given={Knut},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{04638596e3e3c2645c5ea68197093921}
+      \strng{fullhash}{04638596e3e3c2645c5ea68197093921}
+      \strng{authornamehash}{04638596e3e3c2645c5ea68197093921}
+      \strng{authorfullhash}{04638596e3e3c2645c5ea68197093921}
+      \field{labelalpha}{Hin18}
+      \field{sortinit}{H}
+      \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Neural Networks}
+      \field{urlday}{30}
+      \field{urlmonth}{4}
+      \field{urlyear}{2020}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb http://didattica.cs.unicam.it/lib/exe/fetch.php?media=didattica:magistrale:kebi:ay_1718:ke-11_neural_networks.pdf
+      \endverb
+    \endentry
+    \entry{salt12}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=630fcc840486739083f5b8451833712d}{%
+           family={Kathuria},
+           familyi={K\bibinitperiod},
+           given={Chayan},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{630fcc840486739083f5b8451833712d}
+      \strng{fullhash}{630fcc840486739083f5b8451833712d}
+      \strng{authornamehash}{630fcc840486739083f5b8451833712d}
+      \strng{authorfullhash}{630fcc840486739083f5b8451833712d}
+      \field{labelalpha}{Kat19}
+      \field{sortinit}{K}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Regression — Why Mean Square Error?}
+      \field{urlday}{30}
+      \field{urlmonth}{4}
+      \field{urlyear}{2020}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://towardsdatascience.com/https-medium-com-chayankathuria-regression-why-mean-square-error-a8cad2a1c96f
+      \endverb
+    \endentry
+    \entry{salt14}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=fd768606d546daa3f555605b7786517f}{%
+           family={Khandelwal},
+           familyi={K\bibinitperiod},
+           given={Renu},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{fd768606d546daa3f555605b7786517f}
+      \strng{fullhash}{fd768606d546daa3f555605b7786517f}
+      \strng{authornamehash}{fd768606d546daa3f555605b7786517f}
+      \strng{authorfullhash}{fd768606d546daa3f555605b7786517f}
+      \field{labelalpha}{Kha19}
+      \field{sortinit}{K}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Computer Vision: Instance Segmentation with Mask R-CNN}
+      \field{urlday}{30}
+      \field{urlmonth}{4}
+      \field{urlyear}{2020}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://towardsdatascience.com/computer-vision-instance-segmentation-with-mask-r-cnn-7983502fcad1
+      \endverb
+    \endentry
+    \entry{salt5}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=a2fe9051fe051f819bd739ef3e340377}{%
+           family={NVIDIA},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{a2fe9051fe051f819bd739ef3e340377}
+      \strng{fullhash}{a2fe9051fe051f819bd739ef3e340377}
+      \strng{authornamehash}{a2fe9051fe051f819bd739ef3e340377}
+      \strng{authorfullhash}{a2fe9051fe051f819bd739ef3e340377}
+      \field{labelalpha}{NVI20}
+      \field{sortinit}{N}
+      \field{sortinithash}{1163c28585427c673ad5a010cbf82f52}
+      \field{extraalpha}{1}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{CUDA Zone}
+      \field{urlday}{30}
+      \field{urlmonth}{4}
+      \field{urlyear}{2020}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://developer.nvidia.com/cuda-zone
+      \endverb
+    \endentry
+    \entry{salt4}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=a2fe9051fe051f819bd739ef3e340377}{%
+           family={NVIDIA},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{a2fe9051fe051f819bd739ef3e340377}
+      \strng{fullhash}{a2fe9051fe051f819bd739ef3e340377}
+      \strng{authornamehash}{a2fe9051fe051f819bd739ef3e340377}
+      \strng{authorfullhash}{a2fe9051fe051f819bd739ef3e340377}
+      \field{labelalpha}{NVI20}
+      \field{sortinit}{N}
+      \field{sortinithash}{1163c28585427c673ad5a010cbf82f52}
+      \field{extraalpha}{2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{GPU support}
+      \field{urlday}{30}
+      \field{urlmonth}{4}
+      \field{urlyear}{2020}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://www.tensorflow.org/install/gpu
+      \endverb
+    \endentry
+    \entry{salt17}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b468248a20d75c52ee742f4592c2569f}{%
+           family={Ruder},
+           familyi={R\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{b468248a20d75c52ee742f4592c2569f}
+      \strng{fullhash}{b468248a20d75c52ee742f4592c2569f}
+      \strng{authornamehash}{b468248a20d75c52ee742f4592c2569f}
+      \strng{authorfullhash}{b468248a20d75c52ee742f4592c2569f}
+      \field{labelalpha}{Rud16}
+      \field{sortinit}{R}
+      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{An overview of gradient descent optimization algorithms}
+      \field{year}{2016}
+      \verb{eprint}
+      \verb 1609.04747
+      \endverb
+    \endentry
+    \entry{salt1}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=7270ffb286835dccd6f27d8dc52ad000}{%
+           family={Sehra},
+           familyi={S\bibinitperiod},
+           given={Shirag},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{7270ffb286835dccd6f27d8dc52ad000}
+      \strng{fullhash}{7270ffb286835dccd6f27d8dc52ad000}
+      \strng{authornamehash}{7270ffb286835dccd6f27d8dc52ad000}
+      \strng{authorfullhash}{7270ffb286835dccd6f27d8dc52ad000}
+      \field{labelalpha}{Seh18}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Decision trees explained easily}
+      \field{urlday}{30}
+      \field{urlmonth}{4}
+      \field{urlyear}{2020}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://medium.com/@chiragsehra42/decision-trees-explained-easily-28f23241248
+      \endverb
+    \endentry
+    \entry{salt10}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=a0b4e6d3e7fca9521df4fc5c564bd16a}{%
+           family={Seyedali\bibnamedelima Mirjalili},
+           familyi={S\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={Andrew\bibnamedelima Lewis},
+           giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{a0b4e6d3e7fca9521df4fc5c564bd16a}
+      \strng{fullhash}{a0b4e6d3e7fca9521df4fc5c564bd16a}
+      \strng{authornamehash}{a0b4e6d3e7fca9521df4fc5c564bd16a}
+      \strng{authorfullhash}{a0b4e6d3e7fca9521df4fc5c564bd16a}
+      \field{labelalpha}{Sey16}
+      \field{sortinit}{S}
+      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Whale Optimization Algorithm}
+      \field{urlday}{30}
+      \field{urlmonth}{4}
+      \field{urlyear}{2020}
+      \field{year}{2016}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0965997816300163?casa_token=yI9V7so44bIAAAAA:y_34ijm8Gc4JBSknYd7cH2hqfk2K4h6dpYxZBTR7RGCEa89wP2b5Ohl_FqhK8t8gG9r4qdmGCg
+      \endverb
+    \endentry
+  \endsortlist
+\endrefsection
 \endinput
 

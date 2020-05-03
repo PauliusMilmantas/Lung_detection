@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2020.4.18)  3 MAY 2020 12:52
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2020.4.18)  3 MAY 2020 15:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1181,79 +1181,64 @@ File: ./fjos/mask.png Graphic file (type QTm)
  <use  "./fjos/mask.png" > [13
 
 ]
-[14] [15]
-
-LaTeX Warning: Citation 'test1' on page 16 undefined on input line 573.
-
-
-LaTeX Warning: Citation 'PvzStraipsnLt' on page 16 undefined on input line 574.
-
-
-
-LaTeX Warning: Citation 'PvzStraipsnEn' on page 16 undefined on input line 576.
-
-
-
-LaTeX Warning: Citation 'PvzKonfLt' on page 16 undefined on input line 576.
-
-
-LaTeX Warning: Citation 'PvzKonfEn' on page 16 undefined on input line 576.
-
-
-LaTeX Warning: Citation 'PvzKnygLt' on page 16 undefined on input line 576.
-
-
-LaTeX Warning: Citation 'PvzKnygEn' on page 16 undefined on input line 576.
-
-
-LaTeX Warning: Citation 'PvzElPubLt' on page 16 undefined on input line 576.
-
-
-LaTeX Warning: Citation 'PvzElPubEn' on page 16 undefined on input line 576.
-
-
-LaTeX Warning: Citation 'PvzMagistrLt' on page 16 undefined on input line 576.
-
-
-LaTeX Warning: Citation 'PvzPhdEn' on page 16 undefined on input line 576.
-
-[16
-
-] [17
+[14] [15] [16
 
 ]
+Underfull \hbox (badness 3088) in paragraph at lines 577--577
+[]\TU/texgyretermes(0)/m/n/12 Hao Gao. Faster r-cnn explained, 2017. \TU/texgyr
+etermes(0)/m/sc/12 url\TU/texgyretermes(0)/m/n/12 : $[][][][][] [] [] [] [][][]
+[][][] [] [][][] []
+ []
 
-LaTeX Warning: Empty bibliography on input line 589.
 
-[18
+Underfull \hbox (badness 1132) in paragraph at lines 577--577
+[]\TU/texgyretermes(0)/m/n/12 Chayan Kathuria. Regression — why mean square err
+or?, 2019. \TU/texgyretermes(0)/m/sc/12 url\TU/texgyretermes(0)/m/n/12 : $[][][
+][][] []
+ []
 
-] [19
 
-] [20
+Underfull \hbox (badness 7308) in paragraph at lines 577--577
+[]\TU/texgyretermes(0)/m/n/12 Andrew Lewis Seyedali Mirjalili. The whale optimi
+zation algorithm, 2016.
+ []
 
-] (./kursinis.aux)
 
-LaTeX Warning: There were undefined references.
+Underfull \hbox (badness 4913) in paragraph at lines 577--577
+\TU/texgyretermes(0)/m/sc/12 url\TU/texgyretermes(0)/m/n/12 : $[][][][][] [] []
+ [] [][][] [] [][][][][][][][][][][][][] [] [][][] [] [][][][][][][] [] [][][][
+][][][] []
+ []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 577--577
+[][][] [] [][][][][][][][][][][][][][][][][] [] [][][][] [] [][][][][] [] [][][
+][][][][][][][][][][][][][] []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 577--577
+[] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][] []
+ []
+
+[17
+
+] [18] (./kursinis.aux)
 
 LaTeX Warning: There were multiply-defined labels.
-
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                kursinis
-(biblatex)                and rerun LaTeX afterwards.
 
 Package logreq Info: Writing requests to 'kursinis.run.xml'.
 \openout1 = `kursinis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 21770 strings out of 493068
- 448973 string characters out of 6137720
- 883158 words of memory out of 5000000
- 25421 multiletter control sequences out of 15000+600000
- 15654 words of font info for 76 fonts, out of 8000000 for 9000
+ 21783 strings out of 493068
+ 449813 string characters out of 6137720
+ 889283 words of memory out of 5000000
+ 25441 multiletter control sequences out of 15000+600000
+ 11198 words of font info for 59 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 67i,12n,96p,10497b,3426s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,12n,96p,10497b,5896s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on kursinis.pdf (21 pages).
+Output written on kursinis.pdf (19 pages).
