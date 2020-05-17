@@ -64,10 +64,16 @@ tikrų radiologijos žinių.
 Daugelį dirbtinių neuronų tinklų sudaro panašios struktūrinės dalys:
 \begin{enumerate}
   \item Įvesties sluoksnis: tai dalis kuri priima įvestį ir perduoda kitiems sluoksniams.
-  \item Išvesties sluoksnis: tai dalis, kuri naudoja aktyvacijos funkciją kuri grąžina galutinį tinklo rezultatą: tikimybių rinkinį, kuris parodo kokia tikimybė, kad objektas atitinka tam tikrą klasę.
+  Šiame darbe yra naudojamos kompiuterinės tomografijos nuotraukos, kurios yra suvienodinamos
+  į 300x300 dydį. Nuotraukose yra pašalinamas RGB kanalas, todėl kiekvieną pikselį nusako
+  pilkos spalvos atspalvis, kuris yra intervale [0;1]. Vienai nuotraukai užkoduoti
+  užtenka 90 000 tašktų, todėl neuroninio tinklo įvesties sluoksnį sudaro 90 000 neuronų.
+  \item Išvesties sluoksnis: tai dalis, kuri naudoja aktyvacijos funkciją, kuri grąžina galutinį tinklo rezultatą: tikimybių rinkinį,
+  kuris parodo kokia tikimybė, kad objektas atitinka tam tikrą klasę.
   \item Paslėptas sluoksnis: perduoda svorius iš praeito sluoksnio į sekantį.
   \item Susijungimai ir svoriai: tarp kiekvieno neurono, kuris yra susijungęs, turi savo svorį, pagal kurį yra pakeičiama perduodama reikšmė.
   \item Aktyvacijos funkcija: tai funkcija, kokia turi būti neurono išvestis.
+  \item Optimizatimo funkcija: optimizuoja tikslo funkciją.
   \item Mokymosi taisyklė: apibrėžia, kaip tinkle keičiasi svoriai, kad tinklas išvestų norimus rezultatus.
 \end{enumerate}
 % https://deepai.org/machine-learning-glossary-and-terms/weight-artificial-neural-network
@@ -87,6 +93,8 @@ prižiūrimasis tinklo treniravimas vyksta dviem žingsniai: priekine ir atgalin
 
 % Priekine sklaida
 TODO
+
+
 
 % Atgaline sklaida
 % (http://didattica.cs.unicam.it/lib/exe/fetch.php?media=didattica:magistrale:kebi:ay_1718:ke-11_neural_networks.pdf University of Applied Sciences Northwestern Switzerland)
@@ -138,8 +146,8 @@ reikalaus nedaug aritmetiškai intensyvių operacijų.
 
 
 
-\section{Aktyvacijos funkcijos}
-\subsection{Tiesinė aktyvacijos funkcija}
+\subsection{Aktyvacijos funkcijos}
+\subsubsection{Tiesinė aktyvacijos funkcija}
 \[
 R(x, a) = x * a
 \]
@@ -156,7 +164,7 @@ konstanta, neatsižvelgiant į pačią klaidą. \cite{salt16}
   \label{fig:lygtis1}
 \end{figure}
 
-\subsection{ELU}
+\subsubsection{ELU}
 \[
   R(z) = \systeme*{z; z > 0, \alpha*(e^z - 1); z <= 0}
 \]
@@ -173,7 +181,7 @@ kol išvestis pasiekia , o RELU staigiai sutolygėja. \cite{salt16}
   \label{fig:elu}
 \end{figure}
 
-\subsection{ReLU}
+\subsubsection{ReLU}
 \[
   R(z) = max(0, z)
 \]
@@ -189,7 +197,7 @@ ir tanh, nes minėta formulė yra paprastesnė, nei kitos. \cite{salt16}
   \label{fig:relu}
 \end{figure}
 
-\subsection{Sigmoid}
+\subsubsection{Sigmoid}
 % (https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html)
 \[
   R(x) = \frac{1}{1 + e^{-x}}
@@ -200,7 +208,7 @@ Sigmoid funkcijos parametrai priima realiuosius skaičius ir gražina reikšmę 
 Šios funkcijos geros savybės yra: tolydus gradientas, prognozuojamas išvesties
 diapazonas, netiesiškumas, visur diferencijuojama ir monotoniška. \cite{salt16}
 
-\subsection{Softmax}
+\subsubsection{Softmax}
 \[
   softmax(x)_i = \frac{exp(x_i)}{sum_{j=1}^{n}exp(x_j)}
 \]
@@ -209,7 +217,7 @@ diapazonas, netiesiškumas, visur diferencijuojama ir monotoniška. \cite{salt16
 Softmax funkcija priima parametrų skirstinį ir gražina tikimybių skirstinį,
 kurio bendra suma yra lygi vienam. \cite{salt16}
 
-\subsection{Argumentacija už pasirinktą aktyvacijos funkciją}
+\subsubsection{Argumentacija už pasirinktą aktyvacijos funkciją}
 % (http://cs231n.github.io/linear-classify/#softmax Stanford university notes)
 \par
 Šiame darbe bus naudojama Softmax aktyvacijos funkcija. Ši funkcija buvo
@@ -237,18 +245,87 @@ Antra priežastis yra dėl tikimybinės interpretacijos…
 TODO
 
 \section{Problemos su skaičiaja matematika}
-\subsubsection{"Underflow" ir "overflow"}
+\par
+Neuroninius tinklus sudaro paprastai daug sluoksnių ir kiekviename sluoksnyje yra po
+daug neuronų. Kiekvienas neuronas yra sudėties funkcija. Funkcija apibrėžia m įvesties
+vienetų 'x', su 'w' svoriais. Visi šie neuroniai savo ir kaimyniniuose dviejuose sluoksniuose
+yra sujungti su visais kitais neuronais. Pereinant duomenims į kitą sluoksnį yra apskaičiuojamos
+visų neuronų reikšmės ir jos perduodamos toliau. Todėl tarp neuroniniame tinkle vyksta
+labai daug sudėties operacijų ir yra svarbu, kad neįvyktų jokią skaičiosios matematikos klaida,
+kaip reikšmės apvalinimo klaida.
+
+\[
+  y_{k} = \gamma * (\sum_{i=1}^{m}w_{ki}x_{i})
+\]
+
+
+
+
+Neuroniniai tinklai atlieka daug skaičiavimų, todėl gali atsirasti klaidos su
+skaičiaja matematika: gradientinio nuolydžio "užstrigimas", apvalinimo paklaida,
+blogas problemos apibrėžimas.
+
+
+
+
+
+
+
+
+
+\subsection{"Underflow" ir "overflow"}
 % (Ian  Goodfellow Yoshua Bengio, Aaron Courville Deep Learning)
 \par
-Ian Goodfellow Yoshua Bengio ir Aaron Courville apibrėžė ‘overflow’ ir ‘underflow’
-problemas giliojo mokymosi algoritmuose. Minėta ‘underflow’ problema pasireiškia,
-kai funkcijos reikšmė yra labai arti nulio ir ji yra apvalinama į nulį. Kadangi kai
+Kai kompiuterinės programos vykdo daug skaičiavimų su
+labai dideliais arba mažais skaičiais atsiranda 'underflow' ir 'overflow' problemos
+dėl skaičių apvalinimo. ‘Underflow’ problema pasireiškia,
+kai funkcijos reikšmė yra labai arti nulio ir ji yra apvalinama į nulį. Kai
 kurie algoritmai gali ‘sulūžti’ dėl nulinio parametro (pvz. dalybos iš nulio). Kita
 problema yra ‘overflow’. Ji pasireiškia kai gauta reikšmė yra labai didelė ir ji yra
-apvalinama į begalybę. \cite{salt7}
+apvalinama į begalybę. \cite{salt7} Vienas iš pavyzdžių kaip pasireiškia 'overflow' problema skaičiavimuose
+yra 4 pav. Šiame kode yra paimama didžiausia galima 'Integer' skaičiaus reiškmė ir ji
+yra didinama. Taip atsakymas yra apvalinamas į didžiausią galimą reikšmę ir
+yra prarandama ta pati reikšme. Šios dvi problemos yra išspręstos naudojant dvirjų bitų statuso registrą
+esantį kompiuterio procesoriuje. Vienas bitas yra nustatomas jeigu CPU įvykdo 'overflow', kitas, jeigu
+procesorius įvykdo 'underflow'. Modernios programavimo kalbos, kaip Python, pagal šiuos du
+bitus gali pasakyti ar įvyko viena iš šitų klaidų.
 
-\subsubsection{Gradientų optimizavimas}
-TODO
+\begin{figure}[ht]
+  \includegraphics[width=6cm,height=6cm,keepaspectratio]{code1.png}
+  \caption{Overflow problema}
+  \label{fig:overflowProblem}
+\end{figure}
+
+\subsection{Apribotas optimizavimas}
+Apribotas optimizavimas yra naudojamas norint optimizuoti funkciją
+turint nustatytus kintamuosius.\cite{salt7}
+\par
+Paprasčiausias šios problemos sprendimas yra didžiausio gradientinio nuolydžio
+metodo naudojimas. Pasirinkus pakankamai mažą mokymosi žingsnį ir pradinį tašką, kuris
+yra arti tikrosios reikšmės, galima pasiekti kitus neapribotus kintamuosius.
+
+\[
+\theta = \theta - \eta * \bigtriangledown_{\theta}J(\theta)
+\]
+
+\par
+Sudėtingesnis šios problemos sprendimas yra pačios problemos perdarymas. \cite{salt7}
+
+\subsection{Blogas problemos apibrėžimas}
+
+Funkcija yra bloai apibrėžta, jeigu keičiant funkcijos įvestį nedaug, funkcijos reikšmė
+pakinta ženkliai daugiau. Funkcija yra laikoma gerai apibrėžta, jeigu keičiant jos įvestį,
+jos reikšmė keičiasi proporcingai. Ši problema pasireiškia labiausiai, kai yra
+atliekami skaičiavimai su mažais skaičiais. Jeigu įvesties vietoje įvyksta apvalinimo
+klaida, funkcijos rezultatas gali grąžinti blogą reikšmę. \cite{salt7}
+
+
+
+
+
+
+
+
 
 \section{Optimizavimo algoritmai}
 \par
@@ -364,10 +441,18 @@ To pasekoje, optimizavimo funkcijos greitis gali būti lėtas arba ji gali diver
 
 % TODO PASKAITYTI https://arxiv.org/pdf/1710.08402.pdf
 
-
 %\subsection{}  Algoritmas kuri naudoja tensorflow
 
+\section{Particles swarn}
+
 \section{Nuostolių funkcijos}
+
+\subsection{Nuostolių funckijos pasirinkimas}
+
+
+
+
+
 % https://towardsdatascience.com/https-medium-com-chayankathuria-regression-why-mean-square-error-a8cad2a1c96f
 \par
 Nuostolių funkcijos grąžina skirtumą tarp tinklo išvesties ir tikrų reikšmių. Pagal

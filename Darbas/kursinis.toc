@@ -10,56 +10,62 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.2.}GPU naudojimas}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.}Aktyvacijos funkcijos}{5}
+\contentsline {subsection}{\numberline {1.3.}Aktyvacijos funkcijos}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.}Tiesinė aktyvacijos funkcija}{5}
+\contentsline {subsubsection}{\numberline {1.3.1.}Tiesinė aktyvacijos funkcija}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.}ELU}{5}
+\contentsline {subsubsection}{\numberline {1.3.2.}ELU}{5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.}ReLU}{6}
+\contentsline {subsubsection}{\numberline {1.3.3.}ReLU}{5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4.}Sigmoid}{6}
+\contentsline {subsubsection}{\numberline {1.3.4.}Sigmoid}{5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.5.}Softmax}{6}
+\contentsline {subsubsection}{\numberline {1.3.5.}Softmax}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.6.}Argumentacija už pasirinktą aktyvacijos funkciją}{6}
+\contentsline {subsubsection}{\numberline {1.3.6.}Argumentacija už pasirinktą aktyvacijos funkciją}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.}Problemos su skaičiaja matematika}{8}
+\contentsline {section}{\numberline {2.}Problemos su skaičiaja matematika}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.0.1.}"Underflow" ir "overflow"}{8}
+\contentsline {subsection}{\numberline {2.1.}"Underflow" ir "overflow"}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {3.0.2.}Gradientų optimizavimas}{8}
+\contentsline {subsection}{\numberline {2.2.}Apribotas optimizavimas}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.}Optimizavimo algoritmai}{9}
+\contentsline {subsection}{\numberline {2.3.}Blogas problemos apibrėžimas}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.}Gradientinis nuolydis}{9}
+\contentsline {section}{\numberline {3.}Optimizavimo algoritmai}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.}Poaibio gradientinis nuolydis}{9}
+\contentsline {subsection}{\numberline {3.1.}Gradientinis nuolydis}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.}Mažo poaibio gradientinis nuolydis}{9}
+\contentsline {subsection}{\numberline {3.2.}Poaibio gradientinis nuolydis}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.}Sunkumai taikant gradientinius metodus}{10}
+\contentsline {subsection}{\numberline {3.3.}Mažo poaibio gradientinis nuolydis}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.5.}Bendros gradientinių metodų problemos}{11}
+\contentsline {subsection}{\numberline {3.4.}Sunkumai taikant gradientinius metodus}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.}Nuostolių funkcijos}{12}
+\contentsline {subsection}{\numberline {3.5.}Bendros gradientinių metodų problemos}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.}Vidutinė kvadratinė paklaida (MSE)}{12}
+\contentsline {section}{\numberline {4.}Particles swarn}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.}Šaknis iš vidutinės kvadratinės paklaidos (RMSE)}{12}
+\contentsline {section}{\numberline {5.}Nuostolių funkcijos}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3.}Paklaidų pakelti kvadratu suma}{12}
+\contentsline {subsection}{\numberline {5.1.}Nuostolių funckijos pasirinkimas}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.}Neuroninių tinklų modeliai}{13}
+\contentsline {subsection}{\numberline {5.2.}Vidutinė kvadratinė paklaida (MSE)}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.}Mask RCNN inception}{14}
+\contentsline {subsection}{\numberline {5.3.}Šaknis iš vidutinės kvadratinės paklaidos (RMSE)}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2.}SSD MobileNet 1}{15}
+\contentsline {subsection}{\numberline {5.4.}Paklaidų pakelti kvadratu suma}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3.}SSD MobileNet 2}{15}
+\contentsline {section}{\numberline {6.}Neuroninių tinklų modeliai}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.4.}Alternatyvūs objekto paieškos algoritmai}{15}
+\contentsline {subsection}{\numberline {6.1.}Mask RCNN inception}{15}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Išvados}{16}
+\contentsline {subsection}{\numberline {6.2.}SSD MobileNet 1}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Literatūra}{17}
+\contentsline {subsection}{\numberline {6.3.}SSD MobileNet 2}{16}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.4.}Alternatyvūs objekto paieškos algoritmai}{16}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Išvados}{17}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Literatūra}{18}
