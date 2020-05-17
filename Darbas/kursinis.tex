@@ -32,9 +32,9 @@
 \maketitle
 
 \sectionnonum{Įvadas}
-Pastaraisiais metais į medicinos sritį labai sparčiai skerbiasi informacinės technologijos. Atliekant
+Pastaraisiais metais į medicinos sritį labai sparčiai skverbiasi informacinės technologijos. Atliekant
 įvairias diagnostikas ar tiriant ligas, vaistus yra pasitelkiama programinių sistemų pagalba. Tačiau
-didžiają radiologo darbo dalį sprendimus turi priimti jis pats be jokios programinės įrangos pagalbos,
+didžiąją radiologo darbo dalį sprendimus turi priimti jis pats be jokios programinės įrangos pagalbos,
 nors dažniausiai yra apibrėžti tam tikri ligų aptikimų algorimtai, kaip vėžinių lastelių aptikimas,
 lūžiai ir taip toliau. Mano darbo tikslas yra prisidėti prie programinės įrangos kūrimo radiologams
 ir sukurti programą, kuri aptinka plaučius, kad vėliau tai galėtų būti panaudota tolimesnei
@@ -44,7 +44,7 @@ IT plėtrai medicinos srityje.
 metodai.
 Jie padeda duomenyse aptikti sunkiai pastebimus dėsningumus ir nuspėti išeities rezultatus su tam tikra klaidos tikimybe.
 Šiame darbe kalbėsiu vieną iš šių metodų: dirbtinius neuroninius tinklus.
-Juos pasirinkau nes kompiuterinėsje tomografijos vaizdai turi labai daug informacijos ir juos apdoruoti
+Juos pasirinkau nes kompiuterinės tomografijos vaizdai turi labai daug informacijos ir juos apdoroti
 naudojant logines taisykles yra per daug sunku. Tačiau net ir jiems ši užduotis yra per sudėtinga, jeigu
 tiriamos yra įvairios mutacijos arba nedažnos ligos, nes su kiekvienu nauju nematytu ligos atveju,
 yra reikalinga apmokyti modelį, o tai reikalauja daug duomenų.
@@ -79,7 +79,7 @@ nuo tikrosios reikšmės. Tendenciškumas priartina tinklo išvestį prie tikrų
 nurodo koks stiprus yra ryšys tarp neuronų, taip nurodant, kaip tinklo reikšmės kinta pačiame tinkle.
 Jeigu tinklui yra paduodama reikšmė, o pirmasis tinklo neuronas, kuris priima reikšmę turi mažą
 svorį, tai reiškia, jog galutiniams rezultatui ši reikšmė neturi daug įtakos. Jeigu svoris yra
-didelis, tai duota reikšmė turi daug įtakos rezutatui. \cite{salt2}
+didelis, tai duota reikšmė turi daug įtakos rezultatui. \cite{salt2}
 \par
 Svoriai ir tendenciškumas yra tinklo tvarkomi treniravimo proceso metu.
 prižiūrimasis tinklo treniravimas vyksta dviem žingsniai: priekine ir atgaline sklaida.
@@ -112,7 +112,7 @@ negul CPU. Taip yra pasiekiamas didesnis treniravimo našumas.
 Didesniam treniravimo našumui pastebėti naudojant GPU, negu CPU, buvo atliktas paprastas bandymas:
 naudojant Google tensorflow struktūrą, apmokame sistemą atpažinti kur yra žmogaus plaučiai kompiuterinės
 tomografijos vaizduose su CPU ir GPU. Vidutiniškai apdoruojant 60 megabaitų duomenų, vienam ciklui
-tiklas su CPU resursais užtrunka 6 sekunes, o naudojant GPU vidutiniškai vienas žingsnis užtrunka
+tinklas su CPU resursais užtrunka 6 sekundes, o naudojant GPU vidutiniškai vienas žingsnis užtrunka
 0.3 sekundės.
 \par
 % https://www.tensorflow.org/install/gpu
@@ -123,7 +123,7 @@ Ji kiekvieną skaičiavimą paleidžia ant atskiros gijos. Visi duomenys yra sus
 į vienos, dviejų ir trijų dimensijų blokus. Kiekvienams blogas gali turėti virš 512
 gijų. Visos gijos kurios operuoja viename bloke dalinasi bendra GPU atmintimi.
 Jeigu norima optimizuoti programą ir paleisti jos skaičiavimus ant GPU, tada reikia
-susiskaičiuoti kiek vyks paralelinių operacijų ir kiek iš jų dalinsis bendra atmintimi.
+suskaičiuoti kiek vyks paralelinių operacijų ir kiek iš jų dalinsis bendra atmintimi.
 Pagal apskaičiuotą kiekį nurodome kiek mes norime turėti blokų ir kiek kiekvienas blokas
 turės atskirų gijų. Prieš kiekvieną operaciją, siekiant pasiekti optimalų našumą, jeigu
 reikia įkeliame kintamuosiu į bendrą bloko atmintį. Po atliktų skaičiavimų išvestus
@@ -138,7 +138,7 @@ reikalaus nedaug aritmetiškai intensyvių operacijų.
 
 
 
-\section{Aktyavcijos funckijos}
+\section{Aktyvacijos funkcijos}
 \subsection{Tiesinė aktyvacijos funkcija}
 \[
 R(x, a) = x * a
@@ -265,15 +265,15 @@ Tai yra pati paprasčiausia optimizavimo funkcija.
 \theta = \theta - \eta * \bigtriangledown_{\theta}J(\theta)
 \]
 Pagal algoritmą yra atliekama daug iteracijų. Kiekvienos iteracijos metu yra
-apskaičiuojama delta. Ji yra gaunama iš esamos deltos atėmus mokymosi žingsnio konstanos
+apskaičiuojama delta. Ji yra gaunama iš esamos deltos atėmus mokymosi žingsnio konstantos
 ir nuostolių funkcijos gradientą parametro delta atžvilgiu. Kadangi žingsnis kurį
 atliekame kiekvienos iteracijos metu yra konstanta, jeigu pradinis parinktas taškas
 yra toli nuo lokalaus minimumo, tai prireiks daug iteracijų, kol jis bus pasiektas.
 Šiuo metodu taip pat kiekviena iteracija yra peržiūrimi visi duomenys, kad nėra
-gerai jeigu duomenų yra itin daug. \cite{salt8} Tokiu atveju reiktų daug atminties. Šis algoritmas nebus naudojamas, nes nėra
+gerai jeigu duomenų yra itin daug. \cite{salt8} Tokiu atveju reikėtų daug atminties. Šis algoritmas nebus naudojamas, nes nėra
 atsižvelgta į praeitas iteracijas ir minimumas yra per lėtai pasiekiamas, algoritmas.
 
-\subsection{Poaibio gradieninis nuolydis}
+\subsection{Poaibio gradientinis nuolydis}
  Šis algoritmas yra panašus į paprastą gradientinį metodą, tačiau yra kelis pakeitimai.
  Kai yra pereinama per visus duomenis, po kiekvieno duomenų elemento peržiūrėjimo,
  yra atnaujinami parametrai. Todėl po kiekvienos iteracijos, turime visų duomenų
@@ -290,11 +290,11 @@ atsižvelgta į praeitas iteracijas ir minimumas yra per lėtai pasiekiamas, alg
 Abiejų minėtų algoritmų idėjų kombinacija išvedė mažo poaibio gradientinį metodą.
 Šis algoritmas suskirsto duomenis į poaibius, kurių elementų skaičius yra daugiau nei 1.
 Dažniausiai poaibių dydis yra pasirenkamas dvejetas pakeltas kokiu nors laipsniu, nes
-vaizdo plokštėm tokius poaibius apdoroja geriau. Šis algoritmas yra greitesnis nei poaibio
+vaizdo plokštėms tokius poaibius apdoroja geriau. Šis algoritmas yra greitesnis nei poaibio
 gradientinis metodas, nes yra išvengiama mažų iteracijų, kurių duomenų elementas mažai
 prisideda prie parametrų pakeitimo. Taip pat šio metodo pasiekiamas tikslumas yra didesnis
 nei kitų minėtų algoritmų, nes atsitiktinai parenkami poaibiai skiriasi kiekvieno
-poaibių paskirstymo metu, taip sudarant daugiau varijacijų ir daugiau triukšmo. Kadangi
+poaibių paskirstymo metu, taip sudarant daugiau variacijų ir daugiau triukšmo. Kadangi
 bendrai yra apdorojama daugiau duomenų variacijų, šis metodas gali pasiekti didesnį
 tikslumą. Nors šis metodas gali pasiekti didesnį tikslumą ir yra greitesnis. \cite{salt9}
 
@@ -306,12 +306,12 @@ yra parenkamas empiriškai stebint konvergavimo greitį ir duomenų kiekį. Jeig
 tai optimizavimo funkcija gali diverguoti arba peršokti lokalų minimumą ir nutolti nuo jo, taip praiilginant
 procesą. Jeigu žingsnis yra parenkamas per mažas, tada konvergavimo greitis į lokalų minimumą yra labai mažas
 ir procesas trunka ilgai. \cite{salt17}
-\item Mokymosi žingsnio keitimo trigeris. Kuriant trigerį reikia nurodyti arba epochų skaičių arba ribinę nuostolių
+\item Mokymosi žingsnio keitimo trigeris. Kuriant "trigerį" reikia nurodyti arba epochų skaičių arba ribinę nuostolių
 funckijos reikšmę, kada trigeris turi būti aktyvuotas. Po aktyvacijos, trigeris pakeičia mokymosi žingsnio dydį.
 Trigerio aktyvacijos laiko nurodymui irgi nėra jokios tikslios taisyklės, tai yra nurodoma empiriškai stebint
 mokymosi procesą. Jeigu aktyvacijos laikas yra nurodomas per anksti, mokymosi žingsnis yra sulėtinamas per greitai
 ir funkcija pradeda lėčiau diverguoti į minimumą. Jeigu žingsnis yra nurodomas per vėlai, tam tikru momentu
-žingsnis gali būti per didelis ir funkcija gali pradėvi diverguoti arba peršokti lokalų minimumą ir tolti nuo
+žingsnis gali būti per didelis ir funkcija gali pradėti diverguoti arba peršokti lokalų minimumą ir tolti nuo
 minimumo. \cite{salt17}
 \item Duomenų rinkinio parinkimas. Jeigu daug duomenų turi tuos pačius požymius, pagal kuriuos tinklas klasifikuoja
 rezultatus, visų šių duomenų iteracija nėra būtina, nes jie tinklo svorių pokyčius įtakos labai nežymiai.
@@ -325,7 +325,7 @@ eina. Pasiekus lokalų minimumą, kai gradientas pradeda didėti, optimizavimo a
 blogai parenkamas pirmas taškas, optimizavimo algoritmai "užstrigs" ties lokaliu minimumu. \cite{salt17} Tą išvengti galima prieš algoritmo pradžią
 įvertinti funkciją ir parinkti artimus pradinius taškus prie tikrųjų reikšmių. Kitas būdas to išvegti yra naudoti
 optimizavimo algoritmus, kurie nesiremia gradientų nuolydžiu. Vienas iš daugelio algoritmų, kuris nesiremia gradientais, yra
-banginių judesių grįstas optimizavimo algoritmas.
+banginių judesių pagrįstas optimizavimo algoritmas.
 \end{enumerate}
 % https://www.sciencedirect.com/science/article/pii/S0965997816300163?casa_token=yI9V7so44bIAAAAA:y_34ijm8Gc4JBSknYd7cH2hqfk2K4h6dpYxZBTR7RGCEa89wP2b5Ohl_FqhK8t8gG9r4qdmGCg
 \par
@@ -347,14 +347,14 @@ centrą ir pagauna žuvis. Šis algoritmas yra pagrįstas būtent šiuo judėjim
 
 \subsection{Bendros gradientinių metodų problemos}
 \par
-Gradientinio nuolydžio metodai yra pirmo laipsnio optimizavimo funckijos, kas
+Gradientinio nuolydžio metodai yra pirmo laipsnio optimizavimo funkcijos, kas
 reiškia jog jos naudoja tik pirmo laipsnio išvestines. Kadangi pirma išvestinė rodo
 tik funkcijos statumą, bet ne išlenktumą, tai:
 \begin{enumerate}
 \item Jeigu antra išvestinė yra lygi nuliui, tai funkcija yra tiesinė. Todėl,
 mokymosi žingsnis yra lygus alpha. \cite{salt9}
 \item Jeigu antra išvestinė yra didesnė už nulį tai funkcijos išlenktumas eina į viršų.
-Todėl funkcijos žingsnis yra mažesnis už mokymosi žingsnį ir optimizavimo funckija gali
+Todėl funkcijos žingsnis yra mažesnis už mokymosi žingsnį ir optimizavimo funkcija gali
 diverguoti. \cite{salt9}
 \item Jeigu antra išvestinė yra mažesnė už nulį, tai funkcija yra išlenkta į apačią.
 Todėl funkcijos žingsnis yra didesnis už mokymosi žingsnį. \cite{salt9}
@@ -379,18 +379,18 @@ keičiami tinklo svoriai ir tendenciškumas.
   Nuostolis = \frac{1}{N} * [\sum(Y_{Gautas}-Y_{Tikras})^{2}]
 \]
 \par
-MSE funckija sumuoja skirtumų kvadratus ir randa bendrą nuostolių vidurkį.
+MSE funkcija sumuoja skirtumų kvadratus ir randa bendrą nuostolių vidurkį.
 Ši funkcija yra dažnai numatyta įaviriuose MATLAB ir Python algoritmuose.
 Vienintelė neigiama šios funkcijos pusė yra tai, kad jeigu duoti duomenys yra pirmojo
 laipsio, tada negalima teigti, kad rezultatai tiesiogiai koreliuoja tarpusavyje,
-nes MSE yra antrojo laipsnio funckija. \cite{salt12}
+nes MSE yra antrojo laipsnio funkcija. \cite{salt12}
 
 \subsection{Šaknis iš vidutinės kvadratinės paklaidos (RMSE)}
 \[
   Nuostolis = \sqrt{\frac{1}{N} * [\sum (Y_{Gautas}-Y_{Tikras})^{2}]}
 \]
 RMSE funkcija yra panaši į MSE, tik pridėta šaknies traukimo operacija.
-Šaknies traukimas paverčia RMSE pirmojo laipsnio funckija, todėl ją galima naudoti
+Šaknies traukimas paverčia RMSE pirmojo laipsnio funkcija, todėl ją galima naudoti
 su pirmojo laipsnio duomenimis. \cite{salt12}
 
 \subsection{Paklaidų pakelti kvadratu suma}
@@ -455,7 +455,7 @@ failų pavyzdžių:
 
 \par
 Šiam uždaviniui tokio tipo failai buvo pasirinkti tam, nes reikia aptikti dvi klases:
-plaučiai ir ne plaučiai. Taip su skirtingomis piklesių reikšmėmis yra paduodamos kiekvieno
+plaučiai ir ne plaučiai. Taip su skirtingomis pikselių reikšmėmis yra paduodamos kiekvieno
 pikselio klasės. Šie dvejetainiai vaizdų failai buvo gauti apibrėžiant plaučius kiekvienoje
 nuotraukoje ir eksportuojant pažymėtus ribinius taškus į "XML" failus. Pagal duotas ribinių
 taškų X ir Y koordinates, buvo parašyta programa, kuri automatiškai pagal turimus
@@ -480,7 +480,7 @@ sugeneruoja požymių aibę, pagal kurią galima nuspėti, kad tai yra ieškomas
 ir kur būtent jis yra vaizde.
 \item Vaizdo regiono pasiūlos algoritmas naudoja CNN, kad sugeneruotų regionus vaizde pagal
 gautą požymių aibę.
-\item Sulyginus gautis regionus gaunamos koordnatės, kurios apibrėžia objektą.
+\item Sulyginus gautis regionus gaunamos koordinatės, kurios apibrėžia objektą.
 \item Naudojant regresijos modelius objekto apibrėžimas yra tikslinimas, kol gaunami
 optimalūs rezultatai.
 \item Rezultatai yra persiunčiami į kitą CNN tinklą, kuris sugeneruoja vaizdų kaukes
@@ -490,11 +490,11 @@ optimalūs rezultatai.
 % https://medium.com/@smallfishbigsea/faster-r-cnn-explained-864d4fb7e3f8
 Tinklas gauna vaizdo regionus, kurie turi didesnę tikimybę turėti objektą, naudodamas
 9 inkarinių apibrėžimų koordinates.
-3 inkariniai apibrėžimai yr skirtingų formų. Kiekvienam šiam apibrėžimui yra sukuriami
+3 inkariniai apibrėžimai yra skirtingų formų. Kiekvienam šiam apibrėžimui yra sukuriami
 dar 2 apibrėžimai, kurių formos yra vienodos, tačiau jų dydžiai skiriasi. Šiais 9
 inkarais yra pereinama per vaizdą su kiekvienu inkaru ir kiekvienas inkaro apibrėžtas
 vaizdas yra analizuojamas: siunčiamas per CNN ir gaunama tikimybė, kad tai yra tam tikra
-klasė. Su kiekvienu uždaviniu yra patartina patiems apsibrėžti kokios formos turi būti inkarai. \cite{salt15}
+klasė. Su kiekvienu uždaviniu yra patartina patiems apibrėžti kokios formos turi būti inkarai. \cite{salt15}
 Pavyzdžiui jeigu uždavinys yra aptikti plaučius kompiuterinės tomografijos nuotraukose,
 inkarai turėtų būti būti didesni į aukštį ir mažesni į plotį ir 3 inkarai iš 9 turi būti
 kvadrato formos, nes jeigu analizuojamas plaučių viršus nuotraukose, tai jis yra apvalus,
@@ -507,16 +507,16 @@ objektą. \cite{salt15}
 \par
 Po šių veiksmų vaizdui yra sugeneruojama daug objektų apibrėžimų. Dalis šių apibrėžimų
 kertasi tarpusavyje. Apibrėžimai kurie kertasi tarpusavyje yra išsaugomi ir vėliau
-toliau analizuojami. \cite{salt15} Kiekvienam kirtimuisi yra apskaičiuojamas kirtimosi koficientas:
+toliau analizuojami. \cite{salt15} Kiekvienam kirtimuisi yra apskaičiuojamas kirtimosi koeficientas:
 \[
   K = \frac{N_{PirmasObjektas} \bigcap N_{AntrasObjektas}}{N_{PirmasObjektas} \bigcup N_{AntrasObjektas}}
 \]
 \par
-Jeigu koficientas yra lygus 1, tai reiškia jog inkarų apibrėžimai sutampa idealiai.
-Jeigu koficientas yra mažesnis už arba lygus 0.5, tada apibrėžimai nėra naudojami.
-Jeigu koficientas yra didesnis už 0.5, sankirta yra išsaugoma tolimesnei analizei.
-Atlikus paiešką, kiekvienam atskiram objektui yr parenkama tik sankirta su aukščiausiu
-sutapimo koficientu ir kiti apibrėžimai apie einamą objektą yra pašalinami.
+Jeigu koeficientas yra lygus 1, tai reiškia jog inkarų apibrėžimai sutampa idealiai.
+Jeigu koeficientas yra mažesnis už arba lygus 0.5, tada apibrėžimai nėra naudojami.
+Jeigu koeficientas yra didesnis už 0.5, sankirta yra išsaugoma tolimesnei analizei.
+Atlikus paiešką, kiekvienam atskiram objektui yra parenkama tik sankirta su aukščiausiu
+sutapimo koeficientu ir kiti apibrėžimai apie einamąjį objektą yra pašalinami.
 Po šių žingsnių yra gaunami apibrėžimai aplink kiekvieną objektą, ir jų yra tik po
 vieną. Kiekvienas šis apibrėžimas yra siunčiamas per kitą CNN tinklą, kuris analizuoja
 kiekvieno pikselio reikšmę ir nustato tikslias objektų ribas. \cite{salt15}

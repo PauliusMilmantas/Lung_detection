@@ -10,7 +10,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.2.}GPU naudojimas}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.}Aktyavcijos funckijos}{5}
+\contentsline {section}{\numberline {2.}Aktyvacijos funkcijos}{5}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1.}Tiesinė aktyvacijos funkcija}{5}
 \defcounter {refsection}{0}\relax 
@@ -34,7 +34,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.1.}Gradientinis nuolydis}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.}Poaibio gradieninis nuolydis}{9}
+\contentsline {subsection}{\numberline {4.2.}Poaibio gradientinis nuolydis}{9}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.3.}Mažo poaibio gradientinis nuolydis}{9}
 \defcounter {refsection}{0}\relax 
