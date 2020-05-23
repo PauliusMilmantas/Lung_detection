@@ -56,6 +56,10 @@ naudoja taisyklių rinkinį. Norint gauti mažą šio metodo paklaidą, turime a
 Taisyklės paprastai būna aprašomos naudojant "if, else" aprašus.\cite{salt1} Mano nagrinėjamame atvejyje duomenys
 yra labai dideli ir įvairūs, todėl aprašyti visas šias taisykles užtruktų neproporcingai daug laiko ir tam
 tikrų radiologijos žinių.
+\par
+Pasiekti darbo rezultatai: sukurtas neuroninis tinklas ir parašyta programa, kuri aptinka plaučius kompiuterinės tomografijos
+nuotrauka. Pasiektas 0.02 nuostolių funkcijos rezultatas, naudojant 298 nuotraukose, kurios buvo gautos taikant
+įvairias modifikacijas pradinėms 50 nuotraukų.
 
 \tableofcontents
 
@@ -69,33 +73,45 @@ Daugelį dirbtinių neuronų tinklų sudaro panašios struktūrinės dalys:
   pilkos spalvos atspalvis, kuris yra intervale [0;1]. Vienai nuotraukai užkoduoti
   užtenka 90 000 tašktų, todėl neuroninio tinklo įvesties sluoksnį sudaro 90 000 neuronų.
   \item Išvesties sluoksnis: tai dalis, kuri naudoja aktyvacijos funkciją, kuri grąžina galutinį tinklo rezultatą: tikimybių rinkinį,
-  kuris parodo kokia tikimybė, kad objektas atitinka tam tikrą klasę.
-  \item Paslėptas sluoksnis: perduoda svorius iš praeito sluoksnio į sekantį.
-  \item Susijungimai ir svoriai: tarp kiekvieno neurono, kuris yra susijungęs, turi savo svorį, pagal kurį yra pakeičiama perduodama reikšmė.
-  \item Aktyvacijos funkcija: tai funkcija, kokia turi būti neurono išvestis.
-  \item Optimizatimo funkcija: optimizuoja tikslo funkciją.
+  kuris parodo kokia tikimybė, kad objektas atitinka tam tikrą klasę. Dažniausiai kiek
+  uždavinyje yra klasių, tiek ir yra neuronų išvesties sluoksnyje.
+  \item Paslėptas sluoksnis: perduoda svorius iš praeito sluoksnio į sekantį. Prieš reikšmės perdavimą paslėptame
+  sluoksnyje kiekvienas neuronas sudeda visų ankstesnio sluoksnio neuronų siunčiamas reikšmes. Šią sumą
+  neuronai siunčia toliau, tačiau jų reikšmės yra pakeičiamos atsižvelgiant į svorius tarp neuronų jungčių ir
+  tendenciškumo.
+  \item Susijungimai, jų svoriai ir tendenciškumas: Šie du parametrai yra
+  tinklo automatiškai sugeneruojami ir apmokant tinklą pagal
+  duomenis, svoriai ir tendenciškumas
+  yra automatiškai tinklo keičiami. Tendenciškumas apibrėžia kaip tinklo išvestis yra nutolusi
+  nuo tikrosios reikšmės. Tarp
+  kiekvieno neurono, kuris yra susijungęs tarpusavyje, turi savo jungtis, per
+  kurias yra paduodamos reikšmės kitiems neuronams sekančiuose sluoksniuose.
+  Kaip reikšmė kis keliaujant per jungtis, nusako svoriai tarp jungčių. Tinklui mokantis
+  šie svoriai yra keičiami tol, kols tinklo išvestis priartėja tikro atsakymo. Svoriai
+  nurodo koks stiprus yra ryšys tarp neuronų, taip nurodant, kaip tinklo reikšmės kinta pačiame tinkle.
+  Jeigu tinklui yra paduodama reikšmė, o pirmasis tinklo neuronas, kuris priima reikšmę turi mažą
+  svorį, tai reiškia, jog galutiniams rezultatui ši reikšmė neturi daug įtakos. Jeigu svoris yra
+  didelis, tai duota reikšmė turi daug įtakos rezultatui. \cite{salt2} Tinkluose yra
+  taip pat naudojamas tendenciškumas. Jis nusako kaip turi būti koreguojamos tinklo reikšmės.
+  Jeigu aktyvacijos funkcija grąžina blogą reikšmę, galima keisti tendenciškumo kintamajį ir
+  pekeisti galutinį rezultatą.
+  \item Aktyvacijos funkcija: tai funkcija, kokia turi būti neurono išvestis. Kiekvienas neuromas
+  susumuoja praeito sluoksnio neuronų išvestis ir šią suma praleidžia pro aktyvacijos funkciją.
+  Aktyvacijos funkcijos reikšmė yra toliau paduodama kitiems neuronams (atsižvelgiant taip pat ir į
+  jungčių svorius ir į tendenciškumą).
+  \item Optimizatimo funkcija: optimizuoja tikslo funkciją. Tikslo funkcija yra taip pat vadinama nuostolių funkcija.
+  Šios funkcijos pagrindinis tikslas yra keisti neuroninio tinklo reikšmes taip, kad tinklo išvestis būtų
+  kuo artesnė tikram rezultatui.
   \item Mokymosi taisyklė: apibrėžia, kaip tinkle keičiasi svoriai, kad tinklas išvestų norimus rezultatus.
+  Taip pat galima nurodyti ir kaip keičiasi tendenciškumas, bei kada jį naudoti.
 \end{enumerate}
 % https://deepai.org/machine-learning-glossary-and-terms/weight-artificial-neural-network
 \par
-Dirbtinį neuroninį tinklą taip pat sudaro svoriai ir tendenciškumas. Šie du parametrai yra
-tinklo automatiškai sugeneruojami ir apmokant tinklą pagal duomenis, svoriai ir tendenciškumas
-yra automatiškai tinklo keičiami. Tendenciškumas apibrėžia kaip tinklo išvestis yra nutolusi
-nuo tikrosios reikšmės. Tendenciškumas priartina tinklo išvestį prie tikrųjų reikšmių. Svoriai
-nurodo koks stiprus yra ryšys tarp neuronų, taip nurodant, kaip tinklo reikšmės kinta pačiame tinkle.
-Jeigu tinklui yra paduodama reikšmė, o pirmasis tinklo neuronas, kuris priima reikšmę turi mažą
-svorį, tai reiškia, jog galutiniams rezultatui ši reikšmė neturi daug įtakos. Jeigu svoris yra
-didelis, tai duota reikšmė turi daug įtakos rezultatui. \cite{salt2}
-\par
-Svoriai ir tendenciškumas yra tinklo tvarkomi treniravimo proceso metu.
-prižiūrimasis tinklo treniravimas vyksta dviem žingsniai: priekine ir atgaline sklaida.
-
-
+Turint šias bazines neuroninio tinklo dalis, galima jį pradėti mokyti. Paprastai mokymasis
+yra skiriamas į dvi dalis: priekinę ir galinę sklaidą.
 % Priekine sklaida
-TODO
-
-
-
+Kai tinklui yra paduodamos reikšmės, jos keliauja iš pradinio sluoksnio iki išvesties sluoksnio. Tai
+yra priekinė sklaida.
 % Atgaline sklaida
 % (http://didattica.cs.unicam.it/lib/exe/fetch.php?media=didattica:magistrale:kebi:ay_1718:ke-11_neural_networks.pdf University of Applied Sciences Northwestern Switzerland)
 Atgalinė sklaida vyksta, kai tinklas išveda rezultatą, patikrinama ar
@@ -107,7 +123,6 @@ svorių ir tendenciškumo pokyčiai tinklai ir taip yra
 keičiami tinklo svoriai ir tendenciškumas atsižvelgiant į padarytą klaidą. Kai klaidos
 yra padaromos pakankamai mažos ir jos yra mažesnės už duotą ribinę reikšmę, yra laikoma, kad tinklas
 baigė mokymosi procesą. \cite{salt3}
-
 
 \subsection{GPU naudojimas}
 \par
@@ -143,10 +158,15 @@ jos sprendimo paleidimas ant GPU nebus efektyvus, nes nebus galima išnaudoti br
 dėl kintančios atminties. Taip pat problemos sprendimas nebus efektyvus, jeigu
 reikalaus nedaug aritmetiškai intensyvių operacijų.
 
-
-
-
 \subsection{Aktyvacijos funkcijos}
+\par
+Aktyvacijos funkcijos yra būtinos neuroniniame tinkle, jeigu norime, kad tinklas
+grąžintų netiesines reikšmes. T.y. kad nuo tinklui duodamų parametrų, tinklo išvestis
+nepriklausytų tiesiogiai. \cite{salt18} Neuroninio tinklo tikslas yra rasti tam tikrą
+koreliaciją tarp įvesties ir išvesties duomenų. Jeigu duomenys yra sudetingų struktūrų,
+tiesinis tinklas koreliacijos neras, tačiau jeigu yra naudojamos aktyvacijos funckijos,
+tinklas yra netiesinis, tada galima aptikti labiau kompleksyvią koreliaciją. \cite{salt18}
+
 \subsubsection{Tiesinė aktyvacijos funkcija}
 \[
 R(x, a) = x * a
@@ -313,7 +333,7 @@ Sudėtingesnis šios problemos sprendimas yra pačios problemos perdarymas. \cit
 
 \subsection{Blogas problemos apibrėžimas}
 
-Funkcija yra bloai apibrėžta, jeigu keičiant funkcijos įvestį nedaug, funkcijos reikšmė
+Funkcija yra blogai apibrėžta, jeigu keičiant funkcijos įvestį nedaug, funkcijos reikšmė
 pakinta ženkliai daugiau. Funkcija yra laikoma gerai apibrėžta, jeigu keičiant jos įvestį,
 jos reikšmė keičiasi proporcingai. Ši problema pasireiškia labiausiai, kai yra
 atliekami skaičiavimai su mažais skaičiais. Jeigu įvesties vietoje įvyksta apvalinimo
@@ -641,19 +661,27 @@ kiekvieno pikselio reikšmę ir nustato tikslias objektų ribas. \cite{salt15}
 
 
 
+\section{Rezultatai}
+\par
+Naudojant Tensorflow karkasą ir "mask rcnn inception v2" tinklo modelį, buvo sėkmingai
+ištreniruotas tinklas aptikti plaučius su 0.02 nuostoliais.
+Tikslaus tikslumo procentais negalima nusakyti, nes tai yra ne objektų klasifikavimo,
+bet aptikimo uždavinys.
+Treniravimas užtruko apie 20 minučių,
+naudojant Google Colab GPU. Užteko 31240 epochų apmokyti plaučių aptikimą.
+Treniravimui buvo sužymėtos 50 nuotraukų. Naudojant žymėjimo programą, buvo sukurti kaukių
+failai, kurie tiksliai apibrėžia plaučių ribas. Naudojant įvairias modifikacijas:
+gauso filtras pritaikytais 5-iomis skirtingomis tikimybėmis, buvo gautos 298 nuotraukos.
+Kadangi nuostoliai nuo ~2500 epochos stabiliai laikėsi ir nustojo mažėti, reiškia norint
+pasiekti dar didesnį tinklo tikslumą, reikia sužymėti daugiau duomenų.
+Galutinis programos rezultatas atvaizduotas pav. programa. Programos kodas naudoti
+duomenys yra pataltinti internete, adresas pateiktas priejų skiltyje.
 
-
-
-
-
-
-
-%\section{Tutorial}
-%\subsection{Poskyris}
-%\cite{test1}
-%Citavimo pavyzdžiai: cituojamas vienas šaltinis \cite{PvzStraipsnLt}; cituojami
-%keli šaltiniai \cite{PvzStraipsnEn, PvzKonfLt, PvzKonfEn, PvzKnygLt, PvzKnygEn,
-%PvzElPubLt, PvzElPubEn, PvzMagistrLt, PvzPhdEn}.
+\begin{figure}[ht]
+  \includegraphics[width=4cm,height=4cm,keepaspectratio]{result1.png}
+  \caption{Programa.}
+  \label{fig:kaukė1}
+\end{figure}
 
 \sectionnonum{Išvados}
 Išvadose ir pasiūlymuose, nekartojant atskirų dalių apibendrinimų,

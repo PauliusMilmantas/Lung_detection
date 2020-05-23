@@ -321,6 +321,32 @@
       \verb https://www.tensorflow.org/install/gpu
       \endverb
     \endentry
+    \entry{salt18}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=90c7426871854b545001dbd291c0b3bb}{%
+           family={Oppermann},
+           familyi={O\bibinitperiod},
+           given={Artem},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{90c7426871854b545001dbd291c0b3bb}
+      \strng{fullhash}{90c7426871854b545001dbd291c0b3bb}
+      \strng{authornamehash}{90c7426871854b545001dbd291c0b3bb}
+      \strng{authorfullhash}{90c7426871854b545001dbd291c0b3bb}
+      \field{labelalpha}{Opp}
+      \field{sortinit}{O}
+      \field{sortinithash}{f5d80ef71b5b58852663ecfd775b175a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Activation Functions in Neural Networks}
+      \field{urlday}{23}
+      \field{urlmonth}{5}
+      \field{urlyear}{2020}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://www.deeplearning-academy.com/p/ai-wiki-activation-functions
+      \endverb
+    \endentry
     \entry{salt17}{misc}{}
       \name{author}{1}{}{%
         {{hash=b468248a20d75c52ee742f4592c2569f}{%
