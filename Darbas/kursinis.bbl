@@ -100,6 +100,33 @@
       \verb https://medium.com/@sdoshi579/optimizers-for-training-neural-network-59450d71caf6
       \endverb
     \endentry
+    \entry{salt20}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=43ded22aad732ae58e01afbaf854a6e6}{%
+           family={Forson},
+           familyi={F\bibinitperiod},
+           given={Eddie},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{43ded22aad732ae58e01afbaf854a6e6}
+      \strng{fullhash}{43ded22aad732ae58e01afbaf854a6e6}
+      \strng{authornamehash}{43ded22aad732ae58e01afbaf854a6e6}
+      \strng{authorfullhash}{43ded22aad732ae58e01afbaf854a6e6}
+      \field{labelalpha}{For17}
+      \field{sortinit}{F}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Understanding SSD MultiBox — Real-Time Object Detection In Deep Learning}
+      \field{urlday}{23}
+      \field{urlmonth}{5}
+      \field{urlyear}{2020}
+      \field{year}{2017}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://towardsdatascience.com/understanding-ssd-multibox-real-time-object-detection-in-deep-learning-495ef744fab
+      \endverb
+    \endentry
     \entry{salt15}{misc}{}
       \name{author}{1}{}{%
         {{hash=961919f4f1d5603650aa2b096fc5206e}{%

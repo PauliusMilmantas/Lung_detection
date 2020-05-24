@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2020.4.18)  23 MAY 2020 20:52
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2020.4.18)  24 MAY 2020 17:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1186,55 +1186,55 @@ Missing character: There is no š in font cmmi8!
 File: ./fjos/mask.png Graphic file (type QTm)
  <use  "./fjos/mask.png" > [15
 
-] [16] [17]
+] [16] [17] [18]
 File: ./fjos/result1.png Graphic file (type QTm)
 
-<use  "./fjos/result1.png" > [18
+<use  "./fjos/result1.png" > [19
 
-] [19
+] [20
 
 ]
-Underfull \hbox (badness 3088) in paragraph at lines 690--690
+Underfull \hbox (badness 3088) in paragraph at lines 703--703
 []\TU/texgyretermes(0)/m/n/12 Hao Gao. Faster r-cnn explained, 2017. \TU/texgyr
 etermes(0)/m/sc/12 url\TU/texgyretermes(0)/m/n/12 : $[][][][][] [] [] [] [][][]
 [][][] [] [][][] []
  []
 
 
-Underfull \hbox (badness 1132) in paragraph at lines 690--690
+Underfull \hbox (badness 1132) in paragraph at lines 703--703
 []\TU/texgyretermes(0)/m/n/12 Chayan Kathuria. Regression — why mean square err
 or?, 2019. \TU/texgyretermes(0)/m/sc/12 url\TU/texgyretermes(0)/m/n/12 : $[][][
 ][][] []
  []
 
-[20
+[21
 
 ]
-Underfull \hbox (badness 7308) in paragraph at lines 690--690
+Underfull \hbox (badness 7308) in paragraph at lines 703--703
 []\TU/texgyretermes(0)/m/n/12 Andrew Lewis Seyedali Mirjalili. The whale optimi
 zation algorithm, 2016.
  []
 
 
-Underfull \hbox (badness 4913) in paragraph at lines 690--690
+Underfull \hbox (badness 4913) in paragraph at lines 703--703
 \TU/texgyretermes(0)/m/sc/12 url\TU/texgyretermes(0)/m/n/12 : $[][][][][] [] []
  [] [][][] [] [][][][][][][][][][][][][] [] [][][] [] [][][][][][][] [] [][][][
 ][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 690--690
+Underfull \hbox (badness 10000) in paragraph at lines 703--703
 [][][] [] [][][][][][][][][][][][][][][][][] [] [][][][] [] [][][][][] [] [][][
 ][][][][][][][][][][][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 690--690
+Underfull \hbox (badness 10000) in paragraph at lines 703--703
 [] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][] []
  []
 
-[21] (./kursinis.aux)
+[22] (./kursinis.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -1243,12 +1243,12 @@ Package logreq Info: Writing requests to 'kursinis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 21790 strings out of 493068
- 449952 string characters out of 6137720
- 889455 words of memory out of 5000000
- 25446 multiletter control sequences out of 15000+600000
+ 21792 strings out of 493068
+ 450016 string characters out of 6137720
+ 889490 words of memory out of 5000000
+ 25448 multiletter control sequences out of 15000+600000
  11198 words of font info for 59 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
  67i,12n,96p,10497b,5896s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on kursinis.pdf (22 pages).
+Output written on kursinis.pdf (23 pages).

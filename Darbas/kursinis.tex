@@ -624,7 +624,8 @@ Atlikus paiešką, kiekvienam atskiram objektui yra parenkama tik sankirta su au
 sutapimo koeficientu ir kiti apibrėžimai apie einamąjį objektą yra pašalinami.
 Po šių žingsnių yra gaunami apibrėžimai aplink kiekvieną objektą, ir jų yra tik po
 vieną. Kiekvienas šis apibrėžimas yra siunčiamas per kitą CNN tinklą, kuris analizuoja
-kiekvieno pikselio reikšmę ir nustato tikslias objektų ribas. \cite{salt15}
+kiekvieno pikselio reikšmę ir nustato tikslias objektų ribas \cite{salt15}.
+
 
 
 
@@ -637,19 +638,21 @@ kiekvieno pikselio reikšmę ir nustato tikslias objektų ribas. \cite{salt15}
 
 
 % https://machinethink.net/blog/mobilenet-v2/
-\subsection{SSD MobileNet 1}
+% https://arxiv.org/abs/1512.02325
+\subsection{Vieno kadro aptikimas}
 \par
-
-
-
-
-
-
-
-
-
-\subsection{SSD MobileNet 2}
-\par
+Vieno kadro aptikimo (trumpinys SSD) algoritmas objektų aptikimui naudoja tik vieną kadrą.
+Objektų aptikui vaizdo įrašuose, objektams aptikti užtenka vieno kadro ir užtenka
+duomenis persiųsti per neuroninį tinklą tik vieną kartą. Šis algoritmas
+naudoja VGG16 architektūrą kaip pagrindą. Toks pasirinkimas buvo atliktas dėl VGG16
+didelės spartos \cite{salt20}. Ieškomos vietos paieška naudojasi inkarų sistema:
+yra generuojami langai, vaizdui skanuoti, kurie yra įvairaus dydžio santykių.
+Kiekvienam sugeneruotam langui yra skaičiuojama tikimybė, kad tai yra koks objektas
+ir atstumą iki tikrosios reikšmės. Sugeneruoto lango nuostoliui apskaičiuoti
+yra naudojama L1-Norm. skaičiuojant nuostolius \cite{salt20}. Ši nuostolių funkcija
+yra mažiau tiksli negul naujesnė L2-Norm. tačiau ji buvo pasirinkta, nes ji yra nuolaidesnė
+kiekvienam pikseliui. T.y. jeigu keli pikseliai neatitinka objekto, o visi kiti atitinka,
+tai šie daro mažai įtakos galutiniam tinklo rezultatui.
 
 
 
@@ -657,7 +660,17 @@ kiekvieno pikselio reikšmę ir nustato tikslias objektų ribas. \cite{salt15}
 
 \subsection{Alternatyvūs objekto paieškos algoritmai}
 \par
-
+Minėti tinklų modeliai skiriasi savo neuroninių tinklų struktūra ir ieškomų regionų
+paieškos algoritmais. Minėti abu tinklai naudoja skirtingas inkarų paieškos algortimo
+realizacijas. Egzistuoja ir daugiau paieškos būtų. Vienas iš būtų yra slenkančio lango
+algoritmas. Šis algoritmas pereina per visas galimas vaizdų kombinacijas. Vietoj
+laikantis tam sikro lango dydžio santykio,visi dydžiai yra pasirenkami ir išanalizuojami.
+Kadangi šis algoritmas tikrina daugiau sugeneruotų langų kombinacijų, algoritmas veikia labai lėtai.
+Buvo sukurtas rašytinių lietuvių kalbos raidžių aptikimo modelis. Jis buvo padarytas iš 3 sluoksnių
+ir vienai 1920x1080 pikselių nuotraukai išanalizuoti prireikia vidutiniškai 20 minučių. Tačiau
+šį laiką galima sutrumpinti padidinant žingsnio dydį. Pavyzdžiui, padidinis žingsnio dydį vietoj
+1 pikselio, naudojant 10-ties pikselių žingsnį, laikas vienai nuotraukai išanalizuoti
+vidutiniškai užtrunka apie 6 minutes.
 
 
 

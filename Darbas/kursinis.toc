@@ -60,14 +60,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {6.1.}Mask RCNN inception}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2.}SSD MobileNet 1}{17}
+\contentsline {subsection}{\numberline {6.2.}Vieno kadro aptikimas}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3.}SSD MobileNet 2}{17}
+\contentsline {subsection}{\numberline {6.3.}Alternatyvūs objekto paieškos algoritmai}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.4.}Alternatyvūs objekto paieškos algoritmai}{17}
+\contentsline {section}{\numberline {7.}Rezultatai}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.}Rezultatai}{18}
+\contentsline {section}{Išvados}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Išvados}{19}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{Literatūra}{20}
+\contentsline {section}{Literatūra}{21}
