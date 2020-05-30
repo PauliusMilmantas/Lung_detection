@@ -1,0 +1,24 @@
+Viena pastraipa i virsu (ivadas),
+ismesti rezultatus
+Yra ivairiu metodu.
+...
+Siandien yra labai perspekty
+Reikia salt.
+
+
+[x] Tyrimo skyrius
+
+
+[x] Rezultatai. Koks modelis konkretus.
+[x] Kiek milijonu parametru. KOkie sluoksniai
+[x] Kaip veikia.
+[x] Kaip paruo6iami duomenys.
+
+Isvados
+Kas buvo nuveikta/gauta. Atlikta literaturos analize.
+duomenu rinkinys,
+apmokintas modelis,
+=> Teiginiai/Isvados.
+
+
+

@@ -15,7 +15,7 @@
 % Titulinio aprašas
 \university{Vilniaus universitetas}
 \faculty{Matematikos ir informatikos fakultetas}
-\department{Programų sistemų katedra}
+\department{PROGRAMŲ SISTEMŲ BAKALAURO STUDIJŲ PROGRAMA}
 \papertype{Kursinis darbas}
 \title{Objektų atpažinimas ir sekimas kompiuterinės tomografijos vaizduose}
 \titleineng{Object detection and tracking in computed tomography}
@@ -181,6 +181,7 @@ Taigi, jeigu spėjime yra klaida, vykdant atgalinę sklaidą mes reikšmę taisy
 konstanta, neatsižvelgiant į pačią klaidą. \cite{salt16}
 
 \begin{figure}[ht]
+  \centering
   \includegraphics[width=6cm,height=6cm,keepaspectratio]{tiesine.png}
   \caption{Tiesinė lygtis}
   \label{fig:lygtis1}
@@ -198,6 +199,7 @@ funkcijų, ši priima papildomai konstantą , kuri turi būti teigiamas skaičiu
 kol išvestis pasiekia , o RELU staigiai sutolygėja. \cite{salt16}
 
 \begin{figure}[ht]
+  \centering
   \includegraphics[width=6cm,height=6cm,keepaspectratio]{elu.png}
   \caption{ELU}
   \label{fig:elu}
@@ -214,6 +216,7 @@ kaip ir Sigmoid funkcija, tačiau ji reikalauja mačiau skaičiavimo resursų ne
 ir tanh, nes minėta formulė yra paprastesnė, nei kitos. \cite{salt16}
 
 \begin{figure}[ht]
+  \centering
   \includegraphics[width=6cm,height=6cm,keepaspectratio]{relu.png}
   \caption{ReLU}
   \label{fig:relu}
@@ -313,6 +316,7 @@ procesorius įvykdo 'underflow'. Modernios programavimo kalbos, kaip Python, pag
 bitus gali pasakyti ar įvyko viena iš šitų klaidų.
 
 \begin{figure}[ht]
+  \centering
   \includegraphics[width=6cm,height=6cm,keepaspectratio]{code1.png}
   \caption{Overflow problema}
   \label{fig:overflowProblem}
@@ -433,6 +437,7 @@ padaryti status posūkio, todėl gaunant žuvis jie juda aplink žuvis ir po kel
 centrą ir pagauna žuvis. Šis algoritmas yra pagrįstas būtent šiuo judėjimu. \cite{salt10}
 %https://www.researchgate.net/publication/328585765_Energy-Efficient_Scheduling_for_a_Job_Shop_Using_an_Improved_Whale_Optimization_Algorithm
 \begin{figure}[ht]
+  \centering
   \includegraphics[width=12cm,height=7cm,keepaspectratio]{what_alg.png}
   \caption{Banginių optimizavimo algoritmas \cite{salt10}}
   \label{fig:lygtis1}
@@ -464,8 +469,6 @@ To pasekoje, optimizavimo funkcijos greitis gali būti lėtas arba ji gali diver
 % TODO PASKAITYTI https://arxiv.org/pdf/1710.08402.pdf
 
 %\subsection{}  Algoritmas kuri naudoja tensorflow
-
-\section{Particles swarn}
 
 \section{Nuostolių funkcijos}
 
@@ -555,6 +558,7 @@ ribos nuotraukose, buvo naudojami dvejetainių reikšmių "png" failai. Vienas i
 failų pavyzdžių:
 
 \begin{figure}[ht]
+  \centering
   \includegraphics[width=4cm,height=4cm,keepaspectratio]{mask.png}
   \caption{Vaizdo kaukė.}
   \label{fig:kaukė1}
@@ -628,17 +632,6 @@ Po šių žingsnių yra gaunami apibrėžimai aplink kiekvieną objektą, ir jų
 vieną. Kiekvienas šis apibrėžimas yra siunčiamas per kitą CNN tinklą, kuris analizuoja
 kiekvieno pikselio reikšmę ir nustato tikslias objektų ribas \cite{salt15}.
 
-
-
-
-
-
-
-
-
-
-
-
 % https://machinethink.net/blog/mobilenet-v2/
 % https://arxiv.org/abs/1512.02325
 \subsection{Vieno kadro aptikimas}
@@ -656,10 +649,6 @@ yra mažiau tiksli negul naujesnė L2-Norm. tačiau ji buvo pasirinkta, nes ji y
 kiekvienam pikseliui. T.y. jeigu keli pikseliai neatitinka objekto, o visi kiti atitinka,
 tai šie daro mažai įtakos galutiniam tinklo rezultatui.
 
-
-
-
-
 \subsection{Alternatyvūs objekto paieškos algoritmai}
 \par
 Minėti tinklų modeliai skiriasi savo neuroninių tinklų struktūra ir ieškomų regionų
@@ -674,7 +663,79 @@ ir vienai 1920x1080 pikselių nuotraukai išanalizuoti prireikia vidutiniškai 2
 1 pikselio, naudojant 10-ties pikselių žingsnį, laikas vienai nuotraukai išanalizuoti
 vidutiniškai užtrunka apie 6 minutes.
 
+\section{Tyrimas}
+\par
+Objektų aptikimo kompiuterinės tomografijos nuotraukose uždaviniui sręsti,
+buvo naudotas Tensorflow karkasas.
+Tyrimas buvo padalintas į kelias dalis: literatūros analizę, modelio
+sukūrimą, ištreniravimą ir jo praktinį pritaikymą programoje.
 
+\subsection{Duomenų paruošimas}
+\par
+Kompiuterinės tomografijos nuotraukos buvo parsiųstos iš
+\enquote{https://www.cancerimagingarchive.net/} puslapio.
+Jos kraštinės buvo sužymėtos naudojant \enquote{Make-sense} duomenų žymėjimo programa.
+Kiekvienas pažymėtas taškas apibrėžiantis objektus buvo
+eksportuotas į JSON failą. Kadangi buvo reikalingi kaukių failai, o buvo turimas,
+tik JSON, buvo parašyta kita programa, kuri išanalizuoja JSON failą ir
+sukuria kaukes pagal tai. Šiame darbe buvo sužymėtos 50 nuotraukų.
+Kiekvienai nuotraukai buvo pritaikytas Gauso filtas su 5 skirtingais
+parametrais. Taip buvo gauta 5 kartus daugiau duomenų, negu buvo
+sužymėta iš pradžių.
+\par
+Turint vaizdus ir jų kaukes, reikia šiuos duomenis suspausti į vieną failą.
+Tensorflow karkasas treniruojant modelį priima \enquote{.pb} failus mokant modelį.
+Duomenų suspaudimui buvo parašyta tam atskira programa kuri naudoja \enquote{object\textunderscore detection}
+direktorijoje esančias pagalbines programas.
+Galutinis duomenų paruošimo rezultatas: sukurti trys atskiri \enquote{.pb}
+failai, kuriuose yra pateikti treniravimo, testavimo ir validavimo duomenys.
+
+\subsection{Modelio sukūrimas ir treniravimas}
+\subsubsection{Pasiruošimas}
+\par
+Prieš naudojamo modelio pasirinkimą apmokymą reikia atlikti keletą
+pasiruošiamųjų žingsnių.
+Pirma reikia parsisiųsti Tensorflow karkaso sukurtą modelių rinkinį, kuriame
+yra pateikti modeliai ir kiti modeliavimo sprendimai, pagreitinantys darbą.
+Šiame rinkinyje yra naudojamos dvi direktorijos: \enquote{object\textunderscore detection} ir \enquote{slim}.
+\enquote{object\textunderscore detection} direktorijoje yra pateiktas karkasas, su kuriuo yra lengva
+kurti naujus objektų aptikimo modelius ir juos apmokyti. Šis rinkinys turi ir
+jau apmokytų modelių pagal COCO duomenų bazę \cite{salt21}. Kitą direktorija \enquote{slim},
+yra skirta apmokymui ir patikrinimui kaip veikia vaizdų klasifikacijos
+modeliai, kaip Inception ir VGG. Parsisiuntus Tensorflow karkaro modelių
+rinkinį, reikia parsisiųsti Google Protobuf produktą. Minėtoje \enquote{object\textunderscore detection}
+direktorijoje esančiame karkase, yra naudojami \enquote{.proto} failai, kurie turi būti
+sukompiliuoti į \enquote{.py} failus. Google Protobuf programa atlieka šį kompiliavimą.
+
+\subsubsection{Kūrimas ir treniravimas}
+\par
+Paruošta \enquote{object\textunderscore detection} direktorija jau turi paruoštus
+modelius, kurie yra ištreniruoti naudojant COCO duomenų bazę.
+Kadangi kompiuterinės tomografijos nuotraukose yra reikalingas
+didelis tikslumas ir organai yra susispaudę vienas tarp kito taip, kad
+sunkiai matosi organų ribos, negalima naudoti duomenų žymėjimui stačiakampius.
+Reikia naudoti kaukes kiekvienam objektui sužymėti. Vienas iš modelių, kuris naudoja
+kaukes, yra \enquote{mask\textunderscore rcnn\textunderscore inception\textunderscore v2\textunderscore coco}.
+\par
+Nusistačius koks modelis bus naudojamas, reikia jį sukonfiguruoti.
+Naudojamo failo \enquote{pipeline.config} faile reikia nurodyti visus tinklo parametrus.
+Vienas iš jų yra klasių skaičius. Šis skaičius nurodo tinklo išeities sluoksnio dydį.
+Kadangi šiame darbe yra birbama tik su plaučių aptikimu, klasių yra tik 1.
+Yra nurodomas įvesties vaizdų modifikavimas. Visų jų dydžiai yra pakeičiami į
+800x1365 pikelių dydį. Tai reiškia, kad tinklo įvesties sluoksnį sudarys
+1.092.000 neuronų. Šis skaičius yra lygus vaizdo dydžio parametrų sandaugai.
+Toliau yra nustatomas vaizdo slenkančio branduolio parametrai: žingsnio dydis, kuris yra lygus 2 ir
+branduolio dydis, lygus 2. Konfiguriaciniame faile taip pat yra nurodoma naudojama
+aktyvacijos funkcija, kuri tyrime yra parinkta \enquote{SOFTMAX}.
+Tiek žingsnių užtenka modelio apibrėžimui.
+\par
+Tinklui treniruoti, Tensorflow karkasas \enquote{object\textunderscore detection} direktorijoje
+turi paruošęs programa \enquote{legacy/train.py}, kuri tikriną nurodytą
+konfiguracinį failą, duotus suspaustus duomenis, modelį ir treniruoja tinklą.
+Kas tam tikrą epochų skaičių, tinklo svoriai ir kitos tinklo reikšmės
+yra išsaugomos \enquote{.pb} faile, kuris vėliau yra naudojamas, kai norima
+užkrauti tinklo reikšmes ir atlikti tolimesnį tinklo treniravimą arba vykdyti
+objektų aptikimą vaizduose.
 
 \section{Rezultatai}
 \par
@@ -698,6 +759,7 @@ nemokamą prieigą prie GPU resursų.
 
 
 \begin{figure}[ht]
+  \centering
   \includegraphics[width=4cm,height=4cm,keepaspectratio]{result1.png}
   \caption{Programa.}
   \label{fig:kaukė1}

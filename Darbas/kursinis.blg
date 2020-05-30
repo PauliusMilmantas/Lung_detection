@@ -1,16 +1,16 @@
 [0] Config.pm:354> INFO - This is Biber 2.7 (beta)
 [0] Config.pm:357> INFO - Logfile is 'kursinis.blg'
-[43] biber:303> INFO - === Mon May 25, 2020, 18:58:12
-[58] Biber.pm:360> INFO - Reading 'kursinis.bcf'
-[129] Biber.pm:836> INFO - Found 16 citekeys in bib section 0
-[145] Biber.pm:3671> INFO - Processing section 0
-[163] Biber.pm:3841> INFO - Looking for bibtex format file 'bibliografija.bib' for section 0
-[165] bibtex.pm:1424> INFO - Decoding LaTeX character macros into UTF-8
-[169] bibtex.pm:1281> INFO - Found BibTeX data source 'bibliografija.bib'
-[198] Utils.pm:164> WARN - BibTeX subsystem: /tmp/OgDx7MdsNL/bibliografija.bib_9846.utf8, line 4, warning: 148 characters of junk seen at toplevel
-[225] UCollate.pm:68> INFO - Overriding locale 'lt-LT' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[225] UCollate.pm:68> INFO - Overriding locale 'lt-LT' defaults 'variable = shifted' with 'variable = non-ignorable'
-[225] Biber.pm:3500> INFO - Sorting list 'anyt/global/' of type 'entry' with scheme 'anyt' and locale 'lt-LT'
-[241] bbl.pm:608> INFO - Writing 'kursinis.bbl' with encoding 'UTF-8'
-[243] bbl.pm:712> INFO - Output to kursinis.bbl
-[244] Biber.pm:110> INFO - WARNINGS: 1
+[26] biber:303> INFO - === Sat May 30, 2020, 13:21:51
+[36] Biber.pm:360> INFO - Reading 'kursinis.bcf'
+[104] Biber.pm:836> INFO - Found 17 citekeys in bib section 0
+[115] Biber.pm:3671> INFO - Processing section 0
+[128] Biber.pm:3841> INFO - Looking for bibtex format file 'bibliografija.bib' for section 0
+[129] bibtex.pm:1424> INFO - Decoding LaTeX character macros into UTF-8
+[133] bibtex.pm:1281> INFO - Found BibTeX data source 'bibliografija.bib'
+[157] Utils.pm:164> WARN - BibTeX subsystem: /tmp/ePO3nQwlXD/bibliografija.bib_27740.utf8, line 4, warning: 148 characters of junk seen at toplevel
+[184] UCollate.pm:68> INFO - Overriding locale 'lt-LT' defaults 'variable = shifted' with 'variable = non-ignorable'
+[184] UCollate.pm:68> INFO - Overriding locale 'lt-LT' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[184] Biber.pm:3500> INFO - Sorting list 'anyt/global/' of type 'entry' with scheme 'anyt' and locale 'lt-LT'
+[200] bbl.pm:608> INFO - Writing 'kursinis.bbl' with encoding 'UTF-8'
+[202] bbl.pm:712> INFO - Output to kursinis.bbl
+[202] Biber.pm:110> INFO - WARNINGS: 1
