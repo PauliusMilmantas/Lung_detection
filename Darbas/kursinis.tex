@@ -73,7 +73,7 @@ Daugelį dirbtinių neuronų tinklų sudaro panašios struktūrinės dalys:
   Šiame darbe yra naudojamos kompiuterinės tomografijos nuotraukos, kurios yra suvienodinamos
   į 300x300 dydį. Nuotraukose yra pašalinamas RGB kanalas, todėl kiekvieną pikselį nusako
   pilkos spalvos atspalvis, kuris yra intervale [0;1]. Vienai nuotraukai užkoduoti
-  užtenka 90 000 tašktų, todėl neuroninio tinklo įvesties sluoksnį sudaro 90 000 neuronų.
+  užtenka 90 000 taškų, todėl neuroninio tinklo įvesties sluoksnį sudaro 90 000 neuronų.
   \item Išvesties sluoksnis: tai dalis, kuri naudoja aktyvacijos funkciją, kuri grąžina galutinį tinklo rezultatą: tikimybių rinkinį,
   kuris parodo kokia tikimybė, kad objektas atitinka tam tikrą klasę. Dažniausiai kiek
   uždavinyje yra klasių, tiek ir yra neuronų išvesties sluoksnyje.
@@ -96,14 +96,14 @@ Daugelį dirbtinių neuronų tinklų sudaro panašios struktūrinės dalys:
   didelis, tai duota reikšmė turi daug įtakos rezultatui. \cite{salt2} Tinkluose yra
   taip pat naudojamas tendenciškumas. Jis nusako kaip turi būti koreguojamos tinklo reikšmės.
   Jeigu aktyvacijos funkcija grąžina blogą reikšmę, galima keisti tendenciškumo kintamajį ir
-  pekeisti galutinį rezultatą.
-  \item Aktyvacijos funkcija: tai funkcija, kokia turi būti neurono išvestis. Kiekvienas neuromas
+  pakeisti galutinį rezultatą.
+  \item Aktyvacijos funkcija: tai funkcija, kokia turi būti neurono išvestis. Kiekvienas neuronas
   susumuoja praeito sluoksnio neuronų išvestis ir šią suma praleidžia pro aktyvacijos funkciją.
   Aktyvacijos funkcijos reikšmė yra toliau paduodama kitiems neuronams (atsižvelgiant taip pat ir į
   jungčių svorius ir į tendenciškumą).
   \item Optimizatimo funkcija: optimizuoja tikslo funkciją. Tikslo funkcija yra taip pat vadinama nuostolių funkcija.
   Šios funkcijos pagrindinis tikslas yra keisti neuroninio tinklo reikšmes taip, kad tinklo išvestis būtų
-  kuo artesnė tikram rezultatui.
+  kuo artimesnė tikram rezultatui.
   \item Mokymosi taisyklė: apibrėžia, kaip tinkle keičiasi svoriai, kad tinklas išvestų norimus rezultatus.
   Taip pat galima nurodyti ir kaip keičiasi tendenciškumas, bei kada jį naudoti.
 \end{enumerate}
@@ -165,8 +165,8 @@ reikalaus nedaug aritmetiškai intensyvių operacijų.
 Aktyvacijos funkcijos yra būtinos neuroniniame tinkle, jeigu norime, kad tinklas
 grąžintų netiesines reikšmes. T.y. kad nuo tinklui duodamų parametrų, tinklo išvestis
 nepriklausytų tiesiogiai. \cite{salt18} Neuroninio tinklo tikslas yra rasti tam tikrą
-koreliaciją tarp įvesties ir išvesties duomenų. Jeigu duomenys yra sudetingų struktūrų,
-tiesinis tinklas koreliacijos neras, tačiau jeigu yra naudojamos aktyvacijos funckijos,
+koreliaciją tarp įvesties ir išvesties duomenų. Jeigu duomenys yra sudėtingų struktūrų,
+tiesinis tinklas koreliacijos neras, tačiau jeigu yra naudojamos aktyvacijos funkcijos,
 tinklas yra netiesinis, tada galima aptikti labiau kompleksyvią koreliaciją. \cite{salt18}
 
 \subsubsection{Tiesinė aktyvacijos funkcija}
@@ -308,9 +308,9 @@ kai funkcijos reikšmė yra labai arti nulio ir ji yra apvalinama į nulį. Kai
 kurie algoritmai gali ‘sulūžti’ dėl nulinio parametro (pvz. dalybos iš nulio). Kita
 problema yra ‘overflow’. Ji pasireiškia kai gauta reikšmė yra labai didelė ir ji yra
 apvalinama į begalybę. \cite{salt7} Vienas iš pavyzdžių kaip pasireiškia 'overflow' problema skaičiavimuose
-yra 4 pav. Šiame kode yra paimama didžiausia galima 'Integer' skaičiaus reiškmė ir ji
+yra 4 pav. Šiame kode yra paimama didžiausia galima 'Integer' skaičiaus reikšmė ir ji
 yra didinama. Taip atsakymas yra apvalinamas į didžiausią galimą reikšmę ir
-yra prarandama ta pati reikšme. Šios dvi problemos yra išspręstos naudojant dvirjų bitų statuso registrą
+yra prarandama ta pati reikšmė. Šios dvi problemos yra išspręstos naudojant dviejų bitų statuso registrą
 esantį kompiuterio procesoriuje. Vienas bitas yra nustatomas jeigu CPU įvykdo 'overflow', kitas, jeigu
 procesorius įvykdo 'underflow'. Modernios programavimo kalbos, kaip Python, pagal šiuos du
 bitus gali pasakyti ar įvyko viena iš šitų klaidų.
@@ -410,7 +410,7 @@ tai optimizavimo funkcija gali diverguoti arba peršokti lokalų minimumą ir nu
 procesą. Jeigu žingsnis yra parenkamas per mažas, tada konvergavimo greitis į lokalų minimumą yra labai mažas
 ir procesas trunka ilgai. \cite{salt17}
 \item Mokymosi žingsnio keitimo trigeris. Kuriant "trigerį" reikia nurodyti arba epochų skaičių arba ribinę nuostolių
-funckijos reikšmę, kada trigeris turi būti aktyvuotas. Po aktyvacijos, trigeris pakeičia mokymosi žingsnio dydį.
+funkcijos reikšmę, kada trigeris turi būti aktyvuotas. Po aktyvacijos, trigeris pakeičia mokymosi žingsnio dydį.
 Trigerio aktyvacijos laiko nurodymui irgi nėra jokios tikslios taisyklės, tai yra nurodoma empiriškai stebint
 mokymosi procesą. Jeigu aktyvacijos laikas yra nurodomas per anksti, mokymosi žingsnis yra sulėtinamas per greitai
 ir funkcija pradeda lėčiau diverguoti į minimumą. Jeigu žingsnis yra nurodomas per vėlai, tam tikru momentu
@@ -472,7 +472,7 @@ To pasekoje, optimizavimo funkcijos greitis gali būti lėtas arba ji gali diver
 
 \section{Nuostolių funkcijos}
 
-\subsection{Nuostolių funckijos pasirinkimas}
+\subsection{Nuostolių funkcijos pasirinkimas}
 
 
 
@@ -618,7 +618,7 @@ objektą. \cite{salt15}
 \par
 Po šių veiksmų vaizdui yra sugeneruojama daug objektų apibrėžimų. Dalis šių apibrėžimų
 kertasi tarpusavyje. Apibrėžimai kurie kertasi tarpusavyje yra išsaugomi ir vėliau
-toliau analizuojami. \cite{salt15} Kiekvienam kirtimuisi yra apskaičiuojamas kirtimosi koeficientas:
+toliau analizuojami. \cite{salt15} Kiekvienam kirtimui yra apskaičiuojamas kirtimosi koeficientas:
 \[
   K = \frac{N_{PirmasObjektas} \bigcap N_{AntrasObjektas}}{N_{PirmasObjektas} \bigcup N_{AntrasObjektas}}
 \]
@@ -652,14 +652,14 @@ tai šie daro mažai įtakos galutiniam tinklo rezultatui.
 \subsection{Alternatyvūs objekto paieškos algoritmai}
 \par
 Minėti tinklų modeliai skiriasi savo neuroninių tinklų struktūra ir ieškomų regionų
-paieškos algoritmais. Minėti abu tinklai naudoja skirtingas inkarų paieškos algortimo
+paieškos algoritmais. Minėti abu tinklai naudoja skirtingas inkarų paieškos algoritmo
 realizacijas. Egzistuoja ir daugiau paieškos būtų. Vienas iš būtų yra slenkančio lango
 algoritmas. Šis algoritmas pereina per visas galimas vaizdų kombinacijas. Vietoj
 laikantis tam sikro lango dydžio santykio,visi dydžiai yra pasirenkami ir išanalizuojami.
 Kadangi šis algoritmas tikrina daugiau sugeneruotų langų kombinacijų, algoritmas veikia labai lėtai.
 Buvo sukurtas rašytinių lietuvių kalbos raidžių aptikimo modelis. Jis buvo padarytas iš 3 sluoksnių
 ir vienai 1920x1080 pikselių nuotraukai išanalizuoti prireikia vidutiniškai 20 minučių. Tačiau
-šį laiką galima sutrumpinti padidinant žingsnio dydį. Pavyzdžiui, padidinis žingsnio dydį vietoj
+šį laiką galima sutrumpinti padidinant žingsnio dydį. Pavyzdžiui, padidinus žingsnio dydį vietoj
 1 pikselio, naudojant 10-ties pikselių žingsnį, laikas vienai nuotraukai išanalizuoti
 vidutiniškai užtrunka apie 6 minutes.
 
@@ -668,7 +668,7 @@ vidutiniškai užtrunka apie 6 minutes.
 Objektų aptikimo kompiuterinės tomografijos nuotraukose uždaviniui sręsti,
 buvo naudotas Tensorflow karkasas.
 Tyrimas buvo padalintas į kelias dalis: literatūros analizę, modelio
-sukūrimą, ištreniravimą ir jo praktinį pritaikymą programoje.
+sukūrimą, treniravimą ir jo praktinį pritaikymą programoje.
 
 \subsection{Duomenų paruošimas}
 \par
@@ -679,7 +679,7 @@ Kiekvienas pažymėtas taškas apibrėžiantis objektus buvo
 eksportuotas į JSON failą. Kadangi buvo reikalingi kaukių failai, o buvo turimas,
 tik JSON, buvo parašyta kita programa, kuri išanalizuoja JSON failą ir
 sukuria kaukes pagal tai. Šiame darbe buvo sužymėtos 50 nuotraukų.
-Kiekvienai nuotraukai buvo pritaikytas Gauso filtas su 5 skirtingais
+Kiekvienai nuotraukai buvo pritaikytas Gauso filtras su 5 skirtingais
 parametrais. Taip buvo gauta 5 kartus daugiau duomenų, negu buvo
 sužymėta iš pradžių.
 \par
@@ -694,14 +694,14 @@ failai, kuriuose yra pateikti treniravimo, testavimo ir validavimo duomenys.
 \subsubsection{Pasiruošimas}
 \par
 Prieš naudojamo modelio pasirinkimą apmokymą reikia atlikti keletą
-pasiruošiamųjų žingsnių.
+paruošiamųjų žingsnių.
 Pirma reikia parsisiųsti Tensorflow karkaso sukurtą modelių rinkinį, kuriame
 yra pateikti modeliai ir kiti modeliavimo sprendimai, pagreitinantys darbą.
 Šiame rinkinyje yra naudojamos dvi direktorijos: \enquote{object\textunderscore detection} ir \enquote{slim}.
 \enquote{object\textunderscore detection} direktorijoje yra pateiktas karkasas, su kuriuo yra lengva
 kurti naujus objektų aptikimo modelius ir juos apmokyti. Šis rinkinys turi ir
 jau apmokytų modelių pagal COCO duomenų bazę \cite{salt21}. Kitą direktorija \enquote{slim},
-yra skirta apmokymui ir patikrinimui kaip veikia vaizdų klasifikacijos
+yra skirta mokymui ir patikrinimui kaip veikia vaizdų klasifikacijos
 modeliai, kaip Inception ir VGG. Parsisiuntus Tensorflow karkaro modelių
 rinkinį, reikia parsisiųsti Google Protobuf produktą. Minėtoje \enquote{object\textunderscore detection}
 direktorijoje esančiame karkase, yra naudojami \enquote{.proto} failai, kurie turi būti
@@ -717,21 +717,21 @@ sunkiai matosi organų ribos, negalima naudoti duomenų žymėjimui stačiakampi
 Reikia naudoti kaukes kiekvienam objektui sužymėti. Vienas iš modelių, kuris naudoja
 kaukes, yra \enquote{mask\textunderscore rcnn\textunderscore inception\textunderscore v2\textunderscore coco}.
 \par
-Nusistačius koks modelis bus naudojamas, reikia jį sukonfiguruoti.
+Nusistačius koks modelis bus naudojamas, reikia jį sukonfigūruoti.
 Naudojamo failo \enquote{pipeline.config} faile reikia nurodyti visus tinklo parametrus.
 Vienas iš jų yra klasių skaičius. Šis skaičius nurodo tinklo išeities sluoksnio dydį.
-Kadangi šiame darbe yra birbama tik su plaučių aptikimu, klasių yra tik 1.
+Kadangi šiame darbe yra dirbama tik su plaučių aptikimu, klasių yra tik 1.
 Yra nurodomas įvesties vaizdų modifikavimas. Visų jų dydžiai yra pakeičiami į
 800x1365 pikelių dydį. Tai reiškia, kad tinklo įvesties sluoksnį sudarys
 1.092.000 neuronų. Šis skaičius yra lygus vaizdo dydžio parametrų sandaugai.
 Toliau yra nustatomas vaizdo slenkančio branduolio parametrai: žingsnio dydis, kuris yra lygus 2 ir
-branduolio dydis, lygus 2. Konfiguriaciniame faile taip pat yra nurodoma naudojama
+branduolio dydis, lygus 2. Konfigūraciniame faile taip pat yra nurodoma naudojama
 aktyvacijos funkcija, kuri tyrime yra parinkta \enquote{SOFTMAX}.
 Tiek žingsnių užtenka modelio apibrėžimui.
 \par
 Tinklui treniruoti, Tensorflow karkasas \enquote{object\textunderscore detection} direktorijoje
 turi paruošęs programa \enquote{legacy/train.py}, kuri tikriną nurodytą
-konfiguracinį failą, duotus suspaustus duomenis, modelį ir treniruoja tinklą.
+konfiguracinį failą, duotus suspaustas duomenis, modelį ir treniruoja tinklą.
 Kas tam tikrą epochų skaičių, tinklo svoriai ir kitos tinklo reikšmės
 yra išsaugomos \enquote{.pb} faile, kuris vėliau yra naudojamas, kai norima
 užkrauti tinklo reikšmes ir atlikti tolimesnį tinklo treniravimą arba vykdyti
@@ -750,9 +750,9 @@ failai, kurie tiksliai apibrėžia plaučių ribas. Naudojant įvairias modifika
 gauso filtras pritaikytais 5-iomis skirtingomis tikimybėmis, buvo gautos 298 nuotraukos.
 Kadangi nuostoliai nuo ~2500 epochos stabiliai laikėsi ir nustojo mažėti, reiškia norint
 pasiekti dar didesnį tinklo tikslumą, reikia sužymėti daugiau duomenų.
-Galutinis programos rezultatas atvaizduotas pav. programa. Programos kodas naudoti
-duomenys yra pataltinti internete, adresas pateiktas priejų skiltyje.
-Šis darbas įrodo, jog pasiekti aušktą
+Galutinis programos rezultatas pavaizduotas pav. programa. Programos kodas naudoti
+duomenys yra patalpinti internete, adresas pateiktas priejų skiltyje.
+Šis darbas įrodo, jog pasiekti aukštą
 objektų aptikimą kompiuterinės tomografijos nuotraukose, nereikia turėti daug duomenų ir daug
 resursų. Tai įmanoma padaryti ir naudojant Google Cloud platformą, kuri suteikia
 nemokamą prieigą prie GPU resursų.
@@ -770,7 +770,7 @@ nemokamą prieigą prie GPU resursų.
 % suformuluojamos svarbiausios darbo išvados, rekomendacijos bei pasiūlymai.
 \par
 Pasitelkiant Tensorflow karkasą ir neuroninių tinklų pagalba galima sukurti programą,
-kuri aptinka objektus kompiuterinės topomgrafijos nuotraukose. Apmokyti tinklą
+kuri aptinka objektus kompiuterinės tomografijos nuotraukose. Apmokyti tinklą
 nereikia daug duomenų, vienai klasei apmokyti užtenka 50-ties nuotraukų.
 Jos yra modifikuojamos: pridedamas įvairių stiprumo triukšmas. Po maždaug 3000 epochų,
 tinklas aptiko plaučius su 0.02 nuostoliais naudojant MSE nuostolių funkciją.
