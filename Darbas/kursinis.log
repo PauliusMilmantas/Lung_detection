@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2020.4.18)  30 MAY 2020 16:20
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2020.4.18)  30 MAY 2020 17:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1185,13 +1185,13 @@ File: ./fjos/mask.png Graphic file (type QTm)
  <use  "./fjos/mask.png" > [14
 
 ] [15] [16] [17]
-Underfull \hbox (badness 10000) in paragraph at lines 675--685
+Underfull \hbox (badness 10000) in paragraph at lines 660--670
 []\TU/texgyretermes(0)/m/n/12 Kompiuterinės tomografijos nuotraukos buvo parsių
 stos iš
  []
 
 
-Underfull \hbox (badness 1394) in paragraph at lines 675--685
+Underfull \hbox (badness 1394) in paragraph at lines 660--670
 \TU/texgyretermes(0)/m/n/12 „  https://www.cancerimagingarchive.net/“ puslapio.
  Jos kraštinės buvo sužymėtos naudojant
  []
@@ -1205,14 +1205,14 @@ File: ./fjos/result1.png Graphic file (type QTm)
 ] [21
 
 ]
-Underfull \hbox (badness 3088) in paragraph at lines 779--779
+Underfull \hbox (badness 3088) in paragraph at lines 764--764
 []\TU/texgyretermes(0)/m/n/12 Hao Gao. Faster r-cnn explained, 2017. \TU/texgyr
 etermes(0)/m/sc/12 url\TU/texgyretermes(0)/m/n/12 : $[][][][][] [] [] [] [][][]
 [][][] [] [][][] []
  []
 
 
-Underfull \hbox (badness 1132) in paragraph at lines 779--779
+Underfull \hbox (badness 1132) in paragraph at lines 764--764
 []\TU/texgyretermes(0)/m/n/12 Chayan Kathuria. Regression — why mean square err
 or?, 2019. \TU/texgyretermes(0)/m/sc/12 url\TU/texgyretermes(0)/m/n/12 : $[][][
 ][][] []
@@ -1221,26 +1221,26 @@ or?, 2019. \TU/texgyretermes(0)/m/sc/12 url\TU/texgyretermes(0)/m/n/12 : $[][][
 [22
 
 ]
-Underfull \hbox (badness 7308) in paragraph at lines 779--779
+Underfull \hbox (badness 7308) in paragraph at lines 764--764
 []\TU/texgyretermes(0)/m/n/12 Andrew Lewis Seyedali Mirjalili. The whale optimi
 zation algorithm, 2016.
  []
 
 
-Underfull \hbox (badness 4913) in paragraph at lines 779--779
+Underfull \hbox (badness 4913) in paragraph at lines 764--764
 \TU/texgyretermes(0)/m/sc/12 url\TU/texgyretermes(0)/m/n/12 : $[][][][][] [] []
  [] [][][] [] [][][][][][][][][][][][][] [] [][][] [] [][][][][][][] [] [][][][
 ][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 779--779
+Underfull \hbox (badness 10000) in paragraph at lines 764--764
 [][][] [] [][][][][][][][][][][][][][][][][] [] [][][][] [] [][][][][] [] [][][
 ][][][][][][][][][][][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 779--779
+Underfull \hbox (badness 10000) in paragraph at lines 764--764
 [] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][] []
  []
@@ -1254,10 +1254,10 @@ Package logreq Info: Writing requests to 'kursinis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 21794 strings out of 493068
- 450080 string characters out of 6137720
- 889537 words of memory out of 5000000
- 25450 multiletter control sequences out of 15000+600000
+ 21796 strings out of 493068
+ 450142 string characters out of 6137720
+ 889563 words of memory out of 5000000
+ 25452 multiletter control sequences out of 15000+600000
  11198 words of font info for 59 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
  67i,12n,96p,10497b,5896s stack positions out of 5000i,500n,10000p,200000b,80000s

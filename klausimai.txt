@@ -5,6 +5,7 @@ Yra ivairiu metodu.
 Siandien yra labai perspekty
 Reikia salt.
 
+[x] Irodymas
 
 [x] Tyrimo skyrius
 

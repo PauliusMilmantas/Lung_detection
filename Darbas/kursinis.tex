@@ -171,7 +171,7 @@ tinklas yra netiesinis, tada galima aptikti labiau kompleksyvią koreliaciją. \
 
 \subsubsection{Tiesinė aktyvacijos funkcija}
 \[
-R(x, a) = x * a
+R(x, a) = x \cdot a
 \]
 \par
 Tiesinės aktyvacijos funkcijos mių diapazonas yra labai didelis ir nėra dvejetainis,
@@ -189,7 +189,7 @@ konstanta, neatsižvelgiant į pačią klaidą. \cite{salt16}
 
 \subsubsection{ELU}
 \[
-  R(z) = \systeme*{z; z > 0, \alpha*(e^z - 1); z <= 0}
+  R(z) = \systeme*{z; z > 0, \alpha \cdot (e^z - 1); z <= 0}
 \]
 \par
 ELU funkcija vadinasi: ‘Exponential Linear Unit’. Ši funkcija paprastai konverguoja į
@@ -246,9 +246,7 @@ kurio bendra suma yra lygi vienam. \cite{salt16}
 % (http://cs231n.github.io/linear-classify/#softmax Stanford university notes)
 \par
 Šiame darbe bus naudojama Softmax aktyvacijos funkcija. Ši funkcija buvo
-pasirinkta dėl dėl dviejų priežasčių.
-\par
-Pirma, galima teigti, kad Softmax funkcija bando optimizuoti entropijos
+pasirinkta, nes galima teigti, jog Softmax bando optimizuoti entropijos
 skirtumą tarp tikros reikšmės ir gautos. Entropija tarp tikros reikšmės
 ‘p’ ir spėjamos ‘q’ yra apskaičiuojama pagal:
 
@@ -257,17 +255,15 @@ H(p, q) = - \sum_{x}p(x) \log q(x)
 \]
 
 \par
-Taip pat entropiją galima aprašyti ir pagal Kullback-Leibler divergenciją:
-\[
-H(p, q) = H(p) + D_{KL}(p || q)
-\]
+Pagal entropijos lygtį galima teigti, jog Softmax funkcija
+bando optimizuoti entropiją tarp tikros reikšmės ir spėjamos \cite{salt6}.
+Tai priveda prie apytiksliai stabilaus gradiento. Jeigu modelis klysta,
+jis dėl to gali greičiau pasitaisyti.
 \par
-Delta p entropijos reikšmė yra lygi nuliui, taip optimizuojama divergencija tarp
-Kullback-Leibler abiejų distribucijų. Taigi, galime teigti, jog Softmax funkcija
-bando optimizuoti entropiją tarp tikros reikšmės ir spėjamos. /cite{salt6}
-\par
-Antra priežastis yra dėl tikimybinės interpretacijos…
-TODO
+Kita priežastis, kodėl yra naudojama Softmax funkcija, yra naudojimui
+patogi išvestis. Jeigu norima aptikti kelias klases, kiekvienas išvesties
+neuronas išveda klasės tikimybę. Jeigu išvestis yra 0.6, tai tikimybė, kad tai ir
+yra ta klasė, yra 60\%. Visų išvesties neuronų išvesties suma yra lygi 1.
 
 \section{Problemos su skaičiaja matematika}
 \par
@@ -280,23 +276,12 @@ labai daug sudėties operacijų ir yra svarbu, kad neįvyktų jokią skaičiosio
 kaip reikšmės apvalinimo klaida.
 
 \[
-  y_{k} = \gamma * (\sum_{i=1}^{m}w_{ki}x_{i})
+  y_{k} = \gamma \cdot (\sum_{i=1}^{m}w_{ki}x_{i})
 \]
-
-
-
 
 Neuroniniai tinklai atlieka daug skaičiavimų, todėl gali atsirasti klaidos su
 skaičiaja matematika: gradientinio nuolydžio "užstrigimas", apvalinimo paklaida,
 blogas problemos apibrėžimas.
-
-
-
-
-
-
-
-
 
 \subsection{"Underflow" ir "overflow"}
 % (Ian  Goodfellow Yoshua Bengio, Aaron Courville Deep Learning)
@@ -331,7 +316,7 @@ metodo naudojimas. Pasirinkus pakankamai mažą mokymosi žingsnį ir pradinį t
 yra arti tikrosios reikšmės, galima pasiekti kitus neapribotus kintamuosius.
 
 \[
-\theta = \theta - \eta * \bigtriangledown_{\theta}J(\theta)
+\theta = \theta - \eta \cdot \bigtriangledown_{\theta}J(\theta)
 \]
 
 \par
@@ -365,7 +350,7 @@ optimizavimo algoritmai.
 Gradientinio nuolydžio algoritmas
 Tai yra pati paprasčiausia optimizavimo funkcija.
 \[
-\theta = \theta - \eta * \bigtriangledown_{\theta}J(\theta)
+\theta = \theta - \eta \cdot \bigtriangledown_{\theta}J(\theta)
 \]
 Pagal algoritmą yra atliekama daug iteracijų. Kiekvienos iteracijos metu yra
 apskaičiuojama delta. Ji yra gaunama iš esamos deltos atėmus mokymosi žingsnio konstantos
@@ -387,7 +372,7 @@ atsižvelgta į praeitas iteracijas ir minimumas yra per lėtai pasiekiamas, alg
 
 \subsection{Mažo poaibio gradientinis nuolydis}
 \[
-\theta = \theta - \eta * \bigtriangledown_{\theta}J(\theta;x^{(i:i+n)};y^{(i:i+n)})
+\theta = \theta - \eta \cdot \bigtriangledown_{\theta}J(\theta;x^{(i:i+n)};y^{(i:i+n)})
 \]
 \par
 Abiejų minėtų algoritmų idėjų kombinacija išvedė mažo poaibio gradientinį metodą.
@@ -486,7 +471,7 @@ keičiami tinklo svoriai ir tendenciškumas.
 
 \subsection{Vidutinė kvadratinė paklaida (MSE)}
 \[
-  Nuostolis = \frac{1}{N} * [\sum(Y_{Gautas}-Y_{Tikras})^{2}]
+  Nuostolis = \frac{1}{N} \cdot [\sum(Y_{Gautas}-Y_{Tikras})^{2}]
 \]
 \par
 MSE funkcija sumuoja skirtumų kvadratus ir randa bendrą nuostolių vidurkį.
@@ -497,7 +482,7 @@ nes MSE yra antrojo laipsnio funkcija. \cite{salt12}
 
 \subsection{Šaknis iš vidutinės kvadratinės paklaidos (RMSE)}
 \[
-  Nuostolis = \sqrt{\frac{1}{N} * [\sum (Y_{Gautas}-Y_{Tikras})^{2}]}
+  Nuostolis = \sqrt{\frac{1}{N} \cdot [\sum (Y_{Gautas}-Y_{Tikras})^{2}]}
 \]
 RMSE funkcija yra panaši į MSE, tik pridėta šaknies traukimo operacija.
 Šaknies traukimas paverčia RMSE pirmojo laipsnio funkcija, todėl ją galima naudoti
@@ -529,7 +514,7 @@ objektų segmentacija (instance segmentation).
  žiūrėti duomenų parametrus ir pagal tai sukonstruoti pirmajį tinklo sluoksnį. Paprastai pirmą sluoksnį
  nusako:
  \[
-N_{Pirmas_sluoksnis} = X_{VaizdoPlotis} * Y_{VaizdoAukškis} * N_{SpalvųKanalųSkaičius}
+N_{Pirmas_sluoksnis} = X_{VaizdoPlotis} \cdot Y_{VaizdoAukškis} \cdot N_{SpalvųKanalųSkaičius}
  \]
 Sprendžiant plaučių aptikimo kompiuterinės tomografijos nuotraukose uždavinį, buvo naudojamas
 RGB kanalų pašalinimas. Taip buvo sumažintas pirmasis tinklo sluoksnis tris kartus ir paleidžiant
@@ -538,7 +523,7 @@ rezultatus norime gauti. Jeigu norime pasakyti koks objektas yra nuotraukoje, ga
 tokį išvesties sluoksnio dydį, kiek yra klasių modelyje. Norint taip pat aptikti ir kur
 vaizde yra atpažintas objektas tinklo išvesties sluoksnio dydis turi būti:
 \[
-  N_{Išvesties_sluoksnio_dydis} = C_{KlasiųSkaičius}*5
+  N_{Išvesties_sluoksnio_dydis} = C_{KlasiųSkaičius} \cdot 5
 \]
 Klasių skaičius yra dauginamas iš 5, nes norime gauti pačios klasės tikimybę ir tikėtinas
 viršutines ir apatines objekto x ir y reikšmes.Jeigu norime gauti ne tik x ir y reikšmes, bet tikslias
@@ -547,7 +532,7 @@ kuris vertintų kiekvieno vaizdo pikselio tikimybę, kad jis priklauso tam tikra
 Šio modelio įvesties sluoksnis lieka toks pat kaip ir kitų, tačiau keičiasi išvesties sluoksnis. Jis tampa
 lygus:
 \[
-N_{IšvestiesSluoknis} = C_{KlasiųSkaičius} * X_{VaizdoPlotis} * Y_{VaizdoAukškis}
+N_{IšvestiesSluoknis} = C_{KlasiųSkaičius} \cdot X_{VaizdoPlotis} \cdot Y_{VaizdoAukškis}
 \]
 Taip galima nusakyti kuriai klasei priklauso kiekvienas pikselis ir nusakyti, kokios yra
 kiekvienos klasės ribos vaizde.

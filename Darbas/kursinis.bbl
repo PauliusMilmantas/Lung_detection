@@ -46,6 +46,31 @@
       \verb http://jalammar.github.io/visual-interactive-guide-basics-neural-networks/
       \endverb
     \endentry
+    \entry{salt6}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=facb30e7eafc021b924f05da837a153b}{%
+           family={CS231n},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{facb30e7eafc021b924f05da837a153b}
+      \strng{fullhash}{facb30e7eafc021b924f05da837a153b}
+      \strng{authornamehash}{facb30e7eafc021b924f05da837a153b}
+      \strng{authorfullhash}{facb30e7eafc021b924f05da837a153b}
+      \field{labelalpha}{CS220}
+      \field{sortinit}{C}
+      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Linear classification: Support Vector Machine, Softmax}
+      \field{urlday}{30}
+      \field{urlmonth}{4}
+      \field{urlyear}{2020}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://cs231n.github.io/linear-classify
+      \endverb
+    \endentry
     \entry{salt9}{misc}{}
       \name{author}{1}{}{%
         {{hash=8a186b923ecc7b77bc273316396594cb}{%
