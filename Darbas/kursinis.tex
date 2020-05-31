@@ -33,12 +33,13 @@
 
 \sectionnonum{Įvadas}
 Pastaraisiais metais į medicinos sritį labai sparčiai skverbiasi informacinės technologijos. Atliekant
-įvairias diagnostikas ar tiriant ligas, vaistus yra pasitelkiama programinių sistemų pagalba. Tačiau
+įvairias diagnostikas ar tiriant ligas, vaistus yra pasitelkiama programinių sistemų pagalba \cite{salt22}. Tačiau
 didžiąją radiologo darbo dalį sprendimus turi priimti jis pats be jokios programinės įrangos pagalbos,
 nors dažniausiai yra apibrėžti tam tikri ligų aptikimų algorimtai, kaip vėžinių lastelių aptikimas,
-lūžiai ir taip toliau. Mano darbo tikslas yra prisidėti prie programinės įrangos kūrimo radiologams
+lūžiai ir taip toliau \cite{salt23}. Mano darbo tikslas yra prisidėti prie programinės įrangos kūrimo radiologams
 ir sukurti programą, kuri aptinka plaučius, kad vėliau tai galėtų būti panaudota tolimesnei
-IT plėtrai medicinos srityje.
+IT plėtrai medicinos srityje. Darbe yra siekiama sukurti modelį, kuris aptikis
+plaučius kompiuterinės tomografijos nuotraukose,
 \par
 Šiandien viena iš labiausiai perspektyvių sričių informacinių technologijų srityje yra giliojo mokymosi
 metodai.
@@ -53,15 +54,15 @@ yra reikalinga apmokyti modelį, o tai reikalauja daug duomenų.
 Pasirinktam mano dirbtinių neuroninių tinklų metodui viena iš galimų alternatyvų yra "sprendimo medžiai".
 Tai yra prižiūrimo mokymosi metodas skirtas duomenų klasifikacijai ir duomenų regresijai. Šis metodas
 naudoja taisyklių rinkinį. Norint gauti mažą šio metodo paklaidą, turime aprašyti vis daugiau šių taisyklių.
-Taisyklės paprastai būna aprašomos naudojant "if, else" aprašus.\cite{salt1} Mano nagrinėjamame atvejyje duomenys
+Taisyklės paprastai būna aprašomos naudojant "if, else" aprašus \cite{salt1}. Mano nagrinėjamame atvejyje duomenys
 yra labai dideli ir įvairūs, todėl aprašyti visas šias taisykles užtruktų neproporcingai daug laiko ir tam
 tikrų radiologijos žinių.
-\par
-Pasiekti darbo rezultatai: sukurtas neuroninis tinklas ir parašyta programa, kuri aptinka plaučius kompiuterinės tomografijos
-nuotrauka. Pasiektas 0.02 nuostolių funkcijos rezultatas, naudojant 298 nuotraukose, kurios buvo gautos taikant
-įvairias modifikacijas pradinėms 50 nuotraukų. Šis darbas įrodo, jog pasiekti aušktą
-objektų aptikimą kompiuterinės tomografijos nuotraukose, nereikia turėti daug duomenų ir daug
-resursų. Tai įmanoma padaryti ir naudojant Google Cloud platformą.
+
+%Pasiekti darbo rezultatai: sukurtas neuroninis tinklas ir parašyta programa, kuri aptinka plaučius kompiuterinės tomografijos
+%nuotrauka. Pasiektas 0.02 nuostolių funkcijos rezultatas, naudojant 298 nuotraukose, kurios buvo gautos taikant
+%įvairias modifikacijas pradinėms 50 nuotraukų. Šis darbas įrodo, jog pasiekti aušktą
+%objektų aptikimą kompiuterinės tomografijos nuotraukose, nereikia turėti daug duomenų ir daug
+%resursų. Tai įmanoma padaryti ir naudojant Google Cloud platformą.
 
 \tableofcontents
 
@@ -93,7 +94,7 @@ Daugelį dirbtinių neuronų tinklų sudaro panašios struktūrinės dalys:
   nurodo koks stiprus yra ryšys tarp neuronų, taip nurodant, kaip tinklo reikšmės kinta pačiame tinkle.
   Jeigu tinklui yra paduodama reikšmė, o pirmasis tinklo neuronas, kuris priima reikšmę turi mažą
   svorį, tai reiškia, jog galutiniams rezultatui ši reikšmė neturi daug įtakos. Jeigu svoris yra
-  didelis, tai duota reikšmė turi daug įtakos rezultatui. \cite{salt2} Tinkluose yra
+  didelis, tai duota reikšmė turi daug įtakos rezultatui \cite{salt2}. Tinkluose yra
   taip pat naudojamas tendenciškumas. Jis nusako kaip turi būti koreguojamos tinklo reikšmės.
   Jeigu aktyvacijos funkcija grąžina blogą reikšmę, galima keisti tendenciškumo kintamajį ir
   pakeisti galutinį rezultatą.
@@ -124,7 +125,7 @@ išvesties sluoksnio. Šiame žingsnyje yra naudojama optimizavimo funkcija. Ji 
 svorių ir tendenciškumo pokyčiai tinklai ir taip yra
 keičiami tinklo svoriai ir tendenciškumas atsižvelgiant į padarytą klaidą. Kai klaidos
 yra padaromos pakankamai mažos ir jos yra mažesnės už duotą ribinę reikšmę, yra laikoma, kad tinklas
-baigė mokymosi procesą. \cite{salt3}
+baigė mokymosi procesą \cite{salt3}.
 
 \subsection{GPU naudojimas}
 \par
@@ -141,9 +142,9 @@ tinklas su CPU resursais užtrunka 6 sekundes, o naudojant GPU vidutiniškai vie
 0.3 sekundės.
 \par
 % https://www.tensorflow.org/install/gpu
-Šiame darbe naudojamas Tensorflow karkasas naudoja NVIDIA CUDA sistemą. \cite{salt4}
+Šiame darbe naudojamas Tensorflow karkasas naudoja NVIDIA CUDA sistemą \cite{salt4}.
 % https://developer.nvidia.com/cuda-zone
-CUDA yra paralelinio skaičiavimo platforma, naudojama su grafikos plokštėmis. \cite{salt5}
+CUDA yra paralelinio skaičiavimo platforma, naudojama su grafikos plokštėmis \cite{salt5}.
 Ji kiekvieną skaičiavimą paleidžia ant atskiros gijos. Visi duomenys yra suskirstyti
 į vienos, dviejų ir trijų dimensijų blokus. Kiekvienams blogas gali turėti virš 512
 gijų. Visos gijos kurios operuoja viename bloke dalinasi bendra GPU atmintimi.
@@ -164,10 +165,10 @@ reikalaus nedaug aritmetiškai intensyvių operacijų.
 \par
 Aktyvacijos funkcijos yra būtinos neuroniniame tinkle, jeigu norime, kad tinklas
 grąžintų netiesines reikšmes. T.y. kad nuo tinklui duodamų parametrų, tinklo išvestis
-nepriklausytų tiesiogiai. \cite{salt18} Neuroninio tinklo tikslas yra rasti tam tikrą
+nepriklausytų tiesiogiai \cite{salt18}. Neuroninio tinklo tikslas yra rasti tam tikrą
 koreliaciją tarp įvesties ir išvesties duomenų. Jeigu duomenys yra sudėtingų struktūrų,
 tiesinis tinklas koreliacijos neras, tačiau jeigu yra naudojamos aktyvacijos funkcijos,
-tinklas yra netiesinis, tada galima aptikti labiau kompleksyvią koreliaciją. \cite{salt18}
+tinklas yra netiesinis, tada galima aptikti labiau kompleksyvią koreliaciją \cite{salt18}.
 
 \subsubsection{Tiesinė aktyvacijos funkcija}
 \[
@@ -178,7 +179,7 @@ Tiesinės aktyvacijos funkcijos mių diapazonas yra labai didelis ir nėra dveje
 kaip dalis kitų funkcijų. Tačiau ši funkcija nėra plačiai naudojama, nes jos
 išvestinė yra konstanta, kas reiškia jog gautas gradientas nepriklauso nuo ‘x’.
 Taigi, jeigu spėjime yra klaida, vykdant atgalinę sklaidą mes reikšmę taisysime
-konstanta, neatsižvelgiant į pačią klaidą. \cite{salt16}
+konstanta, neatsižvelgiant į pačią klaidą \cite{salt16}.
 
 \begin{figure}[ht]
   \centering
@@ -196,7 +197,7 @@ ELU funkcija vadinasi: ‘Exponential Linear Unit’. Ši funkcija paprastai kon
 nulį greičiau nei kitos ir taip duoda tikslesnius rezultatus. Skirtingai nuo kitų
 funkcijų, ši priima papildomai konstantą , kuri turi būti teigiamas skaičius.
 Ši funkcija yra labai panaši į RELU funkciją, tačiau ELU tampa tolygi lėtai,
-kol išvestis pasiekia , o RELU staigiai sutolygėja. \cite{salt16}
+kol išvestis pasiekia , o RELU staigiai sutolygėja \cite{salt16}.
 
 \begin{figure}[ht]
   \centering
@@ -213,7 +214,7 @@ kol išvestis pasiekia , o RELU staigiai sutolygėja. \cite{salt16}
 \par
 ReLU funkcija vadinasi: ‘Rectified Linear Unit’. Ši funkcija pasiekia panašų efektyvumą
 kaip ir Sigmoid funkcija, tačiau ji reikalauja mačiau skaičiavimo resursų nei sigmoid
-ir tanh, nes minėta formulė yra paprastesnė, nei kitos. \cite{salt16}
+ir tanh, nes minėta formulė yra paprastesnė, nei kitos \cite{salt16}.
 
 \begin{figure}[ht]
   \centering
@@ -240,7 +241,7 @@ diapazonas, netiesiškumas, visur diferencijuojama ir monotoniška. \cite{salt16
 
 \par
 Softmax funkcija priima parametrų skirstinį ir gražina tikimybių skirstinį,
-kurio bendra suma yra lygi vienam. \cite{salt16}
+kurio bendra suma yra lygi vienam \cite{salt16}.
 
 \subsubsection{Argumentacija už pasirinktą aktyvacijos funkciją}
 % (http://cs231n.github.io/linear-classify/#softmax Stanford university notes)
@@ -292,7 +293,7 @@ dėl skaičių apvalinimo. ‘Underflow’ problema pasireiškia,
 kai funkcijos reikšmė yra labai arti nulio ir ji yra apvalinama į nulį. Kai
 kurie algoritmai gali ‘sulūžti’ dėl nulinio parametro (pvz. dalybos iš nulio). Kita
 problema yra ‘overflow’. Ji pasireiškia kai gauta reikšmė yra labai didelė ir ji yra
-apvalinama į begalybę. \cite{salt7} Vienas iš pavyzdžių kaip pasireiškia 'overflow' problema skaičiavimuose
+apvalinama į begalybę \cite{salt7}. Vienas iš pavyzdžių kaip pasireiškia 'overflow' problema skaičiavimuose
 yra 4 pav. Šiame kode yra paimama didžiausia galima 'Integer' skaičiaus reikšmė ir ji
 yra didinama. Taip atsakymas yra apvalinamas į didžiausią galimą reikšmę ir
 yra prarandama ta pati reikšmė. Šios dvi problemos yra išspręstos naudojant dviejų bitų statuso registrą
@@ -309,7 +310,7 @@ bitus gali pasakyti ar įvyko viena iš šitų klaidų.
 
 \subsection{Apribotas optimizavimas}
 Apribotas optimizavimas yra naudojamas norint optimizuoti funkciją
-turint nustatytus kintamuosius.\cite{salt7}
+turint nustatytus kintamuosius \cite{salt7}.
 \par
 Paprasčiausias šios problemos sprendimas yra didžiausio gradientinio nuolydžio
 metodo naudojimas. Pasirinkus pakankamai mažą mokymosi žingsnį ir pradinį tašką, kuris
@@ -320,7 +321,7 @@ yra arti tikrosios reikšmės, galima pasiekti kitus neapribotus kintamuosius.
 \]
 
 \par
-Sudėtingesnis šios problemos sprendimas yra pačios problemos perdarymas. \cite{salt7}
+Sudėtingesnis šios problemos sprendimas yra pačios problemos perdarymas \cite{salt7}.
 
 \subsection{Blogas problemos apibrėžimas}
 
@@ -328,7 +329,7 @@ Funkcija yra blogai apibrėžta, jeigu keičiant funkcijos įvestį nedaug, funk
 pakinta ženkliai daugiau. Funkcija yra laikoma gerai apibrėžta, jeigu keičiant jos įvestį,
 jos reikšmė keičiasi proporcingai. Ši problema pasireiškia labiausiai, kai yra
 atliekami skaičiavimai su mažais skaičiais. Jeigu įvesties vietoje įvyksta apvalinimo
-klaida, funkcijos rezultatas gali grąžinti blogą reikšmę. \cite{salt7}
+klaida, funkcijos rezultatas gali grąžinti blogą reikšmę \cite{salt7}.
 
 
 
@@ -358,7 +359,7 @@ ir nuostolių funkcijos gradientą parametro delta atžvilgiu. Kadangi žingsnis
 atliekame kiekvienos iteracijos metu yra konstanta, jeigu pradinis parinktas taškas
 yra toli nuo lokalaus minimumo, tai prireiks daug iteracijų, kol jis bus pasiektas.
 Šiuo metodu taip pat kiekviena iteracija yra peržiūrimi visi duomenys, kad nėra
-gerai jeigu duomenų yra itin daug. \cite{salt8} Tokiu atveju reikėtų daug atminties. Šis algoritmas nebus naudojamas, nes nėra
+gerai jeigu duomenų yra itin daug \cite{salt8}. Tokiu atveju reikėtų daug atminties. Šis algoritmas nebus naudojamas, nes nėra
 atsižvelgta į praeitas iteracijas ir minimumas yra per lėtai pasiekiamas, algoritmas.
 
 \subsection{Poaibio gradientinis nuolydis}
@@ -368,7 +369,7 @@ atsižvelgta į praeitas iteracijas ir minimumas yra per lėtai pasiekiamas, alg
  elementų pakeitimų sudėtį. Todėl minimumas yra pasiekiamas statesne trajektorija ir
  nereikalinga turėti daug atminties. Pagrindinis šio metodo trūkumas yra galimas jo
  lėtumas. Pereiti per visus duomenis užtrunka daug laiko ir nevisos duomenų elementų
- iteracijos prie parametrų pakeitimo daug neprisideda. \cite{salt9}
+ iteracijos prie parametrų pakeitimo daug neprisideda \cite{salt9}.
 
 \subsection{Mažo poaibio gradientinis nuolydis}
 \[
@@ -384,7 +385,7 @@ prisideda prie parametrų pakeitimo. Taip pat šio metodo pasiekiamas tikslumas 
 nei kitų minėtų algoritmų, nes atsitiktinai parenkami poaibiai skiriasi kiekvieno
 poaibių paskirstymo metu, taip sudarant daugiau variacijų ir daugiau triukšmo. Kadangi
 bendrai yra apdorojama daugiau duomenų variacijų, šis metodas gali pasiekti didesnį
-tikslumą. Nors šis metodas gali pasiekti didesnį tikslumą ir yra greitesnis. \cite{salt9}
+tikslumą. Nors šis metodas gali pasiekti didesnį tikslumą ir yra greitesnis \cite{salt9}.
 
 % gradient descent methods overview
 \subsection{Sunkumai taikant gradientinius metodus}
@@ -393,24 +394,24 @@ tikslumą. Nors šis metodas gali pasiekti didesnį tikslumą ir yra greitesnis.
 yra parenkamas empiriškai stebint konvergavimo greitį ir duomenų kiekį. Jeigu žingsnis yra parenkamas per didelis,
 tai optimizavimo funkcija gali diverguoti arba peršokti lokalų minimumą ir nutolti nuo jo, taip praiilginant
 procesą. Jeigu žingsnis yra parenkamas per mažas, tada konvergavimo greitis į lokalų minimumą yra labai mažas
-ir procesas trunka ilgai. \cite{salt17}
+ir procesas trunka ilgai \cite{salt17}.
 \item Mokymosi žingsnio keitimo trigeris. Kuriant "trigerį" reikia nurodyti arba epochų skaičių arba ribinę nuostolių
 funkcijos reikšmę, kada trigeris turi būti aktyvuotas. Po aktyvacijos, trigeris pakeičia mokymosi žingsnio dydį.
 Trigerio aktyvacijos laiko nurodymui irgi nėra jokios tikslios taisyklės, tai yra nurodoma empiriškai stebint
 mokymosi procesą. Jeigu aktyvacijos laikas yra nurodomas per anksti, mokymosi žingsnis yra sulėtinamas per greitai
 ir funkcija pradeda lėčiau diverguoti į minimumą. Jeigu žingsnis yra nurodomas per vėlai, tam tikru momentu
 žingsnis gali būti per didelis ir funkcija gali pradėti diverguoti arba peršokti lokalų minimumą ir tolti nuo
-minimumo. \cite{salt17}
+minimumo \cite{salt17}.
 \item Duomenų rinkinio parinkimas. Jeigu daug duomenų turi tuos pačius požymius, pagal kuriuos tinklas klasifikuoja
 rezultatus, visų šių duomenų iteracija nėra būtina, nes jie tinklo svorių pokyčius įtakos labai nežymiai.
 Jeigu duomenų, su panašiais požymiais, yra daug, reikia paimti tik dalį jų ir tik tą dalį iteruoti. Jeigu
 duomenų, su panašiais požymiais, yra daug, tada tinklo vienos epochos trukmė gali užtrukti ilgiau ir optimizavimo
-funkcija lėčiau konverguos į lokalų minimumą. \cite{salt17}
+funkcija lėčiau konverguos į lokalų minimumą \cite{salt17}.
 \item Optimizavimo funkcijos "užstrigimas" ties lokaliu minimumu. Optimizavimo funkcijų tinklas yra rasti
 globalų minimumo tašką. Tačiau gradientų nuolydžiu pagrįstų algoritmų dažna problema: "užstrigimas" ties
 lokaliu minimumu. Gradientas parodo kuria kryptimi funkcija leidžiasi žemyn. Ta kryptimi optimizavimo algoritmas
 eina. Pasiekus lokalų minimumą, kai gradientas pradeda didėti, optimizavimo algoritmai baigia darbą. Todėl jeigu yra
-blogai parenkamas pirmas taškas, optimizavimo algoritmai "užstrigs" ties lokaliu minimumu. \cite{salt17} Tą išvengti galima prieš algoritmo pradžią
+blogai parenkamas pirmas taškas, optimizavimo algoritmai "užstrigs" ties lokaliu minimumu \cite{salt17}. Tą išvengti galima prieš algoritmo pradžią
 įvertinti funkciją ir parinkti artimus pradinius taškus prie tikrųjų reikšmių. Kitas būdas to išvegti yra naudoti
 optimizavimo algoritmus, kurie nesiremia gradientų nuolydžiu. Vienas iš daugelio algoritmų, kuris nesiremia gradientais, yra
 banginių judesių pagrįstas optimizavimo algoritmas.
@@ -419,7 +420,7 @@ banginių judesių pagrįstas optimizavimo algoritmas.
 \par
 Minėtas banginių optimizavimo algoritmas buvo sukurtas stebint banginių judėjimą, jiems gaudant mažas žuvis. Gaudant žuvis banginiai negali
 padaryti status posūkio, todėl gaunant žuvis jie juda aplink žuvis ir po kelių ratų jie pasiekia apskritimo
-centrą ir pagauna žuvis. Šis algoritmas yra pagrįstas būtent šiuo judėjimu. \cite{salt10}
+centrą ir pagauna žuvis. Šis algoritmas yra pagrįstas būtent šiuo judėjimu \cite{salt10}.
 %https://www.researchgate.net/publication/328585765_Energy-Efficient_Scheduling_for_a_Job_Shop_Using_an_Improved_Whale_Optimization_Algorithm
 \begin{figure}[ht]
   \centering
@@ -441,12 +442,12 @@ reiškia jog jos naudoja tik pirmo laipsnio išvestines. Kadangi pirma išvestin
 tik funkcijos statumą, bet ne išlenktumą, tai:
 \begin{enumerate}
 \item Jeigu antra išvestinė yra lygi nuliui, tai funkcija yra tiesinė. Todėl,
-mokymosi žingsnis yra lygus alpha. \cite{salt9}
+mokymosi žingsnis yra lygus alpha \cite{salt9}.
 \item Jeigu antra išvestinė yra didesnė už nulį tai funkcijos išlenktumas eina į viršų.
 Todėl funkcijos žingsnis yra mažesnis už mokymosi žingsnį ir optimizavimo funkcija gali
-diverguoti. \cite{salt9}
+diverguoti \cite{salt9}.
 \item Jeigu antra išvestinė yra mažesnė už nulį, tai funkcija yra išlenkta į apačią.
-Todėl funkcijos žingsnis yra didesnis už mokymosi žingsnį. \cite{salt9}
+Todėl funkcijos žingsnis yra didesnis už mokymosi žingsnį \cite{salt9}.
 \end{enumerate}
 \par
 To pasekoje, optimizavimo funkcijos greitis gali būti lėtas arba ji gali diverguoti.
@@ -478,7 +479,7 @@ MSE funkcija sumuoja skirtumų kvadratus ir randa bendrą nuostolių vidurkį.
 Ši funkcija yra dažnai numatyta įaviriuose MATLAB ir Python algoritmuose.
 Vienintelė neigiama šios funkcijos pusė yra tai, kad jeigu duoti duomenys yra pirmojo
 laipsio, tada negalima teigti, kad rezultatai tiesiogiai koreliuoja tarpusavyje,
-nes MSE yra antrojo laipsnio funkcija. \cite{salt12}
+nes MSE yra antrojo laipsnio funkcija \cite{salt12}.
 
 \subsection{Šaknis iš vidutinės kvadratinės paklaidos (RMSE)}
 \[
@@ -486,7 +487,7 @@ nes MSE yra antrojo laipsnio funkcija. \cite{salt12}
 \]
 RMSE funkcija yra panaši į MSE, tik pridėta šaknies traukimo operacija.
 Šaknies traukimas paverčia RMSE pirmojo laipsnio funkcija, todėl ją galima naudoti
-su pirmojo laipsnio duomenimis. \cite{salt12}
+su pirmojo laipsnio duomenimis \cite{salt12}.
 
 \subsection{Paklaidų pakelti kvadratu suma}
 \[
@@ -569,7 +570,7 @@ duomenis sugeneruoja dvejetainius vaizdų failus.
 \subsection{Mask RCNN inception}
 \par
 Mask RCNN modelį sudaro dvi dalys: vaizdo regiono pasiūlymo tinklas (Regional proposed network) ir
-klasifikavimo modelis. \cite{salt14} Bendras algoritmas:
+klasifikavimo modelis \cite{salt14}. Bendras algoritmas:
 \begin{enumerate}
 \item Nuotrauka yra praleidžiama per konvoliucinį neuroninį tinklą (R-CNN), kuris
 sugeneruoja požymių aibę, pagal kurią galima nuspėti, kad tai yra ieškomas objektas
@@ -599,11 +600,11 @@ o ne pailgas.
 Turint daug inkarų sudarytų vaizdų, reikia atskirti kurie vaizdai yra fonas, o kurie
 yra objektas. Foninių vaizdų negalima traukti į regresijos modelį, o objekto vaizdus reikia.
 Šis regresijos modelis yra naudojamas pataisyti inkaro sukurtą vaizdą, kad jis apibrėžtų tik
-objektą. \cite{salt15}
+objektą \cite{salt15}.
 \par
 Po šių veiksmų vaizdui yra sugeneruojama daug objektų apibrėžimų. Dalis šių apibrėžimų
 kertasi tarpusavyje. Apibrėžimai kurie kertasi tarpusavyje yra išsaugomi ir vėliau
-toliau analizuojami. \cite{salt15} Kiekvienam kirtimui yra apskaičiuojamas kirtimosi koeficientas:
+toliau analizuojami \cite{salt15}. Kiekvienam kirtimui yra apskaičiuojamas kirtimosi koeficientas:
 \[
   K = \frac{N_{PirmasObjektas} \bigcap N_{AntrasObjektas}}{N_{PirmasObjektas} \bigcup N_{AntrasObjektas}}
 \]

@@ -321,6 +321,31 @@
       \verb https://towardsdatascience.com/computer-vision-instance-segmentation-with-mask-r-cnn-7983502fcad1
       \endverb
     \endentry
+    \entry{salt22}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=dae687494097a3fde538ce1e8a4a31c2}{%
+           family={Mehta\bibnamedelima VK},
+           familyi={M\bibinitperiod\bibinitdelim V\bibinitperiod},
+           given={Rao\bibnamedelima DS.},
+           giveni={R\bibinitperiod\bibinitdelim D\bibinitperiod},
+           suffix={Deb\bibnamedelima PS},
+           suffixi={D\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{dae687494097a3fde538ce1e8a4a31c2}
+      \strng{fullhash}{dae687494097a3fde538ce1e8a4a31c2}
+      \strng{authornamehash}{dae687494097a3fde538ce1e8a4a31c2}
+      \strng{authorfullhash}{dae687494097a3fde538ce1e8a4a31c2}
+      \field{labelalpha}{Meh17}
+      \field{sortinit}{M}
+      \field{sortinithash}{c26a05ef03e4429073ed5c825140fac3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{APPLICATION OF COMPUTER TECHNIQUES IN MEDICINE}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6257447/
+      \endverb
+    \endentry
     \entry{salt5}{misc}{}
       \name{author}{1}{}{%
         {{hash=a2fe9051fe051f819bd739ef3e340377}{%
@@ -500,6 +525,33 @@
       \field{urldateera}{ce}
       \verb{url}
       \verb https://github.com/tensorflow/models/tree/master/research
+      \endverb
+    \endentry
+    \entry{salt23}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=fdf118bc8f155c62f9f0f9662c120249}{%
+           family={Walter},
+           familyi={W\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{fdf118bc8f155c62f9f0f9662c120249}
+      \strng{fullhash}{fdf118bc8f155c62f9f0f9662c120249}
+      \strng{authornamehash}{fdf118bc8f155c62f9f0f9662c120249}
+      \strng{authorfullhash}{fdf118bc8f155c62f9f0f9662c120249}
+      \field{labelalpha}{Wal19}
+      \field{sortinit}{W}
+      \field{sortinithash}{6d25b3eefe5aa2147d1f339686808918}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{4 key reasons AI won’t replace radiologists}
+      \field{urlday}{31}
+      \field{urlmonth}{5}
+      \field{urlyear}{2020}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{url}
+      \verb https://www.radiologybusiness.com/topics/artificial-intelligence/4-key-reasons-ai-wont-replace-radiologists
       \endverb
     \endentry
   \endsortlist
