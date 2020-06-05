@@ -11,6 +11,7 @@
 \usepackage{url}
 \graphicspath{ {./fjos/} }
 \usepackage{systeme}
+\usepackage{physics}
 
 % Titulinio aprašas
 \university{Vilniaus universitetas}
@@ -41,20 +42,24 @@ ir sukurti programą, kuri aptinka plaučius, kad vėliau tai galėtų būti pan
 IT plėtrai medicinos srityje. Darbe yra siekiama sukurti modelį, kuris aptikis
 plaučius kompiuterinės tomografijos nuotraukose,
 \par
-Šiandien viena iš labiausiai perspektyvių sričių informacinių technologijų srityje yra giliojo mokymosi
-metodai.
+Šiandien viena iš labiausiai perspektyvių sričių informacinių technologijų srityje yra mašininio mokymosi algoritmai. 
 Jie padeda duomenyse aptikti sunkiai pastebimus dėsningumus ir nuspėti išeities rezultatus su tam tikra klaidos tikimybe.
-Šiame darbe kalbėsiu vieną iš šių metodų: dirbtinius neuroninius tinklus.
-Juos pasirinkau nes kompiuterinės tomografijos vaizdai turi labai daug informacijos ir juos apdoroti
-naudojant logines taisykles yra per daug sunku. Tačiau net ir jiems ši užduotis yra per sudėtinga, jeigu
+Šiame darbe kalbėsiu apie vieną iš šių metodų: dirbtinius neuroninius tinklus.
+Autorius pasirinko juos, nes kompiuterinės tomografijos vaizdai turi labai daug informacijos ir juos apdoroti
+naudojant logines taisykles yra per daug sunku. 
+Dabartinė mokslinė veikla, nagrinėjanti dirbtinių neuroninų tinklų veiklą,
+fokusuojasi ties sunkiai aptinkamos duomenų koreliacijos aptikimo
+automatizacijos \cite{salt24}.
+Tačiau net ir jiems ši užduotis yra per sudėtinga, jeigu
 tiriamos yra įvairios mutacijos arba nedažnos ligos, nes su kiekvienu nauju nematytu ligos atveju,
 yra reikalinga apmokyti modelį, o tai reikalauja daug duomenų.
 \par
 %https://medium.com/@chiragsehra42/decision-trees-explained-easily-28f23241248
-Pasirinktam mano dirbtinių neuroninių tinklų metodui viena iš galimų alternatyvų yra "sprendimo medžiai".
+Sprenžiamam uždaviniui yra daug alternatyvių sprendimo metodų.
+Pasirinktam mano dirbtinių neuroninių tinklų metodui, vienas iš galimų alternatyvų yra \enquote{sprendimo medžiai}.
 Tai yra prižiūrimo mokymosi metodas skirtas duomenų klasifikacijai ir duomenų regresijai. Šis metodas
 naudoja taisyklių rinkinį. Norint gauti mažą šio metodo paklaidą, turime aprašyti vis daugiau šių taisyklių.
-Taisyklės paprastai būna aprašomos naudojant "if, else" aprašus \cite{salt1}. Mano nagrinėjamame atvejyje duomenys
+Taisyklės paprastai būna aprašomos naudojant \enquote{if, else} aprašus \cite{salt1}. Mano nagrinėjamame atvejyje duomenys
 yra labai dideli ir įvairūs, todėl aprašyti visas šias taisykles užtruktų neproporcingai daug laiko ir tam
 tikrų radiologijos žinių.
 
@@ -67,6 +72,16 @@ tikrų radiologijos žinių.
 \tableofcontents
 
 \section{Dirbtinio neuroninio tinklo sudėtis}
+Dirbtiniai neuroniniai tinklai yra matematiniai modeliai,
+kurie iš duotų parametrų atlieka spėjimą apie galimą rezultatą \cite{salt24}.
+Modelio tikslumui didinti, jį reikia apmokyti jam reikia įvesties parametrus
+ir tikslius rezultatus. Dirbtiniai neuroninių tinklų modelio pavadinimas
+kilo iš biologinės modelio prigimties: modelį sudaro neuronai
+ir jie tarpusavyje saveikauja. Modelio apmokymas taip pat primena 
+smegenų veiklą \cite{salt24}. Modeliui yra duodama daug duomenų pavyzdžių, norimi rezultatai ir jis aptinka
+sunkiai pastebimą koreliaciją tarp duomenų.
+
+
 \subsection{Bazinė struktūra}
 Daugelį dirbtinių neuronų tinklų sudaro panašios struktūrinės dalys:
 \begin{enumerate}
@@ -78,24 +93,24 @@ Daugelį dirbtinių neuronų tinklų sudaro panašios struktūrinės dalys:
   \item Išvesties sluoksnis: tai dalis, kuri naudoja aktyvacijos funkciją, kuri grąžina galutinį tinklo rezultatą: tikimybių rinkinį,
   kuris parodo kokia tikimybė, kad objektas atitinka tam tikrą klasę. Dažniausiai kiek
   uždavinyje yra klasių, tiek ir yra neuronų išvesties sluoksnyje.
+  Mokymosi sparta ir šios tikimybės dydis priklauso nuo pačios aktyvacijos funkcijos. 
   \item Paslėptas sluoksnis: perduoda svorius iš praeito sluoksnio į sekantį. Prieš reikšmės perdavimą paslėptame
-  sluoksnyje kiekvienas neuronas sudeda visų ankstesnio sluoksnio neuronų siunčiamas reikšmes. Šią sumą
-  neuronai siunčia toliau, tačiau jų reikšmės yra pakeičiamos atsižvelgiant į svorius tarp neuronų jungčių ir
-  tendenciškumo.
+  sluoksnyje kiekvienas neuronas sudeda visų ankstesnio sluoksnio neuronų siunčiamas reikšmes. Prieš šios sumos siuntimą,
+  neuronų reikšmės yra pakeičiamos atsižvelgiant į svorius tarp neuronų jungčių ir
+  tendenciškumą.
   \item Susijungimai, jų svoriai ir tendenciškumas: Šie du parametrai yra
-  tinklo automatiškai sugeneruojami ir apmokant tinklą pagal
+  tinklo atsitiktinai sugeneruojami ir apmokant tinklą pagal
   duomenis, svoriai ir tendenciškumas
-  yra automatiškai tinklo keičiami. Tendenciškumas apibrėžia kaip tinklo išvestis yra nutolusi
+  yra automatiškai tinklo keičiami. Tendenciškumas apibrėžia, kaip tinklo išvestis yra nutolusi
   nuo tikrosios reikšmės. Tarp
-  kiekvieno neurono, kuris yra susijungęs tarpusavyje, turi savo jungtis, per
+  kiekvieno neurono, kuris yra susijungęs tarpusavyje, yra jungtys, per
   kurias yra paduodamos reikšmės kitiems neuronams sekančiuose sluoksniuose.
   Kaip reikšmė kis keliaujant per jungtis, nusako svoriai tarp jungčių. Tinklui mokantis
   šie svoriai yra keičiami tol, kols tinklo išvestis priartėja tikro atsakymo. Svoriai
   nurodo koks stiprus yra ryšys tarp neuronų, taip nurodant, kaip tinklo reikšmės kinta pačiame tinkle.
   Jeigu tinklui yra paduodama reikšmė, o pirmasis tinklo neuronas, kuris priima reikšmę turi mažą
   svorį, tai reiškia, jog galutiniams rezultatui ši reikšmė neturi daug įtakos. Jeigu svoris yra
-  didelis, tai duota reikšmė turi daug įtakos rezultatui \cite{salt2}. Tinkluose yra
-  taip pat naudojamas tendenciškumas. Jis nusako kaip turi būti koreguojamos tinklo reikšmės.
+  didelis, tai duota reikšmė turi daug įtakos rezultatui \cite{salt2}. Tinkluose tendenciškumas nusako, kaip turi būti koreguojamos tinklo reikšmės.
   Jeigu aktyvacijos funkcija grąžina blogą reikšmę, galima keisti tendenciškumo kintamajį ir
   pakeisti galutinį rezultatą.
   \item Aktyvacijos funkcija: tai funkcija, kokia turi būti neurono išvestis. Kiekvienas neuronas
@@ -105,6 +120,8 @@ Daugelį dirbtinių neuronų tinklų sudaro panašios struktūrinės dalys:
   \item Optimizatimo funkcija: optimizuoja tikslo funkciją. Tikslo funkcija yra taip pat vadinama nuostolių funkcija.
   Šios funkcijos pagrindinis tikslas yra keisti neuroninio tinklo reikšmes taip, kad tinklo išvestis būtų
   kuo artimesnė tikram rezultatui.
+  Jeigu yra parinkta bloga funkcija, išvedamos gerų ir blogų spėjimų tikimybės gali būti artimos viena kitai ir taip modelis mokysis lėtai. Tačiau jeigu gera funkcija yra parenkama, tikimybės tarp gerų ir blogų reikšmių labai skiriasi ir taip modelis mokosi greičiau.
+  \item Nuostolių funkcija. Nuostolių funkcija apskaičiuoja nuostolį tarp dviejų reikšmių. Paprastai skaičiuojamas nuostolis tarp tinklo išvesties ir tikrosios reikšmės. Šios funkcijos rezultatas yra perduodamas optimizavimo funkcijai, todėl nuo nuostolių funkcijos gali priklausyti ir mokymosi geritis, bei modelio tikslumas.
   \item Mokymosi taisyklė: apibrėžia, kaip tinkle keičiasi svoriai, kad tinklas išvestų norimus rezultatus.
   Taip pat galima nurodyti ir kaip keičiasi tendenciškumas, bei kada jį naudoti.
 \end{enumerate}
@@ -120,7 +137,7 @@ yra priekinė sklaida.
 Atgalinė sklaida vyksta, kai tinklas išveda rezultatą, patikrinama ar
 rezultatas yra teisingas ir atitinkamai tinklas reaguoja į tai. Inicijuojant tinklą svoriai yra
 nustatomi atsitiktinai. Kiekvienam duomenų rinkiniui yra stebima tinklo išvestis ir tikrinama kokia
-ji turėtų būti. Padaryta klaida yra perduodama tinklui atgal, per praeitus sluoksnius, einant nuo
+ji turėtų būti. Gauta reikšmė ir tikra reikšmė yra siunčiamos į nuostolių funkciją ir gaunamas nuostolis. Gautas nuostolis yra perduodama tinklui atgal, per praeitus sluoksnius, einant nuo
 išvesties sluoksnio. Šiame žingsnyje yra naudojama optimizavimo funkcija. Ji parodo kokie turėtų būti
 svorių ir tendenciškumo pokyčiai tinklai ir taip yra
 keičiami tinklo svoriai ir tendenciškumas atsižvelgiant į padarytą klaidą. Kai klaidos
@@ -177,7 +194,7 @@ R(x, a) = x \cdot a
 \par
 Tiesinės aktyvacijos funkcijos mių diapazonas yra labai didelis ir nėra dvejetainis,
 kaip dalis kitų funkcijų. Tačiau ši funkcija nėra plačiai naudojama, nes jos
-išvestinė yra konstanta, kas reiškia jog gautas gradientas nepriklauso nuo ‘x’.
+išvestinė yra konstanta, kas reiškia jog gautas gradientas nepriklauso nuo \enquote{x}.
 Taigi, jeigu spėjime yra klaida, vykdant atgalinę sklaidą mes reikšmę taisysime
 konstanta, neatsižvelgiant į pačią klaidą \cite{salt16}.
 
@@ -193,11 +210,11 @@ konstanta, neatsižvelgiant į pačią klaidą \cite{salt16}.
   R(z) = \systeme*{z; z > 0, \alpha \cdot (e^z - 1); z <= 0}
 \]
 \par
-ELU funkcija vadinasi: ‘Exponential Linear Unit’. Ši funkcija paprastai konverguoja į
+ELU funkcija vadinasi: \enquote{Exponential Linear Unit}. Ši funkcija paprastai konverguoja į
 nulį greičiau nei kitos ir taip duoda tikslesnius rezultatus. Skirtingai nuo kitų
 funkcijų, ši priima papildomai konstantą , kuri turi būti teigiamas skaičius.
-Ši funkcija yra labai panaši į RELU funkciją, tačiau ELU tampa tolygi lėtai,
-kol išvestis pasiekia , o RELU staigiai sutolygėja \cite{salt16}.
+Ši funkcija yra labai panaši į RELU funkciją, tačiau ELU tampa tolygiai lėta,
+kol išvestis pasiekiama, o RELU staigiai sutolygėja \cite{salt16}.
 
 \begin{figure}[ht]
   \centering
@@ -212,7 +229,7 @@ kol išvestis pasiekia , o RELU staigiai sutolygėja \cite{salt16}.
 \]
 
 \par
-ReLU funkcija vadinasi: ‘Rectified Linear Unit’. Ši funkcija pasiekia panašų efektyvumą
+ReLU funkcija vadinasi: \enquote{Rectified Linear Unit}. Ši funkcija pasiekia panašų efektyvumą
 kaip ir Sigmoid funkcija, tačiau ji reikalauja mačiau skaičiavimo resursų nei sigmoid
 ir tanh, nes minėta formulė yra paprastesnė, nei kitos \cite{salt16}.
 
@@ -249,7 +266,7 @@ kurio bendra suma yra lygi vienam \cite{salt16}.
 Šiame darbe bus naudojama Softmax aktyvacijos funkcija. Ši funkcija buvo
 pasirinkta, nes galima teigti, jog Softmax bando optimizuoti entropijos
 skirtumą tarp tikros reikšmės ir gautos. Entropija tarp tikros reikšmės
-‘p’ ir spėjamos ‘q’ yra apskaičiuojama pagal:
+\enquote{p} ir spėjamos \enquote{q} yra apskaičiuojama pagal:
 
 \[
 H(p, q) = - \sum_{x}p(x) \log q(x)
@@ -270,7 +287,7 @@ yra ta klasė, yra 60\%. Visų išvesties neuronų išvesties suma yra lygi 1.
 \par
 Neuroninius tinklus sudaro paprastai daug sluoksnių ir kiekviename sluoksnyje yra po
 daug neuronų. Kiekvienas neuronas yra sudėties funkcija. Funkcija apibrėžia m įvesties
-vienetų 'x', su 'w' svoriais. Visi šie neuroniai savo ir kaimyniniuose dviejuose sluoksniuose
+vienetų \enquote{x}, su \enquote{w} svoriais. Visi šie neuroniai savo ir kaimyniniuose dviejuose sluoksniuose
 yra sujungti su visais kitais neuronais. Pereinant duomenims į kitą sluoksnį yra apskaičiuojamos
 visų neuronų reikšmės ir jos perduodamos toliau. Todėl tarp neuroniniame tinkle vyksta
 labai daug sudėties operacijų ir yra svarbu, kad neįvyktų jokią skaičiosios matematikos klaida,
@@ -281,24 +298,24 @@ kaip reikšmės apvalinimo klaida.
 \]
 
 Neuroniniai tinklai atlieka daug skaičiavimų, todėl gali atsirasti klaidos su
-skaičiaja matematika: gradientinio nuolydžio "užstrigimas", apvalinimo paklaida,
+skaičiaja matematika: gradientinio nuolydžio \enquote{užstrigimas}, apvalinimo paklaida,
 blogas problemos apibrėžimas.
 
-\subsection{"Underflow" ir "overflow"}
+\subsection{\enquote{Underflow} ir \enquote{overflow}}
 % (Ian  Goodfellow Yoshua Bengio, Aaron Courville Deep Learning)
 \par
 Kai kompiuterinės programos vykdo daug skaičiavimų su
-labai dideliais arba mažais skaičiais atsiranda 'underflow' ir 'overflow' problemos
-dėl skaičių apvalinimo. ‘Underflow’ problema pasireiškia,
+labai dideliais arba mažais skaičiais atsiranda \enquote{underflow} ir \enquote{overflow} problemos
+dėl skaičių apvalinimo. \enquote{Underflow} problema pasireiškia,
 kai funkcijos reikšmė yra labai arti nulio ir ji yra apvalinama į nulį. Kai
-kurie algoritmai gali ‘sulūžti’ dėl nulinio parametro (pvz. dalybos iš nulio). Kita
-problema yra ‘overflow’. Ji pasireiškia kai gauta reikšmė yra labai didelė ir ji yra
-apvalinama į begalybę \cite{salt7}. Vienas iš pavyzdžių kaip pasireiškia 'overflow' problema skaičiavimuose
-yra 4 pav. Šiame kode yra paimama didžiausia galima 'Integer' skaičiaus reikšmė ir ji
+kurie algoritmai gali \enquote{sulūžti} dėl nulinio parametro (pvz. dalybos iš nulio). Kita
+problema yra \enquote{overflow}. Ji pasireiškia kai gauta reikšmė yra labai didelė ir ji yra
+apvalinama į begalybę \cite{salt7}. Vienas iš pavyzdžių kaip pasireiškia \enquote{overflow} problema skaičiavimuose
+yra 4 pav. Šiame kode yra paimama didžiausia galima sveiko skaičiaus reikšmė ir ji
 yra didinama. Taip atsakymas yra apvalinamas į didžiausią galimą reikšmę ir
 yra prarandama ta pati reikšmė. Šios dvi problemos yra išspręstos naudojant dviejų bitų statuso registrą
-esantį kompiuterio procesoriuje. Vienas bitas yra nustatomas jeigu CPU įvykdo 'overflow', kitas, jeigu
-procesorius įvykdo 'underflow'. Modernios programavimo kalbos, kaip Python, pagal šiuos du
+esantį kompiuterio procesoriuje. Vienas bitas yra nustatomas jeigu CPU įvykdo \enquote{overflow}, kitas, jeigu
+procesorius įvykdo \enquote{underflow}. Modernios programavimo kalbos, kaip Python, pagal šiuos du
 bitus gali pasakyti ar įvyko viena iš šitų klaidų.
 
 \begin{figure}[ht]
@@ -353,9 +370,10 @@ Tai yra pati paprasčiausia optimizavimo funkcija.
 \[
 \theta = \theta - \eta \cdot \bigtriangledown_{\theta}J(\theta)
 \]
+\par
 Pagal algoritmą yra atliekama daug iteracijų. Kiekvienos iteracijos metu yra
-apskaičiuojama delta. Ji yra gaunama iš esamos deltos atėmus mokymosi žingsnio konstantos
-ir nuostolių funkcijos gradientą parametro delta atžvilgiu. Kadangi žingsnis kurį
+apskaičiuojama theta reikšmė. Ji yra gaunama iš esamos thetos atėmus mokymosi žingsnio konstantos
+ir nuostolių funkcijos gradientą parametro theta atžvilgiu. Kadangi žingsnis kurį
 atliekame kiekvienos iteracijos metu yra konstanta, jeigu pradinis parinktas taškas
 yra toli nuo lokalaus minimumo, tai prireiks daug iteracijų, kol jis bus pasiektas.
 Šiuo metodu taip pat kiekviena iteracija yra peržiūrimi visi duomenys, kad nėra
@@ -363,7 +381,7 @@ gerai jeigu duomenų yra itin daug \cite{salt8}. Tokiu atveju reikėtų daug atm
 atsižvelgta į praeitas iteracijas ir minimumas yra per lėtai pasiekiamas, algoritmas.
 
 \subsection{Poaibio gradientinis nuolydis}
- Šis algoritmas yra panašus į paprastą gradientinį metodą, tačiau yra kelis pakeitimai.
+ Šis algoritmas yra panašus į paprastą gradientinį metodą, tačiau yra keli pakeitimai.
  Kai yra pereinama per visus duomenis, po kiekvieno duomenų elemento peržiūrėjimo,
  yra atnaujinami parametrai. Todėl po kiekvienos iteracijos, turime visų duomenų
  elementų pakeitimų sudėtį. Todėl minimumas yra pasiekiamas statesne trajektorija ir
@@ -395,7 +413,7 @@ yra parenkamas empiriškai stebint konvergavimo greitį ir duomenų kiekį. Jeig
 tai optimizavimo funkcija gali diverguoti arba peršokti lokalų minimumą ir nutolti nuo jo, taip praiilginant
 procesą. Jeigu žingsnis yra parenkamas per mažas, tada konvergavimo greitis į lokalų minimumą yra labai mažas
 ir procesas trunka ilgai \cite{salt17}.
-\item Mokymosi žingsnio keitimo trigeris. Kuriant "trigerį" reikia nurodyti arba epochų skaičių arba ribinę nuostolių
+\item Mokymosi žingsnio keitimo trigeris. Kuriant \enquote{trigerį} reikia nurodyti arba epochų skaičių arba ribinę nuostolių
 funkcijos reikšmę, kada trigeris turi būti aktyvuotas. Po aktyvacijos, trigeris pakeičia mokymosi žingsnio dydį.
 Trigerio aktyvacijos laiko nurodymui irgi nėra jokios tikslios taisyklės, tai yra nurodoma empiriškai stebint
 mokymosi procesą. Jeigu aktyvacijos laikas yra nurodomas per anksti, mokymosi žingsnis yra sulėtinamas per greitai
@@ -407,11 +425,11 @@ rezultatus, visų šių duomenų iteracija nėra būtina, nes jie tinklo svorių
 Jeigu duomenų, su panašiais požymiais, yra daug, reikia paimti tik dalį jų ir tik tą dalį iteruoti. Jeigu
 duomenų, su panašiais požymiais, yra daug, tada tinklo vienos epochos trukmė gali užtrukti ilgiau ir optimizavimo
 funkcija lėčiau konverguos į lokalų minimumą \cite{salt17}.
-\item Optimizavimo funkcijos "užstrigimas" ties lokaliu minimumu. Optimizavimo funkcijų tinklas yra rasti
-globalų minimumo tašką. Tačiau gradientų nuolydžiu pagrįstų algoritmų dažna problema: "užstrigimas" ties
+\item Optimizavimo funkcijos \enquote{užstrigimas} ties lokaliu minimumu. Optimizavimo funkcijų tinklas yra rasti
+globalų minimumo tašką. Tačiau gradientų nuolydžiu pagrįstų algoritmų dažna problema: \enquote{užstrigimas} ties
 lokaliu minimumu. Gradientas parodo kuria kryptimi funkcija leidžiasi žemyn. Ta kryptimi optimizavimo algoritmas
 eina. Pasiekus lokalų minimumą, kai gradientas pradeda didėti, optimizavimo algoritmai baigia darbą. Todėl jeigu yra
-blogai parenkamas pirmas taškas, optimizavimo algoritmai "užstrigs" ties lokaliu minimumu \cite{salt17}. Tą išvengti galima prieš algoritmo pradžią
+blogai parenkamas pirmas taškas, optimizavimo algoritmai \enquote{užstrigs} ties lokaliu minimumu \cite{salt17}. Tą išvengti galima prieš algoritmo pradžią
 įvertinti funkciją ir parinkti artimus pradinius taškus prie tikrųjų reikšmių. Kitas būdas to išvegti yra naudoti
 optimizavimo algoritmus, kurie nesiremia gradientų nuolydžiu. Vienas iš daugelio algoritmų, kuris nesiremia gradientais, yra
 banginių judesių pagrįstas optimizavimo algoritmas.
@@ -460,10 +478,6 @@ To pasekoje, optimizavimo funkcijos greitis gali būti lėtas arba ji gali diver
 
 \subsection{Nuostolių funkcijos pasirinkimas}
 
-
-
-
-
 % https://towardsdatascience.com/https-medium-com-chayankathuria-regression-why-mean-square-error-a8cad2a1c96f
 \par
 Nuostolių funkcijos grąžina skirtumą tarp tinklo išvesties ir tikrų reikšmių. Pagal
@@ -476,7 +490,7 @@ keičiami tinklo svoriai ir tendenciškumas.
 \]
 \par
 MSE funkcija sumuoja skirtumų kvadratus ir randa bendrą nuostolių vidurkį.
-Ši funkcija yra dažnai numatyta įaviriuose MATLAB ir Python algoritmuose.
+Ši funkcija yra dažnai numatyta įvairiuose MATLAB ir Python algoritmuose.
 Vienintelė neigiama šios funkcijos pusė yra tai, kad jeigu duoti duomenys yra pirmojo
 laipsio, tada negalima teigti, kad rezultatai tiesiogiai koreliuoja tarpusavyje,
 nes MSE yra antrojo laipsnio funkcija \cite{salt12}.
@@ -485,17 +499,26 @@ nes MSE yra antrojo laipsnio funkcija \cite{salt12}.
 \[
   Nuostolis = \sqrt{\frac{1}{N} \cdot [\sum (Y_{Gautas}-Y_{Tikras})^{2}]}
 \]
+\par
 RMSE funkcija yra panaši į MSE, tik pridėta šaknies traukimo operacija.
 Šaknies traukimas paverčia RMSE pirmojo laipsnio funkcija, todėl ją galima naudoti
 su pirmojo laipsnio duomenimis \cite{salt12}.
 
-\subsection{Paklaidų pakelti kvadratu suma}
+\subsection{Huber nuostolių funkcija}
 \[
-  Nuostolis = [\sum(Y_{Gautas} - Y_{Tikras})]^{2}
+  Nuostolis_{\delta} = \systeme*{
+ 0.5\cdot(f(x) - y)^2; \abs{y - f(x)} \leq \delta,
+ \delta \cdot \abs{y - f(x)} - 0.5 \cdot \delta^2
+                       }
 \]
+\par
+Huber nuostolių funkcija yra mažiau žinoma nei kitos ir mažiau naudojama
+praktikoje. Ji yra mažiau jautri deviacijai negul MSE funkcija.
+Ji taip pat yra diferencijuojama ties 0 \cite{salt12}.
+Šios funkcijos hiperparametras delta leidžia priartinti šią
+funkciją prie MAE arba MSE. Jeigu delta yra artimas nuliui,
+Huber funkcija priartėja prie MAE, jeigu delta artimas begalybei, priartėja prie MSE \cite{salt12}.
 
-]subsection{Argumentacija už pasirinktą aktyvacijos funkciją}
-TODO
 % https://www.pyimagesearch.com/2018/11/19/mask-r-cnn-with-opencv/
 \section{Neuroninių tinklų modeliai}
 \par
@@ -540,7 +563,7 @@ kiekvienos klasės ribos vaizde.
 \par
 Šiame darbe yra naudojamas Tensorflow karkaso Mask RCNN inception modelis, kuris naudoja
 objektų segmentavimą. Tinklo modelį ištreniruoti ir nusakyti kur yra tikslios plaučių
-ribos nuotraukose, buvo naudojami dvejetainių reikšmių "png" failai. Vienas iš tokių
+ribos nuotraukose, buvo naudojami dvejetainių reikšmių \enquote{png} failai. Vienas iš tokių
 failų pavyzdžių:
 
 \begin{figure}[ht]
@@ -554,7 +577,7 @@ failų pavyzdžių:
 Šiam uždaviniui tokio tipo failai buvo pasirinkti tam, nes reikia aptikti dvi klases:
 plaučiai ir ne plaučiai. Taip su skirtingomis pikselių reikšmėmis yra paduodamos kiekvieno
 pikselio klasės. Šie dvejetainiai vaizdų failai buvo gauti apibrėžiant plaučius kiekvienoje
-nuotraukoje ir eksportuojant pažymėtus ribinius taškus į "XML" failus. Pagal duotas ribinių
+nuotraukoje ir eksportuojant pažymėtus ribinius taškus į \enquote{XML} failus. Pagal duotas ribinių
 taškų X ir Y koordinates, buvo parašyta programa, kuri automatiškai pagal turimus
 duomenis sugeneruoja dvejetainius vaizdų failus.
 \par
@@ -725,7 +748,7 @@ objektų aptikimą vaizduose.
 
 \section{Rezultatai}
 \par
-Naudojant Tensorflow karkasą ir "mask rcnn inception v2" tinklo modelį, buvo sėkmingai
+Naudojant Tensorflow karkasą ir \enquote{mask rcnn inception v2} tinklo modelį, buvo sėkmingai
 ištreniruotas tinklas aptikti plaučius su 0.02 nuostoliais.
 Tikslaus tikslumo procentais negalima nusakyti, nes tai yra ne objektų klasifikavimo,
 bet aptikimo uždavinys.

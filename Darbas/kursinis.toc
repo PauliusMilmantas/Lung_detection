@@ -1,79 +1,79 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \defcounter {refsection}{0}\relax 
-\select@language {lithuanian}
+\selectlanguage *{lithuanian}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Įvadas}{1}
+\contentsline {section}{Įvadas}{1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.}Dirbtinio neuroninio tinklo sudėtis}{3}
+\contentsline {section}{\numberline {1.}Dirbtinio neuroninio tinklo sudėtis}{3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.1.}Bazinė struktūra}{3}
+\contentsline {subsection}{\numberline {1.1.}Bazinė struktūra}{3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.2.}GPU naudojimas}{4}
+\contentsline {subsection}{\numberline {1.2.}GPU naudojimas}{4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.3.}Aktyvacijos funkcijos}{5}
+\contentsline {subsection}{\numberline {1.3.}Aktyvacijos funkcijos}{5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.3.1.}Tiesinė aktyvacijos funkcija}{5}
+\contentsline {subsubsection}{\numberline {1.3.1.}Tiesinė aktyvacijos funkcija}{5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.3.2.}ELU}{5}
+\contentsline {subsubsection}{\numberline {1.3.2.}ELU}{6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.3.3.}ReLU}{6}
+\contentsline {subsubsection}{\numberline {1.3.3.}ReLU}{6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.3.4.}Sigmoid}{6}
+\contentsline {subsubsection}{\numberline {1.3.4.}Sigmoid}{6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.3.5.}Softmax}{6}
+\contentsline {subsubsection}{\numberline {1.3.5.}Softmax}{7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.3.6.}Argumentacija už pasirinktą aktyvacijos funkciją}{7}
+\contentsline {subsubsection}{\numberline {1.3.6.}Argumentacija už pasirinktą aktyvacijos funkciją}{7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.}Problemos su skaičiaja matematika}{8}
+\contentsline {section}{\numberline {2.}Problemos su skaičiaja matematika}{8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.}"Underflow" ir "overflow"}{8}
+\contentsline {subsection}{\numberline {2.1.}\enquote {Underflow} ir \enquote {overflow}}{8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.}Apribotas optimizavimas}{8}
+\contentsline {subsection}{\numberline {2.2.}Apribotas optimizavimas}{8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3.}Blogas problemos apibrėžimas}{9}
+\contentsline {subsection}{\numberline {2.3.}Blogas problemos apibrėžimas}{9}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.}Optimizavimo algoritmai}{10}
+\contentsline {section}{\numberline {3.}Optimizavimo algoritmai}{10}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1.}Gradientinis nuolydis}{10}
+\contentsline {subsection}{\numberline {3.1.}Gradientinis nuolydis}{10}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.}Poaibio gradientinis nuolydis}{10}
+\contentsline {subsection}{\numberline {3.2.}Poaibio gradientinis nuolydis}{10}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3.}Mažo poaibio gradientinis nuolydis}{10}
+\contentsline {subsection}{\numberline {3.3.}Mažo poaibio gradientinis nuolydis}{10}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.}Sunkumai taikant gradientinius metodus}{11}
+\contentsline {subsection}{\numberline {3.4.}Sunkumai taikant gradientinius metodus}{11}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5.}Bendros gradientinių metodų problemos}{12}
+\contentsline {subsection}{\numberline {3.5.}Bendros gradientinių metodų problemos}{12}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.}Nuostolių funkcijos}{13}
+\contentsline {section}{\numberline {4.}Nuostolių funkcijos}{13}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.}Nuostolių funkcijos pasirinkimas}{13}
+\contentsline {subsection}{\numberline {4.1.}Nuostolių funkcijos pasirinkimas}{13}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.}Vidutinė kvadratinė paklaida (MSE)}{13}
+\contentsline {subsection}{\numberline {4.2.}Vidutinė kvadratinė paklaida (MSE)}{13}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.}Šaknis iš vidutinės kvadratinės paklaidos (RMSE)}{13}
+\contentsline {subsection}{\numberline {4.3.}Šaknis iš vidutinės kvadratinės paklaidos (RMSE)}{13}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.}Paklaidų pakelti kvadratu suma}{13}
+\contentsline {subsection}{\numberline {4.4.}Huber nuostolių funkcija}{13}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.}Neuroninių tinklų modeliai}{14}
+\contentsline {section}{\numberline {5.}Neuroninių tinklų modeliai}{14}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1.}Mask RCNN inception}{15}
+\contentsline {subsection}{\numberline {5.1.}Mask RCNN inception}{15}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.}Vieno kadro aptikimas}{16}
+\contentsline {subsection}{\numberline {5.2.}Vieno kadro aptikimas}{16}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3.}Alternatyvūs objekto paieškos algoritmai}{16}
+\contentsline {subsection}{\numberline {5.3.}Alternatyvūs objekto paieškos algoritmai}{16}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.}Tyrimas}{18}
+\contentsline {section}{\numberline {6.}Tyrimas}{18}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.}Duomenų paruošimas}{18}
+\contentsline {subsection}{\numberline {6.1.}Duomenų paruošimas}{18}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2.}Modelio sukūrimas ir treniravimas}{18}
+\contentsline {subsection}{\numberline {6.2.}Modelio sukūrimas ir treniravimas}{18}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.2.1.}Pasiruošimas}{18}
+\contentsline {subsubsection}{\numberline {6.2.1.}Pasiruošimas}{18}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {6.2.2.}Kūrimas ir treniravimas}{18}
+\contentsline {subsubsection}{\numberline {6.2.2.}Kūrimas ir treniravimas}{18}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.}Rezultatai}{20}
+\contentsline {section}{\numberline {7.}Rezultatai}{20}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Išvados}{21}
+\contentsline {section}{Išvados}{21}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Literatūra}{22}
+\contentsline {section}{Literatūra}{22}%

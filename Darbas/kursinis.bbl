@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 2.8 $
+% $ biblatex bbl format version 3.1 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,7 +18,7 @@
 
 
 \refsection{0}
-  \sortlist[entry]{anyt/global/}
+  \datalist[entry]{anyt/global//global/global}
     \entry{salt2}{misc}{}
       \name{author}{1}{}{%
         {{hash=071e8b59bcc6de28244fea3bf962a165}{%
@@ -29,11 +29,13 @@
       }
       \strng{namehash}{071e8b59bcc6de28244fea3bf962a165}
       \strng{fullhash}{071e8b59bcc6de28244fea3bf962a165}
+      \strng{bibnamehash}{071e8b59bcc6de28244fea3bf962a165}
+      \strng{authorbibnamehash}{071e8b59bcc6de28244fea3bf962a165}
       \strng{authornamehash}{071e8b59bcc6de28244fea3bf962a165}
       \strng{authorfullhash}{071e8b59bcc6de28244fea3bf962a165}
       \field{labelalpha}{Ala16}
       \field{sortinit}{A}
-      \field{sortinithash}{3248043b5fe8d0a34dab5ab6b8d4309b}
+      \field{sortinithash}{a3dcedd53b04d1adfd5ac303ecd5e6fa}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{A Visual and Interactive Guide to the Basics of Neural Networks}
@@ -42,6 +44,9 @@
       \field{urlyear}{2020}
       \field{year}{2016}
       \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://jalammar.github.io/visual-interactive-guide-basics-neural-networks/
+      \endverb
       \verb{url}
       \verb http://jalammar.github.io/visual-interactive-guide-basics-neural-networks/
       \endverb
@@ -54,11 +59,13 @@
       }
       \strng{namehash}{facb30e7eafc021b924f05da837a153b}
       \strng{fullhash}{facb30e7eafc021b924f05da837a153b}
+      \strng{bibnamehash}{facb30e7eafc021b924f05da837a153b}
+      \strng{authorbibnamehash}{facb30e7eafc021b924f05da837a153b}
       \strng{authornamehash}{facb30e7eafc021b924f05da837a153b}
       \strng{authorfullhash}{facb30e7eafc021b924f05da837a153b}
       \field{labelalpha}{CS220}
       \field{sortinit}{C}
-      \field{sortinithash}{095692fd22cc3c74d7fe223d02314dbd}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Linear classification: Support Vector Machine, Softmax}
@@ -67,6 +74,9 @@
       \field{urlyear}{2020}
       \field{year}{2020}
       \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://cs231n.github.io/linear-classify
+      \endverb
       \verb{url}
       \verb https://cs231n.github.io/linear-classify
       \endverb
@@ -81,11 +91,13 @@
       }
       \strng{namehash}{8a186b923ecc7b77bc273316396594cb}
       \strng{fullhash}{8a186b923ecc7b77bc273316396594cb}
+      \strng{bibnamehash}{8a186b923ecc7b77bc273316396594cb}
+      \strng{authorbibnamehash}{8a186b923ecc7b77bc273316396594cb}
       \strng{authornamehash}{8a186b923ecc7b77bc273316396594cb}
       \strng{authorfullhash}{8a186b923ecc7b77bc273316396594cb}
       \field{labelalpha}{Dab17}
       \field{sortinit}{D}
-      \field{sortinithash}{d10b5413de1f3d197b20897dd0d565bb}
+      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Gradient Descent Algorithm and Its Variants}
@@ -94,6 +106,9 @@
       \field{urlyear}{2020}
       \field{year}{2017}
       \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://towardsdatascience.com/gradient-descent-algorithm-and-its-variants-10f652806a3
+      \endverb
       \verb{url}
       \verb https://towardsdatascience.com/gradient-descent-algorithm-and-its-variants-10f652806a3
       \endverb
@@ -108,11 +123,13 @@
       }
       \strng{namehash}{07a4a1423eae14fcc89ba95d908ed3b8}
       \strng{fullhash}{07a4a1423eae14fcc89ba95d908ed3b8}
+      \strng{bibnamehash}{07a4a1423eae14fcc89ba95d908ed3b8}
+      \strng{authorbibnamehash}{07a4a1423eae14fcc89ba95d908ed3b8}
       \strng{authornamehash}{07a4a1423eae14fcc89ba95d908ed3b8}
       \strng{authorfullhash}{07a4a1423eae14fcc89ba95d908ed3b8}
       \field{labelalpha}{Dos19}
       \field{sortinit}{D}
-      \field{sortinithash}{d10b5413de1f3d197b20897dd0d565bb}
+      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Various Optimization Algorithms For Training Neural Network}
@@ -121,6 +138,9 @@
       \field{urlyear}{2020}
       \field{year}{2019}
       \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://medium.com/@sdoshi579/optimizers-for-training-neural-network-59450d71caf6
+      \endverb
       \verb{url}
       \verb https://medium.com/@sdoshi579/optimizers-for-training-neural-network-59450d71caf6
       \endverb
@@ -135,11 +155,13 @@
       }
       \strng{namehash}{43ded22aad732ae58e01afbaf854a6e6}
       \strng{fullhash}{43ded22aad732ae58e01afbaf854a6e6}
+      \strng{bibnamehash}{43ded22aad732ae58e01afbaf854a6e6}
+      \strng{authorbibnamehash}{43ded22aad732ae58e01afbaf854a6e6}
       \strng{authornamehash}{43ded22aad732ae58e01afbaf854a6e6}
       \strng{authorfullhash}{43ded22aad732ae58e01afbaf854a6e6}
       \field{labelalpha}{For17}
       \field{sortinit}{F}
-      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{sortinithash}{fb0c0faa89eb6abae8213bf60e6799ea}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Understanding SSD MultiBox — Real-Time Object Detection In Deep Learning}
@@ -148,6 +170,9 @@
       \field{urlyear}{2020}
       \field{year}{2017}
       \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://towardsdatascience.com/understanding-ssd-multibox-real-time-object-detection-in-deep-learning-495ef744fab
+      \endverb
       \verb{url}
       \verb https://towardsdatascience.com/understanding-ssd-multibox-real-time-object-detection-in-deep-learning-495ef744fab
       \endverb
@@ -162,11 +187,13 @@
       }
       \strng{namehash}{961919f4f1d5603650aa2b096fc5206e}
       \strng{fullhash}{961919f4f1d5603650aa2b096fc5206e}
+      \strng{bibnamehash}{961919f4f1d5603650aa2b096fc5206e}
+      \strng{authorbibnamehash}{961919f4f1d5603650aa2b096fc5206e}
       \strng{authornamehash}{961919f4f1d5603650aa2b096fc5206e}
       \strng{authorfullhash}{961919f4f1d5603650aa2b096fc5206e}
       \field{labelalpha}{Gao17}
       \field{sortinit}{G}
-      \field{sortinithash}{618d986594b7198ba52cf8b00d348f3f}
+      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Faster R-CNN Explained}
@@ -175,6 +202,9 @@
       \field{urlyear}{2020}
       \field{year}{2017}
       \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://medium.com/@smallfishbigsea/faster-r-cnn-explained-864d4fb7e3f8
+      \endverb
       \verb{url}
       \verb https://medium.com/@smallfishbigsea/faster-r-cnn-explained-864d4fb7e3f8
       \endverb
@@ -202,11 +232,13 @@
       }
       \strng{namehash}{3ae53fe582e8a815b118d26947eaa326}
       \strng{fullhash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{bibnamehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{authorbibnamehash}{3ae53fe582e8a815b118d26947eaa326}
       \strng{authornamehash}{3ae53fe582e8a815b118d26947eaa326}
       \strng{authorfullhash}{3ae53fe582e8a815b118d26947eaa326}
       \field{labelalpha}{GBC16}
       \field{sortinit}{G}
-      \field{sortinithash}{618d986594b7198ba52cf8b00d348f3f}
+      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{\url{http://www.deeplearningbook.org}}
@@ -223,11 +255,13 @@
       }
       \strng{namehash}{1e0937f69bc68831deb004d37bf43fc8}
       \strng{fullhash}{1e0937f69bc68831deb004d37bf43fc8}
+      \strng{bibnamehash}{1e0937f69bc68831deb004d37bf43fc8}
+      \strng{authorbibnamehash}{1e0937f69bc68831deb004d37bf43fc8}
       \strng{authornamehash}{1e0937f69bc68831deb004d37bf43fc8}
       \strng{authorfullhash}{1e0937f69bc68831deb004d37bf43fc8}
       \field{labelalpha}{Glo20}
       \field{sortinit}{G}
-      \field{sortinithash}{618d986594b7198ba52cf8b00d348f3f}
+      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Activation Functions}
@@ -236,6 +270,9 @@
       \field{urlyear}{2020}
       \field{year}{2020}
       \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html
+      \endverb
       \verb{url}
       \verb https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html
       \endverb
@@ -250,11 +287,13 @@
       }
       \strng{namehash}{04638596e3e3c2645c5ea68197093921}
       \strng{fullhash}{04638596e3e3c2645c5ea68197093921}
+      \strng{bibnamehash}{04638596e3e3c2645c5ea68197093921}
+      \strng{authorbibnamehash}{04638596e3e3c2645c5ea68197093921}
       \strng{authornamehash}{04638596e3e3c2645c5ea68197093921}
       \strng{authorfullhash}{04638596e3e3c2645c5ea68197093921}
       \field{labelalpha}{Hin18}
       \field{sortinit}{H}
-      \field{sortinithash}{2f664b453ec75da1fe3804ca92633405}
+      \field{sortinithash}{6db6145dae8dc9e1271a8d556090b50a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Neural Networks}
@@ -263,6 +302,9 @@
       \field{urlyear}{2020}
       \field{year}{2018}
       \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://didattica.cs.unicam.it/lib/exe/fetch.php?media=didattica:magistrale:kebi:ay_1718:ke-11_neural_networks.pdf
+      \endverb
       \verb{url}
       \verb http://didattica.cs.unicam.it/lib/exe/fetch.php?media=didattica:magistrale:kebi:ay_1718:ke-11_neural_networks.pdf
       \endverb
@@ -277,11 +319,13 @@
       }
       \strng{namehash}{630fcc840486739083f5b8451833712d}
       \strng{fullhash}{630fcc840486739083f5b8451833712d}
+      \strng{bibnamehash}{630fcc840486739083f5b8451833712d}
+      \strng{authorbibnamehash}{630fcc840486739083f5b8451833712d}
       \strng{authornamehash}{630fcc840486739083f5b8451833712d}
       \strng{authorfullhash}{630fcc840486739083f5b8451833712d}
       \field{labelalpha}{Kat19}
       \field{sortinit}{K}
-      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{sortinithash}{d3edc18d54b9438a72c24c925bfb38f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Regression — Why Mean Square Error?}
@@ -290,8 +334,43 @@
       \field{urlyear}{2020}
       \field{year}{2019}
       \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://towardsdatascience.com/https-medium-com-chayankathuria-regression-why-mean-square-error-a8cad2a1c96f
+      \endverb
       \verb{url}
       \verb https://towardsdatascience.com/https-medium-com-chayankathuria-regression-why-mean-square-error-a8cad2a1c96f
+      \endverb
+    \endentry
+    \entry{salt24}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=1ed387c37c5350460cb213237bb28893}{%
+           family={Keijsers},
+           familyi={K\bibinitperiod},
+           given={N.L.W.},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{1ed387c37c5350460cb213237bb28893}
+      \strng{fullhash}{1ed387c37c5350460cb213237bb28893}
+      \strng{bibnamehash}{1ed387c37c5350460cb213237bb28893}
+      \strng{authorbibnamehash}{1ed387c37c5350460cb213237bb28893}
+      \strng{authornamehash}{1ed387c37c5350460cb213237bb28893}
+      \strng{authorfullhash}{1ed387c37c5350460cb213237bb28893}
+      \field{labelalpha}{Kei10}
+      \field{sortinit}{K}
+      \field{sortinithash}{d3edc18d54b9438a72c24c925bfb38f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Neural Networks}
+      \field{urlday}{5}
+      \field{urlmonth}{6}
+      \field{urlyear}{2020}
+      \field{year}{2010}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://www.sciencedirect.com/science/article/pii/B9780123741059004937
+      \endverb
+      \verb{url}
+      \verb http://www.sciencedirect.com/science/article/pii/B9780123741059004937
       \endverb
     \endentry
     \entry{salt14}{misc}{}
@@ -304,11 +383,13 @@
       }
       \strng{namehash}{fd768606d546daa3f555605b7786517f}
       \strng{fullhash}{fd768606d546daa3f555605b7786517f}
+      \strng{bibnamehash}{fd768606d546daa3f555605b7786517f}
+      \strng{authorbibnamehash}{fd768606d546daa3f555605b7786517f}
       \strng{authornamehash}{fd768606d546daa3f555605b7786517f}
       \strng{authorfullhash}{fd768606d546daa3f555605b7786517f}
       \field{labelalpha}{Kha19}
       \field{sortinit}{K}
-      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{sortinithash}{d3edc18d54b9438a72c24c925bfb38f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Computer Vision: Instance Segmentation with Mask R-CNN}
@@ -317,13 +398,16 @@
       \field{urlyear}{2020}
       \field{year}{2019}
       \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://towardsdatascience.com/computer-vision-instance-segmentation-with-mask-r-cnn-7983502fcad1
+      \endverb
       \verb{url}
       \verb https://towardsdatascience.com/computer-vision-instance-segmentation-with-mask-r-cnn-7983502fcad1
       \endverb
     \endentry
     \entry{salt22}{misc}{}
       \name{author}{1}{}{%
-        {{hash=dae687494097a3fde538ce1e8a4a31c2}{%
+        {{hash=030d213354eaf99300c62796fdab6d78}{%
            family={Mehta\bibnamedelima VK},
            familyi={M\bibinitperiod\bibinitdelim V\bibinitperiod},
            given={Rao\bibnamedelima DS.},
@@ -331,17 +415,22 @@
            suffix={Deb\bibnamedelima PS},
            suffixi={D\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
       }
-      \strng{namehash}{dae687494097a3fde538ce1e8a4a31c2}
-      \strng{fullhash}{dae687494097a3fde538ce1e8a4a31c2}
-      \strng{authornamehash}{dae687494097a3fde538ce1e8a4a31c2}
-      \strng{authorfullhash}{dae687494097a3fde538ce1e8a4a31c2}
+      \strng{namehash}{030d213354eaf99300c62796fdab6d78}
+      \strng{fullhash}{030d213354eaf99300c62796fdab6d78}
+      \strng{bibnamehash}{030d213354eaf99300c62796fdab6d78}
+      \strng{authorbibnamehash}{030d213354eaf99300c62796fdab6d78}
+      \strng{authornamehash}{030d213354eaf99300c62796fdab6d78}
+      \strng{authorfullhash}{030d213354eaf99300c62796fdab6d78}
       \field{labelalpha}{Meh17}
       \field{sortinit}{M}
-      \field{sortinithash}{c26a05ef03e4429073ed5c825140fac3}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{APPLICATION OF COMPUTER TECHNIQUES IN MEDICINE}
       \field{year}{2017}
+      \verb{urlraw}
+      \verb https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6257447/
+      \endverb
       \verb{url}
       \verb https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6257447/
       \endverb
@@ -354,11 +443,14 @@
       }
       \strng{namehash}{a2fe9051fe051f819bd739ef3e340377}
       \strng{fullhash}{a2fe9051fe051f819bd739ef3e340377}
+      \strng{bibnamehash}{a2fe9051fe051f819bd739ef3e340377}
+      \strng{authorbibnamehash}{a2fe9051fe051f819bd739ef3e340377}
       \strng{authornamehash}{a2fe9051fe051f819bd739ef3e340377}
       \strng{authorfullhash}{a2fe9051fe051f819bd739ef3e340377}
+      \field{extraname}{1}
       \field{labelalpha}{NVI20}
       \field{sortinit}{N}
-      \field{sortinithash}{1163c28585427c673ad5a010cbf82f52}
+      \field{sortinithash}{98cf339a479c0454fe09153a08675a15}
       \field{extraalpha}{1}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
@@ -368,6 +460,9 @@
       \field{urlyear}{2020}
       \field{year}{2020}
       \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://developer.nvidia.com/cuda-zone
+      \endverb
       \verb{url}
       \verb https://developer.nvidia.com/cuda-zone
       \endverb
@@ -380,11 +475,14 @@
       }
       \strng{namehash}{a2fe9051fe051f819bd739ef3e340377}
       \strng{fullhash}{a2fe9051fe051f819bd739ef3e340377}
+      \strng{bibnamehash}{a2fe9051fe051f819bd739ef3e340377}
+      \strng{authorbibnamehash}{a2fe9051fe051f819bd739ef3e340377}
       \strng{authornamehash}{a2fe9051fe051f819bd739ef3e340377}
       \strng{authorfullhash}{a2fe9051fe051f819bd739ef3e340377}
+      \field{extraname}{2}
       \field{labelalpha}{NVI20}
       \field{sortinit}{N}
-      \field{sortinithash}{1163c28585427c673ad5a010cbf82f52}
+      \field{sortinithash}{98cf339a479c0454fe09153a08675a15}
       \field{extraalpha}{2}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
@@ -394,6 +492,9 @@
       \field{urlyear}{2020}
       \field{year}{2020}
       \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.tensorflow.org/install/gpu
+      \endverb
       \verb{url}
       \verb https://www.tensorflow.org/install/gpu
       \endverb
@@ -408,11 +509,13 @@
       }
       \strng{namehash}{90c7426871854b545001dbd291c0b3bb}
       \strng{fullhash}{90c7426871854b545001dbd291c0b3bb}
+      \strng{bibnamehash}{90c7426871854b545001dbd291c0b3bb}
+      \strng{authorbibnamehash}{90c7426871854b545001dbd291c0b3bb}
       \strng{authornamehash}{90c7426871854b545001dbd291c0b3bb}
       \strng{authorfullhash}{90c7426871854b545001dbd291c0b3bb}
       \field{labelalpha}{Opp}
       \field{sortinit}{O}
-      \field{sortinithash}{f5d80ef71b5b58852663ecfd775b175a}
+      \field{sortinithash}{ff8d4eeb5101e3cf3809959b3592d942}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Activation Functions in Neural Networks}
@@ -420,6 +523,9 @@
       \field{urlmonth}{5}
       \field{urlyear}{2020}
       \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.deeplearning-academy.com/p/ai-wiki-activation-functions
+      \endverb
       \verb{url}
       \verb https://www.deeplearning-academy.com/p/ai-wiki-activation-functions
       \endverb
@@ -434,11 +540,13 @@
       }
       \strng{namehash}{b468248a20d75c52ee742f4592c2569f}
       \strng{fullhash}{b468248a20d75c52ee742f4592c2569f}
+      \strng{bibnamehash}{b468248a20d75c52ee742f4592c2569f}
+      \strng{authorbibnamehash}{b468248a20d75c52ee742f4592c2569f}
       \strng{authornamehash}{b468248a20d75c52ee742f4592c2569f}
       \strng{authorfullhash}{b468248a20d75c52ee742f4592c2569f}
       \field{labelalpha}{Rud16}
       \field{sortinit}{R}
-      \field{sortinithash}{c15bc8eb6936bc6b3c8baa9e8575af53}
+      \field{sortinithash}{b9c68a358aea118dfa887b6e902414a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.LG}
@@ -459,11 +567,13 @@
       }
       \strng{namehash}{7270ffb286835dccd6f27d8dc52ad000}
       \strng{fullhash}{7270ffb286835dccd6f27d8dc52ad000}
+      \strng{bibnamehash}{7270ffb286835dccd6f27d8dc52ad000}
+      \strng{authorbibnamehash}{7270ffb286835dccd6f27d8dc52ad000}
       \strng{authornamehash}{7270ffb286835dccd6f27d8dc52ad000}
       \strng{authorfullhash}{7270ffb286835dccd6f27d8dc52ad000}
       \field{labelalpha}{Seh18}
       \field{sortinit}{S}
-      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Decision trees explained easily}
@@ -472,25 +582,30 @@
       \field{urlyear}{2020}
       \field{year}{2018}
       \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://medium.com/@chiragsehra42/decision-trees-explained-easily-28f23241248
+      \endverb
       \verb{url}
       \verb https://medium.com/@chiragsehra42/decision-trees-explained-easily-28f23241248
       \endverb
     \endentry
     \entry{salt10}{misc}{}
       \name{author}{1}{}{%
-        {{hash=a0b4e6d3e7fca9521df4fc5c564bd16a}{%
+        {{hash=f4fb958f19c4f411fec3eca29592d899}{%
            family={Seyedali\bibnamedelima Mirjalili},
            familyi={S\bibinitperiod\bibinitdelim M\bibinitperiod},
            given={Andrew\bibnamedelima Lewis},
            giveni={A\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
       }
-      \strng{namehash}{a0b4e6d3e7fca9521df4fc5c564bd16a}
-      \strng{fullhash}{a0b4e6d3e7fca9521df4fc5c564bd16a}
-      \strng{authornamehash}{a0b4e6d3e7fca9521df4fc5c564bd16a}
-      \strng{authorfullhash}{a0b4e6d3e7fca9521df4fc5c564bd16a}
+      \strng{namehash}{f4fb958f19c4f411fec3eca29592d899}
+      \strng{fullhash}{f4fb958f19c4f411fec3eca29592d899}
+      \strng{bibnamehash}{f4fb958f19c4f411fec3eca29592d899}
+      \strng{authorbibnamehash}{f4fb958f19c4f411fec3eca29592d899}
+      \strng{authornamehash}{f4fb958f19c4f411fec3eca29592d899}
+      \strng{authorfullhash}{f4fb958f19c4f411fec3eca29592d899}
       \field{labelalpha}{Sey16}
       \field{sortinit}{S}
-      \field{sortinithash}{3c1547c63380458f8ca90e40ed14b83e}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{The Whale Optimization Algorithm}
@@ -499,6 +614,9 @@
       \field{urlyear}{2020}
       \field{year}{2016}
       \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0965997816300163?casa_token=yI9V7so44bIAAAAA:y_34ijm8Gc4JBSknYd7cH2hqfk2K4h6dpYxZBTR7RGCEa89wP2b5Ohl_FqhK8t8gG9r4qdmGCg
+      \endverb
       \verb{url}
       \verb https://www.sciencedirect.com/science/article/pii/S0965997816300163?casa_token=yI9V7so44bIAAAAA:y_34ijm8Gc4JBSknYd7cH2hqfk2K4h6dpYxZBTR7RGCEa89wP2b5Ohl_FqhK8t8gG9r4qdmGCg
       \endverb
@@ -511,11 +629,13 @@
       }
       \strng{namehash}{074dd699710da0ec1eb45f13b31788e3}
       \strng{fullhash}{074dd699710da0ec1eb45f13b31788e3}
+      \strng{bibnamehash}{074dd699710da0ec1eb45f13b31788e3}
+      \strng{authorbibnamehash}{074dd699710da0ec1eb45f13b31788e3}
       \strng{authornamehash}{074dd699710da0ec1eb45f13b31788e3}
       \strng{authorfullhash}{074dd699710da0ec1eb45f13b31788e3}
       \field{labelalpha}{Ten}
       \field{sortinit}{T}
-      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{sortinithash}{51f9faf24c60c62ca764a77f78cf5666}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{TensorFlow Model Garden}
@@ -523,6 +643,9 @@
       \field{urlmonth}{5}
       \field{urlyear}{2020}
       \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/tensorflow/models/tree/master/research
+      \endverb
       \verb{url}
       \verb https://github.com/tensorflow/models/tree/master/research
       \endverb
@@ -537,11 +660,13 @@
       }
       \strng{namehash}{fdf118bc8f155c62f9f0f9662c120249}
       \strng{fullhash}{fdf118bc8f155c62f9f0f9662c120249}
+      \strng{bibnamehash}{fdf118bc8f155c62f9f0f9662c120249}
+      \strng{authorbibnamehash}{fdf118bc8f155c62f9f0f9662c120249}
       \strng{authornamehash}{fdf118bc8f155c62f9f0f9662c120249}
       \strng{authorfullhash}{fdf118bc8f155c62f9f0f9662c120249}
       \field{labelalpha}{Wal19}
       \field{sortinit}{W}
-      \field{sortinithash}{6d25b3eefe5aa2147d1f339686808918}
+      \field{sortinithash}{1af34bd8c148ffb32de1494636b49713}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{4 key reasons AI won’t replace radiologists}
@@ -550,11 +675,14 @@
       \field{urlyear}{2020}
       \field{year}{2019}
       \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.radiologybusiness.com/topics/artificial-intelligence/4-key-reasons-ai-wont-replace-radiologists
+      \endverb
       \verb{url}
       \verb https://www.radiologybusiness.com/topics/artificial-intelligence/4-key-reasons-ai-wont-replace-radiologists
       \endverb
     \endentry
-  \endsortlist
+  \enddatalist
 \endrefsection
 \endinput
 
