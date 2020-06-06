@@ -34,7 +34,7 @@
 
 \sectionnonum{Įvadas}
 Pastaraisiais metais į medicinos sritį labai sparčiai skverbiasi informacinės technologijos. Atliekant
-įvairias diagnostikas ar tiriant ligas, vaistus yra pasitelkiama programinių sistemų pagalba \cite{salt22}. Tačiau
+įvairias diagnostikas ar tiriant ligas, vaistus yra pasitelkiama programinių sistemų pagalba \cite{salt22}, tačiau
 didžiąją radiologo darbo dalį, sprendimus turi priimti jis pats, be jokios programinės įrangos pagalbos,
 nors dažniausiai yra apibrėžti tam tikri ligų aptikimo algoritmai, kaip vėžinių ląstelių aptikimas,
 lūžiai ir daug daugiau \cite{salt23}. Šio darbo tikslas yra prisidėti prie programinės įrangos kūrimo radiologams
@@ -50,7 +50,7 @@ naudojant logines taisykles, yra per daug sunku.
 Dabartinė mokslinė veikla, nagrinėjanti dirbtinių neuroninių tinklų veiklą,
 fokusuojasi ties sunkiai aptinkamos duomenų koreliacijos aptikimo
 automatizacija \cite{salt24}.
-Tačiau ir dirbtiniams neuroniniams tinklams ši užduotis yra per sudėtinga, jeigu
+tačiau ir dirbtiniams neuroniniams tinklams ši užduotis yra per sudėtinga, jeigu
 tiriamos yra įvairios mutacijos arba nedažnos ligos, nes su kiekvienu nauju nematytu ligos atveju,
 yra reikalinga apmokyti modelį, o tai reikalauja daug duomenų. Šiame 
 darbe yra bandoma sukurti modelį, kuris aptinka plaučius, su nežymiais defektais, kaip vėžinės ląstelės.
@@ -58,10 +58,9 @@ darbe yra bandoma sukurti modelį, kuris aptinka plaučius, su nežymiais defekt
 %https://medium.com/@chiragsehra42/decision-trees-explained-easily-28f23241248
 Sprenžiamam uždaviniui yra daug alternatyvių sprendimo metodų.
 Pasirinktam mano dirbtinių neuroninių tinklų metodui, viena iš galimų alternatyvų yra \enquote{sprendimo medžiai}.
-Tai yra prižiūrimo mokymosi metodas skirtas duomenų klasifikacijai ir duomenų regresijai. Šis metodas
+Tai yra prižiūrimo mokymosi metodas, skirtas duomenų klasifikacijai ir duomenų regresijai. Jis
 naudoja taisyklių rinkinį. Norint gauti mažą šio metodo paklaidą, turime aprašyti vis daugiau šių taisyklių.
-Taisyklės paprastai būna aprašomos naudojant \enquote{if, else} aprašus \cite{salt1}. Mano nagrinėjamame atvejyje duomenys
-yra labai dideli ir įvairūs, todėl aprašyti visas šias taisykles užtruktų neproporcingai daug laiko ir tam
+Taisyklės paprastai būna aprašomos naudojant \enquote{if, else} aprašus \cite{salt1}. Mano nagrinėjamame atvejyje duomenų yra labai daug ir jie yra įvairūs, todėl aprašyti visas šias taisykles užtruktų neproporcingai daug laiko ir tam
 tikrų radiologijos žinių.
 
 %Pasiekti darbo rezultatai: sukurtas neuroninis tinklas ir parašyta programa, kuri aptinka plaučius kompiuterinės tomografijos
@@ -88,10 +87,10 @@ Daugelį dirbtinių neuronų tinklų sudaro panašios struktūrinės dalys:
 \begin{enumerate}
   \item Įvesties sluoksnis: tai dalis kuri priima įvestį ir perduoda kitiems sluoksniams.
   Šiame darbe yra naudojamos kompiuterinės tomografijos nuotraukos, kurios yra suvienodinamos
-  į 300x300 dydį. Nuotraukose yra pašalinamas RGB kanalas, todėl kiekvieną pikselį nusako
+  į 300x300 dydį. Jose yra pašalinamas RGB kanalas, todėl kiekvieną pikselį nusako
   pilkos spalvos atspalvis, kuris yra intervale [0;1]. Vienai nuotraukai užkoduoti
   užtenka 90 000 parametrų, todėl neuroninio tinklo įvesties sluoksnį sudaro 90 000 neuronų.
-  \item Išvesties sluoksnis: tai dalis, kuri naudoja aktyvacijos funkciją, kuri grąžina galutinį tinklo rezultatą: tikimybių rinkinį,
+  \item Išvesties sluoksnis: tai dalis, kuri naudoja aktyvacijos funkciją, grąžinančią galutinį tinklo rezultatą: tikimybių rinkinį,
   kuris parodo, kokia tikimybė, kad objektas atitinka tam tikrą klasę. Dažniausiai kiek
   uždavinyje yra klasių, tiek ir yra neuronų išvesties sluoksnyje.
   Mokymosi sparta ir išvesties tikimybių dydis priklauso nuo pačios aktyvacijos funkcijos. 
@@ -107,8 +106,8 @@ Daugelį dirbtinių neuronų tinklų sudaro panašios struktūrinės dalys:
   kiekvieno neurono, kuris yra susijungęs tarpusavyje, yra jungtys, per
   kurias yra paduodamos reikšmės kitiems neuronams sekančiuose sluoksniuose.
   Kaip reikšmė kis keliaujant per jungtis, nusako svoriai tarp jungčių. Tinklui mokantis
-  šie svoriai yra keičiami tol, kols tinklo išvestis priartėja tikro atsakymo. Svoriai
-  nurodo koks stiprus yra ryšys tarp neuronų, taip nurodant, kaip tinklo reikšmės kinta pačiame tinkle.
+  šie svoriai yra keičiami tol, kol tinklo išvestis priartėja tikro atsakymo. Svoriai
+  nurodo, koks stiprus yra ryšys tarp neuronų, taip nurodant, kaip tinklo reikšmės kinta pačiame tinkle.
   Jeigu tinklui yra paduodama reikšmė, o pirmasis tinklo neuronas, kuris priima reikšmę turi mažą
   svorį, tai reiškia, jog galutiniams rezultatui ši reikšmė neturi daug įtakos. Jeigu svoris yra
   didelis, tai duota reikšmė turi daug įtakos rezultatui \cite{salt2}. Tinkluose tendenciškumas nusako, kaip turi būti koreguojamos tinklo reikšmės.
@@ -116,13 +115,13 @@ Daugelį dirbtinių neuronų tinklų sudaro panašios struktūrinės dalys:
   pakeisti galutinį rezultatą.
   \item Aktyvacijos funkcija: tai funkcija, kuri nusako, kokia turi būti neurono išvestis. Kiekvienas neuronas
   susumuoja praeito sluoksnio neuronų išvestis ir šią suma praleidžia pro aktyvacijos funkciją.
-  Aktyvacijos funkcijos reikšmė yra toliau paduodama kitiems neuronams (atsižvelgiant taip pat ir į
+  Šios funkcijos reikšmė yra toliau paduodama kitiems neuronams (atsižvelgiant taip pat ir į
   jungčių svorius ir į tendenciškumą).
     Jeigu yra parinkta bloga funkcija, išvedamos gerų ir blogų spėjimų tikimybės gali būti artimos viena kitai ir taip modelis mokysis lėtai. Tačiau jeigu gera funkcija yra parenkama, tikimybės tarp gerų ir blogų reikšmių labai skiriasi ir taip modelis mokosi greičiau.
     Jeigu modelis yra mokomas aptikti 3 klases, parinkus blogą aktyvacijos
     funkciją, modelis ankstyvojo mokymosi etapo metu gali pasirinkti vieną
     iš šių klasių ir visada rodyti aukščiausią jos tikimybę. Šitaip modelis būna 33\% tikslus. Tokiu atveju viena iš galimų priežasčių gali būti blogai parinkta aktyvacijos funkcija. 
-  \item Optimizatimo funkcija: optimizuoja tikslo funkciją. Tikslo funkcija yra taip pat vadinama nuostolių funkcija.
+  \item Optimizavimo funkcija: optimizuoja tikslo funkciją. Tikslo funkcija yra taip pat vadinama nuostolių funkcija.
   Šios funkcijos pagrindinis tikslas yra keisti neuroninio tinklo reikšmes taip, kad tinklo išvestis būtų
   kuo artimesnė tikram rezultatui.
   \item Nuostolių funkcija. Nuostolių funkcija apskaičiuoja nuostolį tarp dviejų reikšmių. Paprastai skaičiuojamas nuostolis tarp tinklo išvesties ir tikrosios reikšmės. Šios funkcijos rezultatas yra perduodamas optimizavimo funkcijai, todėl nuo nuostolių funkcijos gali priklausyti ir mokymosi greitis, bei modelio tikslumas.
@@ -142,7 +141,7 @@ Atgalinė sklaida vyksta, kai tinklas išveda rezultatą, patikrinama ar
 rezultatas yra teisingas ir atitinkamai tinklas reaguoja į tai. Inicijuojant tinklą svoriai yra
 nustatomi atsitiktinai. Kiekvienam duomenų rinkiniui yra stebima tinklo išvestis ir tikrinama kokia
 ji turėtų būti. Gauta reikšmė ir tikra reikšmė yra siunčiamos į nuostolių funkciją ir gaunamas nuostolis. Gautas nuostolis yra perduodama tinklui atgal, per praeitus sluoksnius, einant nuo
-išvesties sluoksnio. Šiame žingsnyje yra naudojama optimizavimo funkcija. Ji parodo kokie turėtų būti
+išvesties sluoksnio. Šiame žingsnyje yra naudojama optimizavimo funkcija. Ji parodo, kokie turėtų būti
 svorių ir tendenciškumo pokyčiai tinkle ir taip atitinkamai yra
 keičiami tinklo svoriai ir tendenciškumas atsižvelgiant į padarytą klaidą. Kai klaidos
 yra padaromos pakankamai mažos ir jos yra mažesnės už duotą ribinę reikšmę, yra laikoma, kad tinklas
@@ -152,12 +151,12 @@ baigė mokymosi procesą \cite{salt3}.
 \par
 Šiame darbe yra naudojama GPU (vaizdo plokštė), atliekant tinklo treniravimą. Tai yra spartesnis būdas už CPU (procesoriaus)
 naudojimą, nes CPU turi kelis galingus branduolius, o GPU žymiai daugiau, bet paprastai silpnesnius. Mašininiame mokymesi,
-naudojami aritmetiniai veiksmai yra ganėtinai paprasti, todėl juos apdoroti gali ir CPU ir GPU.
-Tačiau GPU turi daugiau branduolių, kas leidžia atlikti daugiau matematinių veiksmų paralizuotai,
+naudojami aritmetiniai veiksmai yra ganėtinai paprasti, todėl juos apdoroti gali ir CPU ir GPU,
+tačiau GPU turi daugiau branduolių, kas leidžia atlikti daugiau matematinių veiksmų paralizuotai,
 negul CPU. Taip yra pasiekiamas didesnis treniravimo našumas.
 \par
 Didesniam treniravimo našumui pastebėti, naudojant GPU, negu CPU, buvo atliktas paprastas bandymas:
-naudojant Google tensorflow struktūrą, apmokame sistemą atpažinti, kur yra žmogaus plaučiai kompiuterinės
+naudojant Google tensorflow struktūrą, apmokome sistemą atpažinti, kur yra žmogaus plaučiai kompiuterinės
 tomografijos vaizduose su CPU ir GPU. Vidutiniškai apdoruojant 60 megabaitų duomenų, vienam ciklui
 tinklas su CPU resursais užtrunka 6 sekundes, o naudojant GPU vidutiniškai vienas žingsnis užtrunka
 0.3 sekundės.
@@ -171,10 +170,10 @@ Ji kiekvieną skaičiavimą paleidžia ant atskiros gijos. Visi duomenys yra sus
 gijų. Visos gijos, kurios operuoja viename bloke, dalinasi bendra GPU atmintimi.
 Jeigu norima optimizuoti programą ir paleisti jos skaičiavimus ant GPU, tada reikia
 suskaičiuoti kiek vyks paralelinių operacijų ir kiek iš jų dalinsis bendra atmintimi.
-Pagal apskaičiuotą kiekį nurodome kiek mes norime turėti blokų ir kiek kiekvienas blokas
+Pagal apskaičiuotą kiekį, nurodome kiek mes norime turėti blokų ir kiek kiekvienas blokas
 turės atskirų gijų. Prieš kiekvieną operaciją, siekiant pasiekti optimalų našumą, jeigu
 reikia įkeliame kintamuosiu į bendrą bloko atmintį. Po atliktų skaičiavimų išvestus
-rezultatus turime iškelti iš bendros atminties, kad galėtume mes juos toliau naudoti.
+rezultatus turime iškelti iš bendros atminties, kad galėtume juos toliau naudoti.
 \par
 Tačiau GPU naudojimas nėra visur panaudojamas. GPU gerai atlieka slankaus kablelio
 operacijas (FLOPs) ir pasižymi atminties pralaidumu. Jeigu problema reikalauja nepastovios atminties,
@@ -199,7 +198,7 @@ R(x, a) = x \cdot a
 \end{equation}
 \par
 Tiesinės aktyvacijos funkcijos reikšmių diapazonas yra labai didelis ir nėra dvejetainis,
-kaip dalis kitų funkcijų. Tačiau ši funkcija nėra plačiai naudojama, nes jos
+kaip dalis kitų funkcijų, tačiau ši funkcija nėra plačiai naudojama, nes jos
 išvestinė yra konstanta, kas reiškia jog gautas gradientas nepriklauso nuo \enquote{x}.
 Taigi, jeigu spėjime yra klaida, vykdant atgalinę sklaidą mes reikšmę taisysime
 konstanta, neatsižvelgiant į pačią klaidą \cite{salt16}.
@@ -269,7 +268,7 @@ kurio bendra suma yra lygi vienam \cite{salt16}.
 \subsubsection{Argumentacija už pasirinktą aktyvacijos funkciją}
 % (http://cs231n.github.io/linear-classify/#softmax Stanford university notes)
 \par
-Šiame darbe bus naudojama Softmax aktyvacijos funkcija. Ši funkcija buvo
+Šiame darbe bus naudojama Softmax aktyvacijos funkcija. Ji buvo
 pasirinkta, nes galima teigti, jog Softmax bando optimizuoti entropijos
 skirtumą tarp tikros reikšmės ir gautos. Entropija tarp tikros reikšmės
 \enquote{p} ir spėjamos \enquote{q} yra apskaičiuojama pagal (6).
@@ -289,14 +288,14 @@ patogi išvestis. Jeigu norima aptikti kelias klases, kiekvienas išvesties
 neuronas išveda klasės tikimybę. Jeigu išvestis yra 0.6, tai tikimybė, kad tai ir
 yra ta klasė, yra 60\%. Visų išvesties neuronų išvesties suma yra lygi 1.
 
-\section{Problemos su skaičiaja matematika}
+\section{Skaičiosios matematikos problemos}
 \par
 Neuroninius tinklus sudaro paprastai daug sluoksnių ir kiekviename sluoksnyje yra po
 daug neuronų. Kiekvienas neuronas yra sudėties funkcija. Funkcija apibrėžia \enquote{m} įvesties
 vienetų \enquote{x}, su \enquote{w} svoriais. Visi šie neuronai savo ir kaimyniniuose dviejuose sluoksniuose
 yra sujungti su visais kitais neuronais. Pereinant duomenims į kitą sluoksnį yra apskaičiuojamos
-visų neuronų reikšmės ir jos perduodamos toliau (žr. formulė (7)). Todėl tarp neuroniniame tinkle vyksta
-labai daug sudėties operacijų ir yra svarbu, kad neįvyktų jokią skaičiosios matematikos klaida,
+visų neuronų reikšmės ir jos perduodamos toliau (žr. formulė (7)), todėl tarp neuroniniame tinkle vyksta
+labai daug sudėties operacijų ir yra svarbu, kad neįvyktų jokia skaičiosios matematikos klaida,
 kaip reikšmės apvalinimo klaida.
 
 \begin{equation}
@@ -348,7 +347,7 @@ Sudėtingesnis šios problemos sprendimas yra pačios problemos perdarymas \cite
 
 \subsection{Blogas problemos apibrėžimas}
 
-Funkcija yra blogai apibrėžta, jeigu keičiant funkcijos įvestį nedaug, funkcijos reikšmė
+Funkcija yra blogai apibrėžta, jeigu keičiant funkcijos įvestį nedaug, jos reikšmė
 pakinta ženkliai daugiau. Funkcija yra laikoma gerai apibrėžta, jeigu keičiant jos įvestį,
 jos reikšmė keičiasi proporcingai. Ši problema pasireiškia labiausiai, kai yra
 atliekami skaičiavimai su mažais skaičiais. Jeigu įvesties vietoje įvyksta apvalinimo
@@ -383,14 +382,14 @@ ir nuostolių funkcijos gradientą parametro theta atžvilgiu. Kadangi žingsnis
 atliekame kiekvienos iteracijos metu yra konstanta, jeigu pradinis parinktas taškas
 yra toli nuo lokalaus minimumo, tai prireiks daug iteracijų, kol jis bus pasiektas.
 Šiuo metodu taip pat kiekviena iteracija yra peržiūrimi visi duomenys. Tai nėra 
-gerai jeigu duomenų yra itin daug \cite{salt8}. Tokiu atveju reikėtų daug atminties. Šis algoritmas nebus naudojamas, nes nėra
+gerai, jeigu duomenų yra labai daug \cite{salt8}. Tokiu atveju reikėtų daug atminties. Šis algoritmas nebus naudojamas, nes nėra
 atsižvelgta į praeitas iteracijas ir minimumas yra per lėtai pasiekiamas.
 
 \subsection{Poaibio gradientinis nuolydis}
  Šis algoritmas yra panašus į paprastą gradientinį metodą, tačiau yra keli pakeitimai.
  Kai yra pereinama per visus duomenis, po kiekvieno duomenų elemento peržiūrėjimo,
- yra atnaujinami parametrai. Todėl po kiekvienos iteracijos, turime visų duomenų
- elementų pakeitimų sudėtį. Todėl minimumas yra pasiekiamas statesne trajektorija ir
+ yra atnaujinami parametrai, todėl po kiekvienos iteracijos, turime visų duomenų
+ elementų pakeitimų sudėtį. Taip pat minimumas yra pasiekiamas statesne trajektorija ir
  nereikalinga turėti daug atminties. Pagrindinis šio metodo trūkumas yra galimas jo
  lėtumas. Pereiti per visus duomenis užtrunka daug laiko ir nevisos duomenų elementų
  iteracijos prie parametrų pakeitimo daug neprisideda \cite{salt9}.
@@ -414,14 +413,14 @@ tikslumą. Nors šis metodas gali pasiekti didesnį tikslumą, jis taip pat yra 
 % gradient descent methods overview
 \subsection{Sunkumai taikant gradientinius metodus}
 \begin{enumerate}
-\item Mokymosi žingsnio nurodymas. Tikslaus sprendimo nurodančio kokį žingsnį parinkti nėra, jis paprastai
+\item Mokymosi žingsnio nurodymas. Tikslaus sprendimo, nurodančio kokį žingsnį parinkti nėra, jis paprastai
 yra parenkamas empiriškai, stebint konvergavimo greitį ir duomenų kiekį. Jeigu žingsnis yra parenkamas per didelis,
 tai optimizavimo funkcija gali diverguoti arba peršokti lokalų minimumą ir nutolti nuo jo, taip praiilginant
 procesą. Jeigu žingsnis yra parenkamas per mažas, tada konvergavimo greitis į lokalų minimumą yra labai mažas
 ir procesas trunka ilgai \cite{salt17}.
-\item Mokymosi žingsnio keitimo trigeris. Kuriant \enquote{trigerį} reikia nurodyti arba epochų skaičių arba ribinę nuostolių
-funkcijos reikšmę, kada \enquote{trigeris} turi būti aktyvuotas. Po aktyvacijos, trigeris pakeičia mokymosi žingsnio dydį.
-Trigerio aktyvacijos laiko nurodymui irgi nėra jokios tikslios taisyklės, tai yra nurodoma empiriškai stebint
+\item Mokymosi žingsnio keitimo \enquote{trigeris}. Kuriant \enquote{trigerį} reikia nurodyti arba epochų skaičių arba ribinę nuostolių
+funkcijos reikšmę, kada \enquote{trigeris} turi būti aktyvuotas. Po aktyvacijos, \enquote{trigeris} pakeičia mokymosi žingsnio dydį.
+\enquote{Trigerio} aktyvacijos laiko nurodymui irgi nėra jokios tikslios taisyklės, tai yra nurodoma empiriškai stebint
 mokymosi procesą. Jeigu aktyvacijos laikas yra nurodomas per anksti, mokymosi žingsnis yra sulėtinamas per greitai
 ir funkcija pradeda lėčiau diverguoti į minimumą. Jeigu žingsnis yra nurodomas per vėlai, tam tikru momentu
 žingsnis gali būti per didelis ir funkcija gali pradėti diverguoti arba peršokti lokalų minimumą ir tolti nuo
@@ -432,9 +431,9 @@ Jeigu duomenų, su panašiais požymiais, yra daug, reikia paimti tik dalį jų 
 duomenų, su panašiais požymiais, yra daug, tada tinklo vienos epochos trukmė gali užtrukti ilgiau ir optimizavimo
 funkcija lėčiau konverguos į lokalų minimumą \cite{salt17}.
 \item Optimizavimo funkcijos \enquote{užstrigimas} ties lokaliu minimumu. Optimizavimo funkcijų tikslas yra rasti
-globalų minimumo tašką. Tačiau gradientų nuolydžiu pagrįstų algoritmų dažna problema: \enquote{užstrigimas} ties
+globalų minimumo tašką, tačiau gradientų nuolydžiu pagrįstų algoritmų dažna problema: \enquote{užstrigimas} ties
 lokaliu minimumu. Gradientas parodo kuria kryptimi funkcija leidžiasi žemyn. Ta kryptimi optimizavimo algoritmas
-eina. Pasiekus lokalų minimumą, kai gradientas pradeda didėti, optimizavimo algoritmai baigia darbą. Todėl jeigu yra
+eina. Pasiekus lokalų minimumą, kai gradientas pradeda didėti, optimizavimo algoritmai baigia darbą, todėl jeigu yra
 blogai parenkamas pirmas taškas, optimizavimo algoritmai \enquote{užstrigs} ties lokaliu minimumu \cite{salt17}. Tą išvengti galima prieš algoritmo pradžią
 įvertinti funkciją ir parinkti artimus pradinius taškus prie tikrųjų reikšmių. Kitas būdas to išvegti yra naudoti
 optimizavimo algoritmus, kurie nesiremia gradientų nuolydžiu. Vienas iš daugelio algoritmų, kuris nesiremia gradientais, yra
@@ -443,7 +442,7 @@ banginių judesių pagrįstas optimizavimo algoritmas.
 % https://www.sciencedirect.com/science/article/pii/S0965997816300163?casa_token=yI9V7so44bIAAAAA:y_34ijm8Gc4JBSknYd7cH2hqfk2K4h6dpYxZBTR7RGCEa89wP2b5Ohl_FqhK8t8gG9r4qdmGCg
 \par
 Minėtas banginių optimizavimo algoritmas buvo sukurtas stebint banginių judėjimą, jiems gaudant mažas žuvis (žr. pav. 5). Gaudant žuvis banginiai negali
-padaryti status posūkio, todėl gaunant žuvis jie juda aplink jas ir po kelių ratų jie pasiekia apskritimo
+padaryti status posūkio, todėl gaudant žuvis jie juda aplink jas ir po kelių ratų jie pasiekia apskritimo
 centrą ir pagauna žuvis. Šis algoritmas yra pagrįstas būtent šiuo judėjimu \cite{salt10}. Šis algoritmas priklauso dalelių būrio optimizavimo algoritmų klasei (\enquote{Particle swarm optimization}).
 %https://www.researchgate.net/publication/328585765_Energy-Efficient_Scheduling_for_a_Job_Shop_Using_an_Improved_Whale_Optimization_Algorithm
 \begin{figure}[ht]
@@ -456,16 +455,16 @@ centrą ir pagauna žuvis. Šis algoritmas yra pagrįstas būtent šiuo judėjim
 \subsection{Bendros gradientinių metodų problemos}
 \par
 Gradientinio nuolydžio metodai yra pirmo laipsnio optimizavimo funkcijos, kas
-reiškia jog jos naudoja tik pirmo laipsnio išvestines. Kadangi pirma išvestinė rodo
-tik funkcijos statumą, bet ne išlenktumą, tai:
+reiškia jog jos naudoja tik pirmo laipsnio išvestines. Pirma išvestinė rodo
+tik funkcijos statumą, bet ne išlenktumą, todėl:
 \begin{enumerate}
-\item Jeigu antra išvestinė yra lygi nuliui, tai funkcija yra tiesinė. Todėl,
+\item Jeigu antra išvestinė yra lygi nuliui, tai funkcija yra tiesinė, todėl,
 mokymosi žingsnis yra lygus alpha \cite{salt9}.
-\item Jeigu antra išvestinė yra didesnė už nulį tai funkcijos išlenktumas eina į viršų.
-Todėl funkcijos žingsnis yra mažesnis už mokymosi žingsnį ir optimizavimo funkcija gali
+\item Jeigu antra išvestinė yra didesnė už nulį tai funkcijos išlenktumas eina į viršų,
+todėl funkcijos žingsnis yra mažesnis už mokymosi žingsnį ir optimizavimo funkcija gali
 diverguoti \cite{salt9}.
-\item Jeigu antra išvestinė yra mažesnė už nulį, tai funkcija yra išlenkta į apačią.
-Todėl funkcijos žingsnis yra didesnis už mokymosi žingsnį \cite{salt9}.
+\item Jeigu antra išvestinė yra mažesnė už nulį, tai funkcija yra išlenkta į apačią,
+todėl funkcijos žingsnis yra didesnis už mokymosi žingsnį \cite{salt9}.
 \end{enumerate}
 \par
 To pasekoje, optimizavimo funkcijos greitis gali būti lėtas arba ji gali diverguoti.
@@ -527,7 +526,7 @@ Objektų aptikimas nuotraukose, taikant dirbtinius neuroninius tinklus, gali bū
 tipų: objektų klasifikacija, objektų lokalizacija, semantinė segmentacija,
 objektų segmentacija (\enquote{instance segmentation}).
  \par
- Objektų klasifikacijos tinklas grąžiną reikšmę, nusakančią ar vaizde yra objektas
+ Objektų klasifikacijos tinklas grąžiną reikšmę, nusakančią ar vaizde yra objektas,
  ar jo nėra. Klasifikacijos uždavinį sprenžiant yra pradedama nuo duomenų normalizacijos.
  Visi vaizdai yra padidinami ar sumažinami iki tam tikro dydžio. Galima taip pat pašalinti
  vaizdų RGB kanalą ir padaryti juos bespalviais. Norint padidintį esamą duomenų rinkinį, šiame
@@ -535,7 +534,7 @@ objektų segmentacija (\enquote{instance segmentation}).
  5 papildomos su skirtingai Gauso filtro parametrais. Šis metodas taip pat padeda neuroniniam
  tinklui neprisirišti prie tam riktų pikselių reikšmių. Taip pat vaizdus galima pakreipti ir kitaip
  modifikuoti, tačiau plaučių aptikimo tomografiniuose vaizduose uždavinyje, tas nebuvo
- atliktas, nes organai dažniausiai išlaiko savo proporcijas. Po duomenų normalizacijos reikia
+ atlikta, nes organai dažniausiai išlaiko savo proporcijas. Po duomenų normalizacijos reikia
  žiūrėti duomenų parametrus ir pagal tai sukonstruoti pirmajį tinklo sluoksnį. Paprastai pirmą sluoksnį
  nusako formulė (14).
 \begin{equation}
@@ -545,9 +544,9 @@ N_{PirmasSluoksnis} = X_{VaizdoPlotis} \cdot Y_{VaizdoAukstis} \cdot N_{SpalvuKa
 Sprendžiant plaučių aptikimo kompiuterinės tomografijos nuotraukose uždavinį, buvo naudojamas
 RGB kanalų pašalinimas. Taip buvo sumažintas pirmasis tinklo sluoksnis tris kartus ir paleidžiant
 sprendimą prireikė mažiau atminties. Paskutinis tinklo sluoksnis priklauso nuo to, kokius mes
-rezultatus norime gauti. Jeigu norime pasakyti koks objektas yra nuotraukoje, galima naudoti
-tokį išvesties sluoksnio dydį, kiek yra klasių modelyje. Norint taip pat aptikti ir kur
-vaizde yra atpažintas objektas tinklo išvesties sluoksnio dydis turi būti pagal formulę (15).
+rezultatus norime gauti. Kai norime pasakyti koks objektas yra nuotraukoje, galima naudoti
+tokį išvesties sluoksnio dydį, kiek yra klasių modelyje. Norint taip pat papildomai aptikti kur
+vaizde yra atpažintas objektas, tinklo išvesties sluoksnio dydis turi būti apskaičiuotas pagal formulę (15).
 \begin{equation}
   N_{IsvestiesSluoksnioDydis} = C_{KlasiuSkaicius} \cdot 5
 \end{equation}
@@ -561,11 +560,11 @@ lygus formulės (16) reikšmei.
 \begin{equation}
 N_{IšvestiesSluoknis} = C_{KlasiųSkaičius} \cdot X_{VaizdoPlotis} \cdot Y_{VaizdoAukškis}
 \end{equation}
-Taip galima nusakyti kuriai klasei priklauso kiekvienas pikselis ir nusakyti, kokios yra
+Taip galima nusakyti, kuriai klasei priklauso kiekvienas pikselis ir, kokios yra
 kiekvienos klasės ribos vaizde.
 \par
 Šiame darbe yra naudojamas Tensorflow karkaso Mask RCNN inception modelis, kuris naudoja
-objektų segmentavimą. Tinklo modelį ištreniruoti ir nusakyti kur yra tikslios plaučių
+objektų segmentavimą. Tinklo modelį ištreniruoti ir nusakyti, kur yra tikslios plaučių
 ribos nuotraukose, buvo naudojami dvejetainių reikšmių \enquote{png} failai. Vienas iš tokių
 failų pavyzdžių:
 
@@ -609,7 +608,7 @@ Tinklas gauna vaizdo regionus, kurie turi didesnę tikimybę turėti objektą, n
 dar 2 apibrėžimai, kurių formos yra vienodos, tačiau jų dydžiai skiriasi. Šiais 9
 inkarais yra pereinama per vaizdą su kiekvienu inkaru ir kiekvienas inkaro apibrėžtas
 vaizdas yra analizuojamas: siunčiamas per CNN ir gaunama tikimybė, pasakanti kokiai klasei priklauso. Su kiekvienu uždaviniu yra patartina patiems apibrėžti, kokios formos turi būti inkarai. \cite{salt15}
-Pavyzdžiui, jeigu uždavinys yra aptikti plaučius kompiuterinės tomografijos nuotraukose,
+, pavyzdžiui, jeigu uždavinys yra aptikti plaučius kompiuterinės tomografijos nuotraukose,
 inkarai turėtų būti būti didesni į aukštį ir mažesni į plotį ir 3 inkarai iš 9 turi būti
 kvadrato formos, nes jeigu analizuojamas plaučių viršus nuotraukose, tai jis yra apvalus,
 o ne pailgas.
@@ -620,7 +619,7 @@ yra objektas. Foninių vaizdų negalima traukti į regresijos modelį, o objekto
 objektą \cite{salt15}.
 \par
 Po šių veiksmų vaizdui yra sugeneruojama daug objektų apibrėžimų. Dalis šių apibrėžimų
-kertasi tarpusavyje. Apibrėžimai kurie kertasi tarpusavyje yra išsaugomi ir vėliau
+kertasi tarpusavyje. Tie kurie kertasi tarpusavyje yra išsaugomi ir vėliau
 toliau analizuojami \cite{salt15}. Kiekvienam kirtimui yra apskaičiuojamas kirtimosi koeficientas lygus formulės (17) reikšmei.
 \begin{equation}
   K = \frac{N_{PirmasObjektas} \bigcap N_{AntrasObjektas}}{N_{PirmasObjektas} \bigcup N_{AntrasObjektas}}
@@ -640,9 +639,9 @@ kiekvieno pikselio reikšmę ir nustato tikslias objektų ribas \cite{salt15}.
 \subsection{Vieno kadro aptikimas}
 \par
 Vieno kadro aptikimo (trumpinys SSD) algoritmas objektų aptikimui naudoja tik vieną kadrą.
-Objektų aptikimui vaizdo įrašuose, objektams aptikti užtenka vieno kadro ir užtenka
+Objektų aptikimui vaizdo įrašuose užtenka vieno kadro ir užtenka
 duomenis persiųsti per neuroninį tinklą tik vieną kartą. Šis algoritmas
-naudoja VGG16 architektūrą kaip pagrindą. Toks pasirinkimas buvo atliktas dėl VGG16
+naudoja VGG16 architektūrą, kaip pagrindą. Toks pasirinkimas buvo atliktas dėl VGG16
 didelės spartos \cite{salt20}. Ieškomos vietos paieška naudojasi inkarų sistema:
 yra generuojami langai, vaizdui skanuoti, kurie yra įvairaus dydžio santykių.
 Kiekvienam sugeneruotam langui yra skaičiuojama tikimybė, kad tai yra koks objektas
@@ -657,11 +656,11 @@ tai šie daro mažai įtakos galutiniam tinklo rezultatui.
 Minėti tinklų modeliai skiriasi savo neuroninių tinklų struktūra ir ieškomų regionų
 paieškos algoritmais. Minėti abu tinklai naudoja skirtingas inkarų paieškos algoritmo
 realizacijas. Egzistuoja ir daugiau paieškos būdų. Vienas iš būtų yra slenkančio lango
-algoritmas. Šis algoritmas pereina per visas galimas vaizdų kombinacijas. Vietoj
+algoritmas. Jis pereina per visas galimas vaizdų kombinacijas. Vietoj
 laikantis tam tikro lango dydžio santykio,visi dydžiai yra pasirenkami ir išanalizuojami.
 Kadangi šis algoritmas tikrina daugiau sugeneruotų langų kombinacijų, algoritmas veikia labai lėtai.
 Lėtam skaičiavimui parodyti, autorius sukūrė rašytinių lietuvių kalbos raidžių aptikimo modelį. Jis buvo padarytas iš 3 sluoksnių
-ir vienai 1920x1080 pikselių nuotraukai išanalizuoti prireikia vidutiniškai 20 minučių. Tačiau
+ir vienai 1920x1080 pikselių nuotraukai išanalizuoti prireikia vidutiniškai 20 minučių, tačiau
 šį laiką galima sutrumpinti padidinant žingsnio dydį. Pavyzdžiui, padidinus žingsnio dydį vietoj
 1 pikselio, naudojant 10-ties pikselių žingsnį, laikas vienai nuotraukai išanalizuoti
 vidutiniškai užtrunka apie 6 minutes.
@@ -679,7 +678,7 @@ Kompiuterinės tomografijos nuotraukos buvo parsiųstos iš
 \enquote{cancerimagingarchive.net} puslapio.
 Jos kraštinės buvo sužymėtos naudojant \enquote{Make-sense} duomenų žymėjimo programa.
 Kiekvienas pažymėtas taškas apibrėžiantis objektus buvo
-eksportuotas į JSON failą. Kadangi buvo reikalingi kaukių failai, o buvo turimas,
+eksportuotas į JSON failą ir, kadangi buvo reikalingi kaukių failai, o buvo turimas,
 tik JSON, buvo parašyta kita programa, kuri išanalizuoja JSON failą ir
 sukuria kaukes pagal tai. Šiame darbe buvo sužymėtos 50 nuotraukų.
 Kiekvienai nuotraukai buvo pritaikytas Gauso filtras su 5 skirtingais
@@ -713,8 +712,8 @@ sukompiliuoti į \enquote{.py} failus. Google Protobuf programa atlieka šį kom
 \subsubsection{Kūrimas ir treniravimas}
 \par
 Paruošta \enquote{object\textunderscore detection} direktorija jau turi paruoštus
-modelius, kurie yra ištreniruoti naudojant COCO duomenų bazę.
-Kadangi kompiuterinės tomografijos nuotraukose yra reikalingas
+modelius, kurie yra ištreniruoti naudojant COCO duomenų bazę ir, 
+kadangi kompiuterinės tomografijos nuotraukose yra reikalingas
 didelis tikslumas ir organai yra susispaudę vienas tarp kito taip, kad
 sunkiai matosi organų ribos, negalima naudoti duomenų žymėjimui stačiakampius.
 Reikia naudoti kaukes kiekvienam objektui sužymėti. Vienas iš modelių, kuris naudoja
@@ -722,7 +721,7 @@ kaukes, yra \enquote{mask\textunderscore rcnn\textunderscore inception\textunder
 \par
 Nusistačius koks modelis bus naudojamas, reikia jį sukonfigūruoti.
 Naudojamo failo \enquote{pipeline.config} faile reikia nurodyti visus tinklo parametrus.
-Vienas iš jų yra klasių skaičius. Šis skaičius nurodo tinklo išeities sluoksnio dydį.
+Vienas iš jų yra klasių skaičius. Jis nurodo tinklo išeities sluoksnio dydį.
 Kadangi šiame darbe yra dirbama tik su plaučių aptikimu, klasių yra tik 1.
 Yra nurodomas įvesties vaizdų modifikavimas. Visų jų dydžiai yra pakeičiami į
 800x1365 pikelių dydį. Tai reiškia, kad tinklo įvesties sluoksnį sudarys
@@ -750,8 +749,8 @@ Treniravimas užtruko apie 20 minučių,
 naudojant Google Colab GPU. Užteko 31240 epochų apmokyti plaučių aptikimą.
 Treniravimui buvo sužymėtos 50 nuotraukų. Naudojant žymėjimo programą, buvo sukurti kaukių
 failai, kurie tiksliai apibrėžia plaučių ribas. Naudojant įvairias modifikacijas:
-Gauso filtras pritaikytais 5-iomis skirtingomis tikimybėmis, buvo gautos 298 nuotraukos.
-Kadangi nuostoliai nuo 2500 epochos stabiliai laikėsi ir nustojo mažėti, reiškia norint
+Gauso filtras pritaikytais 5-iomis skirtingomis tikimybėmis, buvo gautos 298 nuotraukos ir, 
+kadangi nuostoliai nuo 2500 epochos stabiliai laikėsi ir nustojo mažėti, reiškia norint
 pasiekti dar didesnį tinklo tikslumą, reikia sužymėti daugiau duomenų.
 Galutinis programos rezultatas pavaizduotas pav. programa. Programos kode naudoti
 duomenys yra patalpinti internete, adresas pateiktas priedų skiltyje (1).
