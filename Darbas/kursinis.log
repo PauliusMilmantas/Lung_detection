@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.6.2)  5 JUN 2020 18:03
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.6.2)  6 JUN 2020 13:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1257,10 +1257,9 @@ LaTeX Info: Redefining \ttfamily on input line 3.
 
 ] [3
 
-] [4]
+] [4] [5]
 File: ./fjos/tiesine.png Graphic file (type bmp)
 <./fjos/tiesine.png>
- [5]
 File: ./fjos/elu.png Graphic file (type bmp)
 <./fjos/elu.png>
 File: ./fjos/relu.png Graphic file (type bmp)
@@ -1280,13 +1279,6 @@ File: ./fjos/what_alg.png Graphic file (type bmp)
 ]
 Missing character: There is no š in font cmmi8!
 Missing character: There is no ų in font cmmi8!
-Missing character: There is no ų in font cmmi8!
-Missing character: There is no č in font cmmi8!
-Missing character: There is no š in font cmmi8!
-Missing character: There is no ų in font cmmi8!
-Missing character: There is no č in font cmmi8!
-Missing character: There is no š in font cmmi8!
-Missing character: There is no ų in font cmmi8!
 Missing character: There is no č in font cmmi8!
 Missing character: There is no š in font cmmi8!
 File: ./fjos/mask.png Graphic file (type bmp)
@@ -1294,19 +1286,7 @@ File: ./fjos/mask.png Graphic file (type bmp)
  [14
 
 ]
-[15] [16] [17]
-Underfull \hbox (badness 10000) in paragraph at lines 684--694
-[]\TU/texgyretermes(0)/m/n/12 Kompiuterinės tomografijos nuotraukos buvo parsių
-stos iš
- []
-
-
-Underfull \hbox (badness 1394) in paragraph at lines 684--694
-\TU/texgyretermes(0)/m/n/12 „  https://www.cancerimagingarchive.net/“ puslapio.
- Jos kraštinės buvo sužymėtos naudojant
- []
-
-[18
+[15] [16] [17] [18
 
 ] [19]
 File: ./fjos/result1.png Graphic file (type bmp)
@@ -1365,7 +1345,7 @@ Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
 
 
-Underfull \hbox (badness 3088) in paragraph at lines 788--788
+Underfull \hbox (badness 3088) in paragraph at lines 782--782
 []\TU/texgyretermes(0)/m/n/12 Hao Gao. Faster r-cnn explained, 2017. \TU/texgyr
 etermes(0)/m/sc/12 url\TU/texgyretermes(0)/m/n/12 : $[][][][][] [] [] [] [][][]
 [][][] [] [][][] []
@@ -1400,7 +1380,7 @@ Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
 
 
-Underfull \hbox (badness 1132) in paragraph at lines 788--788
+Underfull \hbox (badness 1132) in paragraph at lines 782--782
 []\TU/texgyretermes(0)/m/n/12 Chayan Kathuria. Regression — why mean square err
 or?, 2019. \TU/texgyretermes(0)/m/sc/12 url\TU/texgyretermes(0)/m/n/12 : $[][][
 ][][] []
@@ -1474,26 +1454,26 @@ Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
 
 
-Underfull \hbox (badness 7308) in paragraph at lines 788--788
+Underfull \hbox (badness 7308) in paragraph at lines 782--782
 []\TU/texgyretermes(0)/m/n/12 Andrew Lewis Seyedali Mirjalili. The whale optimi
 zation algorithm, 2016.
  []
 
 
-Underfull \hbox (badness 4913) in paragraph at lines 788--788
+Underfull \hbox (badness 4913) in paragraph at lines 782--782
 \TU/texgyretermes(0)/m/sc/12 url\TU/texgyretermes(0)/m/n/12 : $[][][][][] [] []
  [] [][][] [] [][][][][][][][][][][][][] [] [][][] [] [][][][][][][] [] [][][][
 ][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 788--788
+Underfull \hbox (badness 10000) in paragraph at lines 782--782
 [][][] [] [][][][][][][][][][][][][][][][][] [] [][][][] [] [][][][][] [] [][][
 ][][][][][][][][][][][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 788--788
+Underfull \hbox (badness 10000) in paragraph at lines 782--782
 [] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][] []
  []
@@ -1514,6 +1494,7 @@ Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
 
+[23]
 The property list \polyglossia@langsetup contains the pairs (without outer
 braces):
 >  {latex/script}  =>  {latin}
@@ -1564,7 +1545,9 @@ braces):
 >  {english/babelname}  =>  {american}
 >  {english/localnumeral}  =>  {polyglossia@C@localnumeral}
 >  {english/Localnumeral}  =>  {polyglossia@C@localnumeral}.
-[23] (./kursinis.aux
+ [24
+
+] (./kursinis.aux
 LaTeX Info: Redefining \rmfamily on input line 6.
 LaTeX Info: Redefining \sffamily on input line 6.
 LaTeX Info: Redefining \ttfamily on input line 6.
@@ -1577,12 +1560,12 @@ Package logreq Info: Writing requests to 'kursinis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 17625 strings out of 479819
- 366482 string characters out of 5895847
- 1088375 words of memory out of 5000000
- 34482 multiletter control sequences out of 15000+600000
+ 17626 strings out of 479819
+ 366494 string characters out of 5895847
+ 1089393 words of memory out of 5000000
+ 34483 multiletter control sequences out of 15000+600000
  539904 words of font info for 70 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  73i,12n,104p,904b,4928s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on kursinis.pdf (24 pages).
+Output written on kursinis.pdf (25 pages).
