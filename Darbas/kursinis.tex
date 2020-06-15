@@ -739,49 +739,109 @@ yra išsaugomos \enquote{.pb} faile, kuris vėliau yra naudojamas, kai norima
 užkrauti tinklo reikšmes ir atlikti tolimesnį tinklo treniravimą arba vykdyti
 objektų aptikimą vaizduose.
 
-\section{Rezultatai}
+\section{Rezultatai ir išvados}
 \par
 Naudojant Tensorflow karkasą ir \enquote{mask rcnn inception v2} tinklo modelį, buvo sėkmingai
-ištreniruotas tinklas aptikti plaučius su 0.02 nuostoliais.
-Tikslaus tikslumo procentais negalima nusakyti, nes tai yra ne objektų klasifikavimo,
+ištreniruotas tinklas aptikti plaučius su 0.02 nuostoliais, naudojant MSE tikslo funkciją.
+Tikslaus objektų aptikimo tikslumo procentais negalima nusakyti, nes tai yra ne objektų klasifikavimo,
 bet aptikimo uždavinys.
-Treniravimas užtruko apie 20 minučių,
-naudojant Google Colab GPU. Užteko 31240 epochų apmokyti plaučių aptikimą.
+Treniravimas užtruko apie 16 minučių,
+naudojant Google Colab GPU. Užteko 2630 epochų apmokyti plaučių aptikimo modelį. Kiekviena epocha vidutiniškai truko 0,367 sekundės.
 Treniravimui buvo sužymėtos 50 nuotraukų. Naudojant žymėjimo programą, buvo sukurti kaukių
 failai, kurie tiksliai apibrėžia plaučių ribas. Naudojant įvairias modifikacijas:
-Gauso filtras pritaikytais 5-iomis skirtingomis tikimybėmis, buvo gautos 298 nuotraukos ir, 
-kadangi nuostoliai nuo 2500 epochos stabiliai laikėsi ir nustojo mažėti, reiškia norint
+Gauso filtras pritaikytas 5-iomis skirtingomis tikimybėmis, buvo gautos 298 nuotraukos ir, 
+kadangi nuostoliai nuo 2500 epochos stabiliai laikėsi ir nustojo mažėti (tikslūs tinklo duomenys 7 pav. ir penkių einamųjų elementų vidurkis, aiškesniam rezultatui 8 pav.), reiškia norint
 pasiekti dar didesnį tinklo tikslumą, reikia sužymėti daugiau duomenų.
-Galutinis programos rezultatas pavaizduotas pav. programa. Programos kode naudoti
-duomenys yra patalpinti internete, adresas pateiktas priedų skiltyje (1).
-Šis darbas įrodo, jog pasiekti aukštą
+Galutinis programos rezultatas pavaizduotas 9 pav. Daugiau modelio rezultatų yra pateikta priedų 2-oje skiltyje. Šios kompiuterinės tomografijos nuotraukos yra tipinės, be jokių defektų ir žmonės neserga ligomis, kurios deformuoja plaučius. Priedo 3-ioje sklityje yra pateikta pavyzdžių, kada modelis grąžina blogus rezultatus. Šiuose pavyzdžiuose yra pateiktos nuotraukos žmonių, kurie serga vėlyvaja tuberkulioze. Programos kode naudoti
+duomenys yra patalpinti internete, adresas pateiktas priedų 1-oje skiltyje.
+Šis darbas įrodo, jog pasiekti didelio tikslumo
 objektų aptikimą kompiuterinės tomografijos nuotraukose, nereikia turėti daug duomenų ir daug
 resursų. Tai įmanoma padaryti ir naudojant Google Cloud platformą, kuri suteikia
 nemokamą prieigą prie GPU resursų.
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=6cm,height=6cm,keepaspectratio]{neislygintas.png}
+  \caption{Tinklo treniravimas.}
+  \label{fig:kaukė1}
+\end{figure}
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=4cm,height=4cm,keepaspectratio]{result1.png}
+  \includegraphics[width=6cm,height=6cm,keepaspectratio]{normalizuotas.png}
   \caption{Programa.}
   \label{fig:kaukė1}
 \end{figure}
 
-\sectionnonum{Išvados}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=6cm,height=6cm,keepaspectratio]{result1.png}
+  \caption{Programa.}
+  \label{fig:kaukė1}
+\end{figure}
+
 % Išvadose ir pasiūlymuose, nekartojant atskirų dalių apibendrinimų,
 % suformuluojamos svarbiausios darbo išvados, rekomendacijos bei pasiūlymai.
 \par
-Pasitelkiant Tensorflow karkasą ir neuroninių tinklų pagalba galima sukurti programą,
+Darbo išvados yra tokios, kad pasitelkiant Tensorflow karkasą ir neuroninių tinklų pagalba galima sukurti programą,
 kuri aptinka objektus kompiuterinės tomografijos nuotraukose. Apmokyti tinklą
 nereikia daug duomenų, vienai klasei apmokyti užtenka 50-ties nuotraukų.
 Jos yra modifikuojamos: pridedamas įvairių stiprumo triukšmas. Po maždaug 3000 epochų,
 tinklas aptiko plaučius su 0.02 nuostoliais naudojant MSE nuostolių funkciją.
-
+Tiek resursų užtenka sukurti modelį, kuris aptinka tipinius objektus, tačiau jeigu žmogus serga liga, kuri smarkiai deformuoja organus, mokymui reikia skirti daugiau resursų ir reikia sužymėti daugiau duomenų su ligos atveju.
 
 \printbibliography[heading=bibintoc]
 
 \section*{Priedai}
-\begin{enumerate}
-\item Nuoroda į programos kodą. https://github.com/PauliusMilmantas/Lung\_detection 
-\end{enumerate}
+\subsection*{1. Programinis kodas}
+Nuoroda į programos kodą: https://github.com/PauliusMilmantas/Lung\_detection
+\section*{2. Teisingi modelio rezultatai}
+\par
+Duotos nuotraukos nebuvo naudotos modeliui treniruoti, jos yra unikalios.
+\item 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=4cm,height=4cm,keepaspectratio]{duom1.png}
+  \caption{Teisingas rezultatas.}
+  \label{fig:kaukė1}
+\end{figure} 
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=4cm,height=4cm,keepaspectratio]{duom2.png}
+  \caption{Teisingas rezultatas.}
+  \label{fig:kaukė1}
+\end{figure} 
+ 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=4cm,height=4cm,keepaspectratio]{duom3.png}
+  \caption{Teisingas rezultatas.}
+  \label{fig:kaukė1}
+\end{figure} 
+
+\section*{3. Klaidingi rezultatai}
+\par
+Modelis pradeda daryti klaidas, kai kompiuterinės tomografijos vaizduose yra pateikiama nenumatyta informacija. Šiuose vaizduose žmonės serga tuberkulioze. Ji paveikia plaučius, jie smarkiai pakeičia išvaizdą.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=4cm,height=4cm,keepaspectratio]{tub1.png}
+  \caption{Aptiktas tik vienas plautis.}
+  \label{fig:kaukė1}
+\end{figure} 
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=4cm,height=4cm,keepaspectratio]{tub2.png}
+  \caption{Klaidingas rezultatas.}
+  \label{fig:kaukė1}
+\end{figure} 
+ 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=4cm,height=4cm,keepaspectratio]{tub3.png}
+  \caption{Negrąžino jokio rezultato.}
+  \label{fig:kaukė1}
+\end{figure} 
 \end{document}

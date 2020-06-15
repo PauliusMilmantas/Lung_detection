@@ -72,8 +72,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {6.2.2.}Kūrimas ir treniravimas}{19}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.}Rezultatai}{20}%
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{Išvados}{21}%
+\contentsline {section}{\numberline {7.}Rezultatai ir išvados}{20}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{Literatūra}{22}%
