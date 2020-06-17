@@ -12,6 +12,7 @@
 \graphicspath{ {./fjos/} }
 \usepackage{systeme}
 \usepackage{physics}
+\usepackage{mathtools}
 
 % Titulinio aprašas
 \university{Vilniaus universitetas}
@@ -37,10 +38,7 @@ Pastaraisiais metais į medicinos sritį labai sparčiai skverbiasi informacinė
 įvairias diagnostikas ar tiriant ligas, vaistus yra pasitelkiama programinių sistemų pagalba \cite{salt22}, tačiau
 didžiąją radiologo darbo dalį, sprendimus turi priimti jis pats, be jokios programinės įrangos pagalbos,
 nors dažniausiai yra apibrėžti tam tikri ligų aptikimo algoritmai, kaip vėžinių ląstelių aptikimas,
-lūžiai ir daug daugiau \cite{salt23}. Šio darbo tikslas yra prisidėti prie programinės įrangos kūrimo radiologams
-ir sukurti programą, kuri aptinka plaučius kompiuterinės tomografijos
-nuotraukose, kad vėliau tai galėtų būti panaudota tolimesnei
-IT plėtrai medicinos srityje.
+lūžiai ir daug daugiau \cite{salt23}. Vienas iš pavyzdžių yra \enquote{XRAIT} įrankis. Pasitelkiant dirbtinį intelektą, programa vidutiniškai gali aptikti 5-is kartus daugiau smulkių kaulų lūžių, nei radiologai \cite{salt25}.
 \par
 Šiandien viena iš labiausiai perspektyvių sričių informacinių technologijų srityje yra mašininio mokymosi algoritmai. 
 Jie padeda duomenyse aptikti sunkiai pastebimus dėsningumus ir nuspėti išeities rezultatus su tam tikra klaidos tikimybe.
@@ -52,11 +50,23 @@ fokusuojasi ties sunkiai aptinkamos duomenų koreliacijos aptikimo
 automatizacija \cite{salt24}.
 tačiau ir dirbtiniams neuroniniams tinklams ši užduotis yra per sudėtinga, jeigu
 tiriamos yra įvairios mutacijos arba nedažnos ligos, nes su kiekvienu nauju nematytu ligos atveju,
-yra reikalinga apmokyti modelį, o tai reikalauja daug duomenų. Šiame 
+yra reikalinga apmokyti modelį, o tai reikalauja daug duomenų. 
+\par
+Šiame 
 darbe yra bandoma sukurti modelį, kuris aptinka plaučius, su nežymiais defektais, kaip vėžinės ląstelės.
+Šio darbo uždaviniai yra:
+\begin{enumerate}
+\item Išanalizuoti neuroninių tinklų veikimo principus ir jau esamus modelius.
+\item Išanalizuoti aktyvacijos ir optimizavimo funkcijas ir nustatyti, kokios geriausiai tinka sukurti modelį.
+\item Surinkti ir sužymėti duomenis.
+\item Sukurti modelį, kuris aptinka plaučius kompiuterinės tomografijos
+nuotraukose, kad vėliau tai galėtų būti panaudota tolimesnei
+IT plėtrai medicinos srityje
+\end{enumerate}
+
 \par
 %https://medium.com/@chiragsehra42/decision-trees-explained-easily-28f23241248
-Sprenžiamam uždaviniui yra daug alternatyvių sprendimo metodų.
+Modelio sukūrimo uždaviniui yra daug alternatyvių sprendimo metodų.
 Pasirinktam mano dirbtinių neuroninių tinklų metodui, viena iš galimų alternatyvų yra \enquote{sprendimo medžiai}.
 Tai yra prižiūrimo mokymosi metodas, skirtas duomenų klasifikacijai ir duomenų regresijai. Jis
 naudoja taisyklių rinkinį. Norint gauti mažą šio metodo paklaidą, turime aprašyti vis daugiau šių taisyklių.
@@ -125,8 +135,6 @@ Daugelį dirbtinių neuronų tinklų sudaro panašios struktūrinės dalys:
   Šios funkcijos pagrindinis tikslas yra keisti neuroninio tinklo reikšmes taip, kad tinklo išvestis būtų
   kuo artimesnė tikram rezultatui.
   \item Nuostolių funkcija. Nuostolių funkcija apskaičiuoja nuostolį tarp dviejų reikšmių. Paprastai skaičiuojamas nuostolis tarp tinklo išvesties ir tikrosios reikšmės. Šios funkcijos rezultatas yra perduodamas optimizavimo funkcijai, todėl nuo nuostolių funkcijos gali priklausyti ir mokymosi greitis, bei modelio tikslumas.
-  \item Mokymosi taisyklė: apibrėžia, kaip tinkle keičiasi svoriai, kad tinklas išvestų norimus rezultatus.
-  Taip pat galima nurodyti ir kaip keičiasi tendenciškumas, bei kada jį naudoti.
 \end{enumerate}
 % https://deepai.org/machine-learning-glossary-and-terms/weight-artificial-neural-network
 \par
@@ -149,13 +157,13 @@ baigė mokymosi procesą \cite{salt3}.
 
 \subsection{GPU naudojimas}
 \par
-Šiame darbe yra naudojama GPU (vaizdo plokštė), atliekant tinklo treniravimą. Tai yra spartesnis būdas už CPU (procesoriaus)
+Šiame darbe yra naudojama GPU (vaizdo plokštė), atliekant tinklo optimizavimą. Tai yra spartesnis būdas už CPU (procesoriaus)
 naudojimą, nes CPU turi kelis galingus branduolius, o GPU žymiai daugiau, bet paprastai silpnesnius. Mašininiame mokymesi,
 naudojami aritmetiniai veiksmai yra ganėtinai paprasti, todėl juos apdoroti gali ir CPU ir GPU,
 tačiau GPU turi daugiau branduolių, kas leidžia atlikti daugiau matematinių veiksmų paralizuotai,
-negul CPU. Taip yra pasiekiamas didesnis treniravimo našumas.
+negul CPU. Taip yra pasiekiamas didesnis optimizavimo našumas.
 \par
-Didesniam treniravimo našumui pastebėti, naudojant GPU, negu CPU, buvo atliktas paprastas bandymas:
+Didesniam optimizavimo našumui pastebėti, naudojant GPU, negu CPU, buvo atliktas paprastas bandymas:
 naudojant Google tensorflow struktūrą, apmokome sistemą atpažinti, kur yra žmogaus plaučiai kompiuterinės
 tomografijos vaizduose su CPU ir GPU. Vidutiniškai apdoruojant 60 megabaitų duomenų, vienam ciklui
 tinklas su CPU resursais užtrunka 6 sekundes, o naudojant GPU vidutiniškai vienas žingsnis užtrunka
@@ -206,13 +214,13 @@ konstanta, neatsižvelgiant į pačią klaidą \cite{salt16}.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=6cm,height=6cm,keepaspectratio]{tiesine.png}
-  \caption{Tiesinė lygtis}
+  \caption{Tiesinė aktyvacijos funkcija}
   \label{fig:lygtis1}
 \end{figure}
 
-\subsubsection{ELU}
+\subsubsection{Eksponentinė-tiesinė aktyvacijos funkcija}
 \begin{equation}
-  R(z) = \systeme*{z; z > 0, \alpha \cdot (e^z - 1); z <= 0}
+  R(z, a) = \systeme*{z; z > 0, a \cdot (e^z - 1); z <= 0}
 \end{equation}
 \par
 ELU funkcija vadinasi: \enquote{Exponential Linear Unit}. Ši funkcija paprastai konverguoja į
@@ -224,28 +232,28 @@ kol išvestis pasiekiama, o RELU staigiai sutolygėja \cite{salt16}.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=6cm,height=6cm,keepaspectratio]{elu.png}
-  \caption{ELU}
+  \caption{ELU aktyvacijos funkcija}
   \label{fig:elu}
 \end{figure}
 
-\subsubsection{ReLU}
+\subsubsection{Dalinai tiesinė aktyvacijos funkcija}
 \begin{equation}
   R(z) = max(0, z)
 \end{equation}
 
 \par
-ReLU funkcija vadinasi: \enquote{Rectified Linear Unit}. Ši funkcija pasiekia panašų efektyvumą
+Dalinai tiesinė aktyvacija (Trumpinys \enquote{ReLU}. Angliškai tai reiškia \enquote{Rectified Linear Unit}) funkcija pasiekia panašų efektyvumą
 kaip ir Sigmoid funkcija, tačiau ji reikalauja mačiau skaičiavimo resursų nei sigmoid
 ir tanh, nes minėta formulė yra paprastesnė, nei kitos \cite{salt16}.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=6cm,height=6cm,keepaspectratio]{relu.png}
-  \caption{ReLU}
+  \caption{ReLU aktyvacijos funkcija}
   \label{fig:relu}
 \end{figure}
 
-\subsubsection{Sigmoid}
+\subsubsection{Sigmoid aktyvacijos funkcija}
 % (https://ml-cheatsheet.readthedocs.io/en/latest/activation_functions.html)
 \begin{equation}
   R(x) = \frac{1}{1 + e^{-x}}
@@ -256,9 +264,9 @@ Sigmoid funkcijos parametrai priima realiuosius skaičius ir gražina reikšmę 
 Šios funkcijos geros savybės yra: tolydus gradientas, prognozuojamas išvesties
 diapazonas, netiesiškumas, visur diferencijuojamumas ir monotoniškumas. \cite{salt16}
 
-\subsubsection{Softmax}
+\subsubsection{Softmax aktyvacijos funcija}
 \begin{equation}
-  softmax(x)_i = \frac{exp(x_i)}{sum_{j=1}^{n}exp(x_j)}
+  softmax(x)_i = \frac{exp(x_i)}{\displaystyle \sum_{j=1}^{n}exp(x_j)}
 \end{equation}
 
 \par
@@ -294,7 +302,7 @@ Neuroninius tinklus sudaro paprastai daug sluoksnių ir kiekviename sluoksnyje y
 daug neuronų. Kiekvienas neuronas yra sudėties funkcija. Funkcija apibrėžia \enquote{m} įvesties
 vienetų \enquote{x}, su \enquote{w} svoriais. Visi šie neuronai savo ir kaimyniniuose dviejuose sluoksniuose
 yra sujungti su visais kitais neuronais. Pereinant duomenims į kitą sluoksnį yra apskaičiuojamos
-visų neuronų reikšmės ir jos perduodamos toliau (žr. formulė (7)), todėl tarp neuroniniame tinkle vyksta
+visų neuronų reikšmės ir jos perduodamos toliau (žr. formulę (7)), todėl tarp neuroniniame tinkle vyksta
 labai daug sudėties operacijų ir yra svarbu, kad neįvyktų jokia skaičiosios matematikos klaida,
 kaip reikšmės apvalinimo klaida.
 
@@ -335,7 +343,7 @@ Apribotas optimizavimas yra naudojamas, norint optimizuoti funkciją,
 turint nustatytus kintamuosius \cite{salt7}.
 \par
 Paprasčiausias šios problemos sprendimas yra didžiausio gradientinio nuolydžio
-metodo naudojimas (žr. formulė (8)). Pasirinkus pakankamai mažą mokymosi žingsnį ir pradinį tašką, kuris
+metodo naudojimas (žr. formulę (8)). Pasirinkus pakankamai mažą mokymosi žingsnį ir pradinį tašką, kuris
 yra arti tikrosios reikšmės, galima pasiekti kitus neapribotus kintamuosius.
 
 \begin{equation}
@@ -371,7 +379,7 @@ optimizavimo algoritmai.
 % https://medium.com/@sdoshi579/optimizers-for-training-neural-network-59450d71caf6
 % https://towardsdatascience.com/gradient-descent-algorithm-and-its-variants-10f652806a3
 Gradientinio nuolydžio algoritmas
-Tai yra pati paprasčiausia optimizavimo funkcija  (žr. formulė (9)).
+yra pati paprasčiausia optimizavimo funkcija  (žr. formulę (9)).
 \begin{equation}
 \theta = \theta - \eta \cdot \bigtriangledown_{\theta}J(\theta)
 \end{equation}
@@ -399,7 +407,7 @@ atsižvelgta į praeitas iteracijas ir minimumas yra per lėtai pasiekiamas.
 \theta = \theta - \eta \cdot \bigtriangledown_{\theta}J(\theta;x^{(i:i+n)};y^{(i:i+n)})
 \end{equation}
 \par
-Abiejų minėtų algoritmų idėjų kombinacija išvedė mažo poaibio gradientinį metodą (žr. formulė (10)).
+Abiejų minėtų algoritmų idėjų kombinacija išvedė mažo poaibio gradientinį metodą (žr. formulę (10)).
 Šis algoritmas suskirsto duomenis į poaibius, kurių elementų skaičius yra daugiau nei 1.
 Dažniausiai poaibių dydis yra pasirenkamas dvejetas pakeltas kokiu nors laipsniu, nes
 vaizdo plokštės tokius poaibius apdoroja geriau. Šis algoritmas yra greitesnis nei poaibio
@@ -486,10 +494,10 @@ mokymosi greitis ir ar optimizavimo algoritmai neužstrigs ties lokaliu minimumu
 
 \subsection{Vidutinė kvadratinė paklaida (MSE)}
 \begin{equation}
-  Nuostolis = \frac{1}{N} \cdot [\sum(Y_{Gautas}-Y_{Tikras})^{2}]
+  Nuostolis = \frac{1}{N} \cdot [\sum_{i=1}^{N}(Y_{i (Tikras)}-Y_{i (Gautas)})^{2}]
 \end{equation}
 \par
-MSE funkcija (žr. formulė (11))sumuoja skirtumų kvadratus ir randa bendrą nuostolių vidurkį.
+MSE funkcija (žr. formulę (11))sumuoja skirtumų kvadratus ir randa bendrą nuostolių vidurkį.
 Ši funkcija yra dažnai numatyta įvairiuose MATLAB ir Python algoritmuose.
 Vienintelė neigiama šios funkcijos pusė yra tai, kad jeigu duoti duomenys yra pirmojo
 laipsio, tada negalima teigti, kad rezultatai tiesiogiai koreliuoja tarpusavyje,
@@ -497,10 +505,10 @@ nes MSE yra antrojo laipsnio funkcija \cite{salt12}.
 
 \subsection{Šaknis iš vidutinės kvadratinės paklaidos (RMSE)}
 \begin{equation}
-  Nuostolis = \sqrt{\frac{1}{N} \cdot [\sum (Y_{Gautas}-Y_{Tikras})^{2}]}
+  Nuostolis = \sqrt{\frac{1}{N} \cdot [\sum_{i=1}^{N} (Y_{i (Gautas)}-Y_{i (Tikras)})^{2}]}
 \end{equation}
 \par
-RMSE funkcija (žr. formulė (12)) yra panaši į MSE, tik pridėta šaknies traukimo operacija.
+RMSE funkcija (žr. formulę (12)) yra panaši į MSE, tik pridėta šaknies traukimo operacija.
 Šaknies traukimas paverčia RMSE pirmojo laipsnio funkcija, todėl ją galima naudoti
 su pirmojo laipsnio duomenimis \cite{salt12}.
 
@@ -512,7 +520,7 @@ su pirmojo laipsnio duomenimis \cite{salt12}.
                        }
 \end{equation}
 \par
-Huber nuostolių funkcija (žr. formulė (13)) yra mažiau žinoma nei kitos ir mažiau naudojama
+Huber nuostolių funkcija (žr. formulę (13)) yra mažiau žinoma nei kitos ir mažiau naudojama
 praktikoje. Ji yra mažiau jautri deviacijai negul MSE funkcija.
 Ji taip pat yra diferencijuojama ties 0 \cite{salt12}.
 Šios funkcijos hiperparametras delta leidžia priartinti šią
@@ -741,35 +749,36 @@ objektų aptikimą vaizduose.
 
 \section{Rezultatai ir išvados}
 \par
-Naudojant Tensorflow karkasą ir \enquote{mask rcnn inception v2} tinklo modelį, buvo sėkmingai
-ištreniruotas tinklas aptikti plaučius su 0.02 nuostoliais, naudojant MSE tikslo funkciją.
-Tikslaus objektų aptikimo tikslumo procentais negalima nusakyti, nes tai yra ne objektų klasifikavimo,
-bet aptikimo uždavinys.
-Treniravimas užtruko apie 16 minučių,
-naudojant Google Colab GPU. Užteko 2630 epochų apmokyti plaučių aptikimo modelį. Kiekviena epocha vidutiniškai truko 0,367 sekundės.
-Treniravimui buvo sužymėtos 50 nuotraukų. Naudojant žymėjimo programą, buvo sukurti kaukių
-failai, kurie tiksliai apibrėžia plaučių ribas. Naudojant įvairias modifikacijas:
-Gauso filtras pritaikytas 5-iomis skirtingomis tikimybėmis, buvo gautos 298 nuotraukos ir, 
-kadangi nuostoliai nuo 2500 epochos stabiliai laikėsi ir nustojo mažėti (tikslūs tinklo duomenys 7 pav. ir penkių einamųjų elementų vidurkis, aiškesniam rezultatui 8 pav.), reiškia norint
+Šiame darbe buvo gauti rezultatai:
+\begin{enumerate}
+\item Išanalizuota literatūra ir pasirinkta MSE tikslo funkcija, ir \enquote{Mask RCNN Inception V2} tinklo modelis.
+\item Naudojant žymėjimo programą, buvo sukurti kaukių
+failai, kurie tiksliai apibrėžia plaučių ribas. Naudojant
+Gauso filtrą, jis buvo pritaikytas 5-iomis skirtingomis tikimybėmis ir buvo gautos 298 nuotraukos iš pradinių 50 sužymėtų nuotraukų. 
+\item Naudojant Tensorflow karkasą ir \enquote{mask rcnn inception v2} tinklo modelį, tinklas buvo sėkmingai
+apmokytas aptikti plaučius su 0.02 nuostoliais, naudojant MSE tikslo funkcija. Treniravimas užtruko apie 16 minučių,
+ Google Colab GPU. Užteko 2630 epochų apmokyti plaučių aptikimo modelį. Kiekviena epocha vidutiniškai truko 0,367 sekundės.
+\item Nuostoliai nuo 2500 epochos stabiliai laikėsi ir nustojo mažėti (tikslūs tinklo duomenys 7 pav. ir penkių einamųjų elementų vidurkis, aiškesniam rezultatui 8 pav.), todėl, norint
 pasiekti dar didesnį tinklo tikslumą, reikia sužymėti daugiau duomenų.
-Galutinis programos rezultatas pavaizduotas 9 pav. Daugiau modelio rezultatų yra pateikta priedų 2-oje skiltyje. Šios kompiuterinės tomografijos nuotraukos yra tipinės, be jokių defektų ir žmonės neserga ligomis, kurios deformuoja plaučius. Priedo 3-ioje sklityje yra pateikta pavyzdžių, kada modelis grąžina blogus rezultatus. Šiuose pavyzdžiuose yra pateiktos nuotraukos žmonių, kurie serga vėlyvaja tuberkulioze. Programos kode naudoti
-duomenys yra patalpinti internete, adresas pateiktas priedų 1-oje skiltyje.
-Šis darbas įrodo, jog pasiekti didelio tikslumo
+\item Galutinis programos rezultatas pavaizduotas 9 pav. Daugiau modelio rezultatų yra pateikta priedų 2-oje skiltyje. Šios kompiuterinės tomografijos nuotraukos yra tipinės, be jokių defektų ir žmonės neserga ligomis, kurios deformuoja plaučius. Priedo 3-ioje sklityje yra pateikta pavyzdžių, kada modelis grąžina blogus rezultatus. Šiuose pavyzdžiuose yra pateiktos nuotraukos žmonių, kurie serga vėlyvaja tuberkulioze. Programos kode naudoti
+duomenys yra patalpinti internete, adresas pateiktas priedų 1-oje skiltyje
+\item Šis darbas įrodo, jog pasiekti didelio tikslumo
 objektų aptikimą kompiuterinės tomografijos nuotraukose, nereikia turėti daug duomenų ir daug
 resursų. Tai įmanoma padaryti ir naudojant Google Cloud platformą, kuri suteikia
 nemokamą prieigą prie GPU resursų.
+\end{enumerate}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=6cm,height=6cm,keepaspectratio]{neislygintas.png}
-  \caption{Tinklo treniravimas.}
+  \caption{Modelio optimizavimas.}
   \label{fig:kaukė1}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=6cm,height=6cm,keepaspectratio]{normalizuotas.png}
-  \caption{Programa.}
+  \caption{Modelio optimizavimas (suvidurkinti rezultatai).}
   \label{fig:kaukė1}
 \end{figure}
 
@@ -782,13 +791,16 @@ nemokamą prieigą prie GPU resursų.
 
 % Išvadose ir pasiūlymuose, nekartojant atskirų dalių apibendrinimų,
 % suformuluojamos svarbiausios darbo išvados, rekomendacijos bei pasiūlymai.
+\newpage
 \par
-Darbo išvados yra tokios, kad pasitelkiant Tensorflow karkasą ir neuroninių tinklų pagalba galima sukurti programą,
-kuri aptinka objektus kompiuterinės tomografijos nuotraukose. Apmokyti tinklą
-nereikia daug duomenų, vienai klasei apmokyti užtenka 50-ties nuotraukų.
-Jos yra modifikuojamos: pridedamas įvairių stiprumo triukšmas. Po maždaug 3000 epochų,
-tinklas aptiko plaučius su 0.02 nuostoliais naudojant MSE nuostolių funkciją.
-Tiek resursų užtenka sukurti modelį, kuris aptinka tipinius objektus, tačiau jeigu žmogus serga liga, kuri smarkiai deformuoja organus, mokymui reikia skirti daugiau resursų ir reikia sužymėti daugiau duomenų su ligos atveju.
+Darbo išvados yra:
+\begin{enumerate}
+\item Objektų atpažinimui, kompiuterinės tomografijos nuotraukose, gerai tinka \enquote{Mask RCNN Inception V2} modelis su MSE tikslo funkcija.
+\item Pasitelkiant Tensorflow karkasą ir neuroninių tinklų pagalbą, galima sukurti neuroninio tinklo modelį,
+kuris aptinka objektus kompiuterinės tomografijos nuotraukose, su 0.02 nuostoliais, naudojant MSE tinkslo funkciją.
+\item Norint pagerinti modelio rezultatus, reikia padauginti esamus sužymėtus duomenis, naudojant Gauso filtrą. Kitokios modifikacijos neatspindėtų tikrus duomenis.
+\item Sudarytas modelis netinka, jeigu žmogus serga liga, kuri smarkiai deformuoja organus. Tokiu atveju tinklo optimizavimui reikia skirti daugiau resursų ir reikia sužymėti daugiau duomenų su ligos, kuri smarkiai deformuoja plaučius, atveju.
+\end{enumerate}
 
 \printbibliography[heading=bibintoc]
 
@@ -798,7 +810,6 @@ Nuoroda į programos kodą: https://github.com/PauliusMilmantas/Lung\_detection
 \section*{2. Teisingi modelio rezultatai}
 \par
 Duotos nuotraukos nebuvo naudotos modeliui treniruoti, jos yra unikalios.
-\item 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=4cm,height=4cm,keepaspectratio]{duom1.png}

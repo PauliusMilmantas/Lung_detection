@@ -14,13 +14,13 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {1.3.1.}Tiesinė aktyvacijos funkcija}{5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.3.2.}ELU}{6}%
+\contentsline {subsubsection}{\numberline {1.3.2.}Eksponentinė-tiesinė aktyvacijos funkcija}{6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.3.3.}ReLU}{6}%
+\contentsline {subsubsection}{\numberline {1.3.3.}Dalinai tiesinė aktyvacijos funkcija}{6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.3.4.}Sigmoid}{7}%
+\contentsline {subsubsection}{\numberline {1.3.4.}Sigmoid aktyvacijos funkcija}{7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {1.3.5.}Softmax}{7}%
+\contentsline {subsubsection}{\numberline {1.3.5.}Softmax aktyvacijos funcija}{7}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {1.3.6.}Argumentacija už pasirinktą aktyvacijos funkciją}{7}%
 \defcounter {refsection}{0}\relax 

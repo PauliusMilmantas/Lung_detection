@@ -1,18 +1,18 @@
 [0] Config.pm:304> INFO - This is Biber 2.14 (beta)
 [0] Config.pm:307> INFO - Logfile is 'kursinis.blg'
-[66] biber:322> INFO - === Pn birž.  5, 2020, 17:40:50
-[79] Biber.pm:415> INFO - Reading 'kursinis.bcf'
-[138] Biber.pm:943> INFO - Found 21 citekeys in bib section 0
-[150] Biber.pm:4256> INFO - Processing section 0
-[150] Utils.pm:75> INFO - Globbing data source 'bibliografija.bib'
-[151] Utils.pm:91> INFO - Globbed data source 'bibliografija.bib' to bibliografija.bib
-[161] Biber.pm:4455> INFO - Looking for bibtex format file 'bibliografija.bib' for section 0
-[162] bibtex.pm:1653> INFO - LaTeX decoding ...
-[179] bibtex.pm:1471> INFO - Found BibTeX data source 'bibliografija.bib'
-[260] Utils.pm:293> WARN - BibTeX subsystem: /tmp/biber_tmp_mPSv/bibliografija.bib_10245.utf8, line 4, warning: 148 characters of junk seen at toplevel
-[290] UCollate.pm:68> INFO - Overriding locale 'lt-LT' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[290] UCollate.pm:68> INFO - Overriding locale 'lt-LT' defaults 'variable = shifted' with 'variable = non-ignorable'
-[291] Biber.pm:4084> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'lt-LT'
-[311] bbl.pm:652> INFO - Writing 'kursinis.bbl' with encoding 'UTF-8'
-[320] bbl.pm:755> INFO - Output to kursinis.bbl
-[320] Biber.pm:128> INFO - WARNINGS: 1
+[84] biber:322> INFO - === Tr birž. 17, 2020, 20:43:13
+[98] Biber.pm:415> INFO - Reading 'kursinis.bcf'
+[164] Biber.pm:943> INFO - Found 22 citekeys in bib section 0
+[179] Biber.pm:4256> INFO - Processing section 0
+[179] Utils.pm:75> INFO - Globbing data source 'bibliografija.bib'
+[179] Utils.pm:91> INFO - Globbed data source 'bibliografija.bib' to bibliografija.bib
+[192] Biber.pm:4455> INFO - Looking for bibtex format file 'bibliografija.bib' for section 0
+[193] bibtex.pm:1653> INFO - LaTeX decoding ...
+[215] bibtex.pm:1471> INFO - Found BibTeX data source 'bibliografija.bib'
+[324] Utils.pm:293> WARN - BibTeX subsystem: /tmp/biber_tmp_VAdJ/bibliografija.bib_9552.utf8, line 4, warning: 148 characters of junk seen at toplevel
+[359] UCollate.pm:68> INFO - Overriding locale 'lt-LT' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[359] UCollate.pm:68> INFO - Overriding locale 'lt-LT' defaults 'variable = shifted' with 'variable = non-ignorable'
+[359] Biber.pm:4084> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'lt-LT'
+[385] bbl.pm:652> INFO - Writing 'kursinis.bbl' with encoding 'UTF-8'
+[392] bbl.pm:755> INFO - Output to kursinis.bbl
+[393] Biber.pm:128> INFO - WARNINGS: 1
