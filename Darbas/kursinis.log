@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.6.2)  17 JUN 2020 20:50
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2020.6.2)  18 JUN 2020 16:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1346,15 +1346,16 @@ File: ./fjos/mask.png Graphic file (type bmp)
 [15] [16] [17] [18
 
 ] [19]
-File: ./fjos/neislygintas.png Graphic file (type bmp)
-<./fjos/neislygintas.png>
-File: ./fjos/normalizuotas.png Graphic file (type bmp)
-<./fjos/normalizuotas.png>
 File: ./fjos/result1.png Graphic file (type bmp)
 <./fjos/result1.png>
  [20
 
-] [21]
+]
+File: ./fjos/neislygintas.png Graphic file (type bmp)
+<./fjos/neislygintas.png>
+File: ./fjos/normalizuotas.png Graphic file (type bmp)
+<./fjos/normalizuotas.png>
+ [21]
 
 Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
@@ -1404,7 +1405,7 @@ Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
 
 
-Underfull \hbox (badness 3088) in paragraph at lines 805--805
+Underfull \hbox (badness 3088) in paragraph at lines 813--813
 []\TU/texgyretermes(0)/m/n/12 Hao Gao. Faster r-cnn explained, 2017. \TU/texgyr
 etermes(0)/m/sc/12 url\TU/texgyretermes(0)/m/n/12 : $[][][][][] [] [] [] [][][]
 [][][] [] [][][] []
@@ -1439,7 +1440,7 @@ Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
 
 
-Underfull \hbox (badness 1132) in paragraph at lines 805--805
+Underfull \hbox (badness 1132) in paragraph at lines 813--813
 []\TU/texgyretermes(0)/m/n/12 Chayan Kathuria. Regression — why mean square err
 or?, 2019. \TU/texgyretermes(0)/m/sc/12 url\TU/texgyretermes(0)/m/n/12 : $[][][
 ][][] []
@@ -1521,26 +1522,26 @@ Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
 
 
-Underfull \hbox (badness 7308) in paragraph at lines 805--805
+Underfull \hbox (badness 7308) in paragraph at lines 813--813
 []\TU/texgyretermes(0)/m/n/12 Andrew Lewis Seyedali Mirjalili. The whale optimi
 zation algorithm, 2016.
  []
 
 
-Underfull \hbox (badness 4913) in paragraph at lines 805--805
+Underfull \hbox (badness 4913) in paragraph at lines 813--813
 \TU/texgyretermes(0)/m/sc/12 url\TU/texgyretermes(0)/m/n/12 : $[][][][][] [] []
  [] [][][] [] [][][][][][][][][][][][][] [] [][][] [] [][][][][][][] [] [][][][
 ][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 805--805
+Underfull \hbox (badness 10000) in paragraph at lines 813--813
 [][][] [] [][][][][][][][][][][][][][][][][] [] [][][][] [] [][][][][] [] [][][
 ][][][][][][][][][][][][][] []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 805--805
+Underfull \hbox (badness 10000) in paragraph at lines 813--813
 [] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][] []
  []
@@ -1646,7 +1647,7 @@ Package logreq Info: Writing requests to 'kursinis.run.xml'.
 Here is how much of TeX's memory you used:
  18231 strings out of 479819
  377386 string characters out of 5895847
- 1102061 words of memory out of 5000000
+ 1101061 words of memory out of 5000000
  35070 multiletter control sequences out of 15000+600000
  539904 words of font info for 70 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

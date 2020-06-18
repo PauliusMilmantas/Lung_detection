@@ -52,13 +52,12 @@ tačiau ir dirbtiniams neuroniniams tinklams ši užduotis yra per sudėtinga, j
 tiriamos yra įvairios mutacijos arba nedažnos ligos, nes su kiekvienu nauju nematytu ligos atveju,
 yra reikalinga apmokyti modelį, o tai reikalauja daug duomenų. 
 \par
-Šiame 
-darbe yra bandoma sukurti modelį, kuris aptinka plaučius, su nežymiais defektais, kaip vėžinės ląstelės.
+Šio darbo tikslas yra sukurti modelį, kuris aptinka plaučius, su nežymiais defektais, kaip vėžinės ląstelės.
 Šio darbo uždaviniai yra:
 \begin{enumerate}
-\item Išanalizuoti neuroninių tinklų veikimo principus ir jau esamus modelius.
-\item Išanalizuoti aktyvacijos ir optimizavimo funkcijas ir nustatyti, kokios geriausiai tinka sukurti modelį.
-\item Surinkti ir sužymėti duomenis.
+\item Išanalizuoti neuroninių tinklų veikimo principus ir atlikti objektų aptikimo modelių literatūros analizę.
+\item Išanalizuoti aktyvacijos ir optimizavimo funkcijas, ir atlikus literatūros analizę, nustatyti, kokios geriausiai tinka sukurti modelį.
+\item Surinkti kompiuterinės tomografijos nuotraukas su plaučiais ir juos sužymėti.
 \item Sukurti modelį, kuris aptinka plaučius kompiuterinės tomografijos
 nuotraukose, kad vėliau tai galėtų būti panaudota tolimesnei
 IT plėtrai medicinos srityje
@@ -751,38 +750,18 @@ objektų aptikimą vaizduose.
 \par
 Šiame darbe buvo gauti rezultatai:
 \begin{enumerate}
-\item Išanalizuota literatūra ir pasirinkta MSE tikslo funkcija, ir \enquote{Mask RCNN Inception V2} tinklo modelis.
+\item Išanalizuota literatūra ir pasirinkta MSE tikslo funkcija, bei \enquote{Mask RCNN Inception V2} tinklo modelis tolimesniam tyrimui.
 \item Naudojant žymėjimo programą, buvo sukurti kaukių
 failai, kurie tiksliai apibrėžia plaučių ribas. Naudojant
 Gauso filtrą, jis buvo pritaikytas 5-iomis skirtingomis tikimybėmis ir buvo gautos 298 nuotraukos iš pradinių 50 sužymėtų nuotraukų. 
 \item Naudojant Tensorflow karkasą ir \enquote{mask rcnn inception v2} tinklo modelį, tinklas buvo sėkmingai
 apmokytas aptikti plaučius su 0.02 nuostoliais, naudojant MSE tikslo funkcija. Treniravimas užtruko apie 16 minučių,
  Google Colab GPU. Užteko 2630 epochų apmokyti plaučių aptikimo modelį. Kiekviena epocha vidutiniškai truko 0,367 sekundės.
-\item Nuostoliai nuo 2500 epochos stabiliai laikėsi ir nustojo mažėti (tikslūs tinklo duomenys 7 pav. ir penkių einamųjų elementų vidurkis, aiškesniam rezultatui 8 pav.), todėl, norint
-pasiekti dar didesnį tinklo tikslumą, reikia sužymėti daugiau duomenų.
-\item Galutinis programos rezultatas pavaizduotas 9 pav. Daugiau modelio rezultatų yra pateikta priedų 2-oje skiltyje. Šios kompiuterinės tomografijos nuotraukos yra tipinės, be jokių defektų ir žmonės neserga ligomis, kurios deformuoja plaučius. Priedo 3-ioje sklityje yra pateikta pavyzdžių, kada modelis grąžina blogus rezultatus. Šiuose pavyzdžiuose yra pateiktos nuotraukos žmonių, kurie serga vėlyvaja tuberkulioze. Programos kode naudoti
-duomenys yra patalpinti internete, adresas pateiktas priedų 1-oje skiltyje
-\item Šis darbas įrodo, jog pasiekti didelio tikslumo
-objektų aptikimą kompiuterinės tomografijos nuotraukose, nereikia turėti daug duomenų ir daug
-resursų. Tai įmanoma padaryti ir naudojant Google Cloud platformą, kuri suteikia
-nemokamą prieigą prie GPU resursų.
+\item Paveikslėlyje 7 ir priedų skiltyse 2-3 yra pateiktos modelio veikimo iliustracijos, demonstruojančios iliustracinius sistemos veikimo atvejus. Antrojoje priedų skiltyje paveikslėliuose 10-12 yra pateiktas modelio veikimas su jokių ligų, kuriuos deformuotų plaučius, neturinčių žmonių kompiuterinės tomografijos nuotraukomis. Priedo 3-ioje skiltyje yra pateikta pavyzdžių, kada modelis grąžina blogus rezultatus. Šiuose pavyzdžiuose yra pateiktos nuotraukos žmonių, kurie serga vėlyvaja tuberkulioze. Programos kode naudoti
+duomenys yra patalpinti internete, adresas pateiktas priedų 1-oje skiltyje.
 \end{enumerate}
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=6cm,height=6cm,keepaspectratio]{neislygintas.png}
-  \caption{Modelio optimizavimas.}
-  \label{fig:kaukė1}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=6cm,height=6cm,keepaspectratio]{normalizuotas.png}
-  \caption{Modelio optimizavimas (suvidurkinti rezultatai).}
-  \label{fig:kaukė1}
-\end{figure}
-
-\begin{figure}[ht]
+\begin{figure}[!h]
   \centering
   \includegraphics[width=6cm,height=6cm,keepaspectratio]{result1.png}
   \caption{Programa.}
@@ -791,15 +770,44 @@ nemokamą prieigą prie GPU resursų.
 
 % Išvadose ir pasiūlymuose, nekartojant atskirų dalių apibendrinimų,
 % suformuluojamos svarbiausios darbo išvados, rekomendacijos bei pasiūlymai.
-\newpage
 \par
 Darbo išvados yra:
 \begin{enumerate}
-\item Objektų atpažinimui, kompiuterinės tomografijos nuotraukose, gerai tinka \enquote{Mask RCNN Inception V2} modelis su MSE tikslo funkcija.
-\item Pasitelkiant Tensorflow karkasą ir neuroninių tinklų pagalbą, galima sukurti neuroninio tinklo modelį,
-kuris aptinka objektus kompiuterinės tomografijos nuotraukose, su 0.02 nuostoliais, naudojant MSE tinkslo funkciją.
-\item Norint pagerinti modelio rezultatus, reikia padauginti esamus sužymėtus duomenis, naudojant Gauso filtrą. Kitokios modifikacijos neatspindėtų tikrus duomenis.
+\item Objektų atpažinimui, kompiuterinės tomografijos nuotraukose, tinka \enquote{Mask RCNN Inception V2} modelis su MSE tikslo funkcija.
+
+
+
+\item Norint pagerinti modelio rezultatus, reikia padauginti esamus sužymėtus duomenis, naudojant Gauso filtrą. Tinka ir kitos vaizdų transformacijos, kurios nėra geometrinės.
+
+\item Nuostoliai nuo 2500 epochos stabiliai laikėsi ir nustojo mažėti (tikslūs tinklo duomenys 8 pav. ir penkių einamųjų elementų vidurkis, aiškesniam rezultatui 9 pav.), todėl, norint
+pasiekti dar didesnį tinklo tikslumą, reikia sužymėti daugiau duomenų.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=6cm,height=6cm,keepaspectratio]{neislygintas.png}
+  \caption{Modelio optimizavimas.}
+  \label{fig:kaukė1}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=6cm,height=6cm,keepaspectratio]{normalizuotas.png}
+  \caption{Modelio optimizavimas (suvidurkinti rezultatai).}
+  \label{fig:kaukė1}
+\end{figure}
+
 \item Sudarytas modelis netinka, jeigu žmogus serga liga, kuri smarkiai deformuoja organus. Tokiu atveju tinklo optimizavimui reikia skirti daugiau resursų ir reikia sužymėti daugiau duomenų su ligos, kuri smarkiai deformuoja plaučius, atveju.
+
+
+\item Šis darbas parodo, jog pasiekti didelio tikslumo
+objektų aptikimą kompiuterinės tomografijos nuotraukose, nereikia turėti daug duomenų ir daug
+resursų. Tai įmanoma padaryti ir naudojant Google Cloud platformą, kuri suteikia
+nemokamą prieigą prie GPU resursų.
+
+
+
+
+
 \end{enumerate}
 
 \printbibliography[heading=bibintoc]
