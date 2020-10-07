@@ -6,7 +6,6 @@
   3.Surinkti kompiuterinės tomografijos nuotraukas su plaučiais ir juos sužymėti.
   4.Sukurti modelį, kuris aptinka plaučius kompiuterinės tomografijos nuotraukose, kad vėliautai galėtų būti panaudota tolimesnei IT plėtrai medicinos srityje.
   
- Darbo rezultatai:
  ![alt text](https://raw.githubusercontent.com/PauliusMilmantas/Lung_detection/master/Darbas/fjos/duom2.png)
  
  ![alt text](https://raw.githubusercontent.com/PauliusMilmantas/Lung_detection/master/Darbas/fjos/duom3.png)
